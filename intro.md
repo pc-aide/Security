@@ -58,3 +58,4 @@ nmap -sn host
 * -traceroute
 * -dns-servers or -n (reverse DNS query) if you wish to skip
 * -Pn: treat all hosts as online -- skip host discovery
+* -p80,443 | -p1-100 | -p- -- specific port ranges (the last -p- All ports 65335)
