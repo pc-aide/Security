@@ -28,5 +28,6 @@ https://svn.nmap.org/nmap-exp/
 #https://imgur.com/CHFOODZ 
 #Apache
 #CentOS
+#-sn: ping scan - disable port scan
 nmap -sn host
 ````
