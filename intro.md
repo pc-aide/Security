@@ -16,6 +16,11 @@ Other tools
 * Zenmap
 * dnmap
 
+## Ping scanning techniques
+* -PS/PA/PU/PY [portList]: TCP SYN/ACK, UDP or SCTP discovery to given ports
+* -PE/PP/PM: ICMP echo, timestamp, & netmak request discovry probes
+* -PO [protocol list]: IP protocol ping
+
 ## InstallDir
 %programFiles(x86)%\Nmap\
 * nseLib\
