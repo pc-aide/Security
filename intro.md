@@ -16,6 +16,14 @@ Other tools
 * Zenmap
 * dnmap
 
+## Categoriezes ports
+* Open
+* Closed
+* Filtered
+* Unfiltered
+* Open/Filtered
+* Close/Filtered
+
 ## Ping scanning techniques
 * -PS/PA/PU/PY [portList]: TCP SYN/ACK, UDP or SCTP discovery to given ports
 * -PE/PP/PM: ICMP echo, timestamp, & netmak request discovry probes
@@ -44,3 +52,4 @@ nmap -sn host
 ## Args
 * -sn : disables port scanning, sending TCP SYN packet to port 443, TCP ACK packet to port 80 & ICMP ...
 * -traceroute
+* -dns-server or -n if you wish to skip
