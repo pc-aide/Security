@@ -31,3 +31,6 @@ https://svn.nmap.org/nmap-exp/
 #-sn: ping scan - disable port scan
 nmap -sn host
 ````
+
+## Args
+* -sn : disables port scanning, sending TCP SYN packet to port 443, TCP ACK packet to port 80 & ICMP ...
