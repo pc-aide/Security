@@ -66,4 +66,4 @@ nmap -sn host
   * -p smtp (service name)
   * -p smtp* (service name wildcards)
   * -p[1-65535] (Only ports registered)
-* -e -- selecting a network interface (-e <<interfaceName>>)
+* -e -- selecting a network interface (-e InterfaceName)
