@@ -11,3 +11,6 @@ Other tools
 * Nping
 * Zenmap
 * dnmap
+
+## InstallDir
+%programFiles(x86)%\Nmap\
