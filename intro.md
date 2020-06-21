@@ -16,6 +16,10 @@ Other tools
 * Zenmap
 * dnmap
 
+## Privileged VS Unprivileged
+* nmap host - privileged launches a SYN Stealth Scan
+* Unprivileged can't create raw packets use the TCP Connect Scan technique
+
 ## Categoriezes ports
 * Open
 * Closed
