@@ -2,6 +2,9 @@
 
 ## Nmap Scripting Engine (NSE)
 
+### NSE
+* -dns-brute
+
 ## Doc
 * Nmap: Network Exploration and Security Auditing Cookbook (1591pp)
 
