@@ -2,7 +2,7 @@
 
 ## Nmap Scripting Engine (NSE)
 
-### NSE
+### script
 * -dns-brute
 
 ## Doc
