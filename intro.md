@@ -16,3 +16,6 @@ Other tools
 %programFiles(x86)%\Nmap\
 * nseLib\
 * scripts\
+
+## Language
+* Lua
