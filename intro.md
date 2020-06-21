@@ -53,3 +53,4 @@ nmap -sn host
 * -sn : disables port scanning, sending TCP SYN packet to port 443, TCP ACK packet to port 80 & ICMP ...
 * -traceroute
 * -dns-servers or -n if you wish to skip
+* -Pn: treat all hosts as online -- skip host discovery
