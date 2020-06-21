@@ -59,6 +59,6 @@ nmap -sn host
 * -dns-servers or -n (reverse DNS query) if you wish to skip
 * -Pn: treat all hosts as online -- skip host discovery
 * Specific port ranges
-** -p80,443 (Port list)
-** -p1-100 (Port range)
-** -p- (all ports 65 534)
+  * -p80,443 (Port list)
+  * -p1-100 (Port range)
+  * -p- (all ports 65 534)
