@@ -14,3 +14,5 @@ Other tools
 
 ## InstallDir
 %programFiles(x86)%\Nmap\
+* nseLib\
+* scripts\
