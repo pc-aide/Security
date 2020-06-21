@@ -62,3 +62,7 @@ nmap -sn host
   * -p80,443 (Port list)
   * -p1-100 (Port range)
   * -p- (all ports 65 534)
+  * -pT:25,U:53 (ports by protocols)
+  * -p smtp (service name)
+  * -p smtp* (service name wildcards)
+  * -p[1-65535] (Only ports registered)
