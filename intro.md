@@ -26,5 +26,7 @@ https://svn.nmap.org/nmap-exp/
 ## Usage
 ````Batch
 #https://imgur.com/CHFOODZ 
+#Apache
+#CentOS
 nmap -sn host
 ````
