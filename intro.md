@@ -24,4 +24,6 @@ Other tools
 https://svn.nmap.org/nmap-exp/
 
 ## Usage
+````Batch
 nmap -sn host
+````
