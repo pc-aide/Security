@@ -24,4 +24,4 @@ Other tools
 https://svn.nmap.org/nmap-exp/
 
 ## Usage
-nmap -sn <<target>>
+nmap -sn host
