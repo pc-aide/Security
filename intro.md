@@ -22,3 +22,6 @@ Other tools
 
 ## EXP
 https://svn.nmap.org/nmap-exp/
+
+## Usage
+nmap -sn <target>
