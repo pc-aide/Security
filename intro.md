@@ -72,5 +72,5 @@ nmap -sn host
   * -p[1-65535] (Only ports registered)
 * -e -- selecting a network interface (-e InterfaceName)
 * -sV --Sevice detection
- * sending different probes defined in the nmap-service-probes fil to the list of suspected open ports
+  * sending different probes defined in the nmap-service-probes fil to the list of suspected open ports
 * -O --OS detection (privileged user)
