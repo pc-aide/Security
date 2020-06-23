@@ -9,12 +9,15 @@
 ## Doc
 * Nmap: Network Exploration and Security Auditing Cookbook (1591pp)
 
-Other tools
+## Other tools
 * Ncrak
 * Ncat
 * Nping
 * Zenmap
 * dnmap
+
+## Acronym
+CPE : Common Platform Enumeration
 
 ## 2 default scanning methods used
 * SYN Stealth Scan
