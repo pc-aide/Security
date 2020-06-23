@@ -74,3 +74,4 @@ nmap -sn host
 * -sV --Sevice detection
   * sending different probes defined in the nmap-service-probes fil to the list of suspected open ports
 * -O --OS detection (privileged user)
+  * sendig several probes using the TCP,UDP, ICMP protocols against opened & closed ports
