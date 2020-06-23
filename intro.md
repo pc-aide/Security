@@ -17,7 +17,7 @@
 * dnmap
 
 ## Acronym
-CPE : Common Platform Enumeration
+* CPE : Common Platform Enumeration
 
 ## 2 default scanning methods used
 * SYN Stealth Scan
