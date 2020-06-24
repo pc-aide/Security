@@ -36,7 +36,7 @@
 ### Script multiple
 * -script \<script1,script2,...\>
 
-### Runn all the script int the \<vuln catory
+### Run all the scripts int the \<vuln\> category
 * -sv -script vuln
 
 ## Doc
