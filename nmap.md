@@ -57,6 +57,7 @@
 
 ## Acronym
 * CPE : Common Platform Enumeration
+* CSRF : Croos Site Request Forgery
 
 ## 2 default scanning methods used
 * SYN Stealth Scan
