@@ -82,3 +82,4 @@ nmap -sn host
   * -oscan-guess --force to guess OS
   * -oscan-limit --scan conditions are ideal
 * -A --Aggressive detection (equivalent -O -sV -sC -traceroute)
+* -v --verbose
