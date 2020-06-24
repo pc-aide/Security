@@ -26,6 +26,9 @@
 * -script http-title -script-args http.useragent="Mozilla 999"
 * -script -p80 -script http-trace -script-args path
 
+### Script selection
+* -script \<FileName or path/folder/catory/expression\>
+
 ## Doc
 * Nmap: Network Exploration and Security Auditing Cookbook (1591pp)
 
