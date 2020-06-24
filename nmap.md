@@ -2,7 +2,7 @@
 
 ## Nmap Scripting Engine (NSE)
 
-### scripts are divided into the following categories
+### Scripts are divided into the following categories
 * auth: This category is for scripts related to user authentication
 * broadcast: Use broadcast petitions to gather information
 * brute: Conduct brute-froce password auditing
@@ -18,11 +18,11 @@
 * version: Used for advanced versioning
 * vuln: Related to security vulnerabilities
 
-### scripts
+### Scripts
 * dns-brute
 * broadcast-ping : Discovering live hosts in networks
 
-### script arguments
+### Script arguments
 * -script http-title -script-args http.useragent="Mozilla 999"
 
 ## Doc
