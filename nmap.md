@@ -16,6 +16,10 @@
 * Zenmap
 * dnmap
 
+## URL
+* https://nmap.org/cgi-bin/submit.cgi?
+* https://svn.nmap.org/nmap-exp/
+
 ## Acronym
 * CPE : Common Platform Enumeration
 
@@ -47,9 +51,6 @@
 
 ## Language
 * Lua
-
-## EXP
-https://svn.nmap.org/nmap-exp/
 
 ## Usage
 ````Batch
