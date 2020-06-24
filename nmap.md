@@ -79,4 +79,5 @@ nmap -sn host
   * --version-intensity [0-9]
 * -O --OS detection (privileged user: raw packets)
   * sendig several probes using the TCP,UDP, ICMP protocols against opened & closed ports
+  * -oscan-guess --force to guess OS
 * -A --Aggressive detection (equivalent -O -sV -sC -traceroute)
