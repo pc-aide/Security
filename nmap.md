@@ -44,6 +44,12 @@
 ###  Script in the version or discovery categories
 * -sv -script="version,discovery"
 
+### Scripts except for the 1 in the exploit category
+* -sV -script "not exploit"
+
+### All HTTP scripts except http-brute & http-slowloris
+* -sV -script "(http-*) and not (http-brute or http-slowloris)"
+
 ## Doc
 * Nmap: Network Exploration and Security Auditing Cookbook (1591pp)
 
