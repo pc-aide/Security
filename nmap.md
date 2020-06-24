@@ -84,3 +84,4 @@ nmap -sn host
   * -oscan-limit --scan conditions are ideal
 * -A --Aggressive detection (equivalent -O -sV -sC -traceroute)
 * -v --verbose
+* -sC --Script default
