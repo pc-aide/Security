@@ -38,7 +38,7 @@
 * -script \<script1,script2,...\>
 * -script dns-*
 
-### All the scripts int the \<vuln\> category
+### All the scripts in the \<vuln\> category
 * -sv -script vuln
 
 ###  Script in the version or discovery categories
