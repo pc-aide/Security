@@ -36,6 +36,9 @@
 ### Script multiple
 * -script \<script1,script2,...\>
 
+### Runn all the script int the \<vuln catory
+* -sv -script vuln
+
 ## Doc
 * Nmap: Network Exploration and Security Auditing Cookbook (1591pp)
 
