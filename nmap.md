@@ -30,7 +30,8 @@
 * -script \<FileName or path/folder/catory/expression\>
 
 ### Script help
--script-help \<script\>
+* -script-help \<script\>
+* -script-help dns-*
 
 ## Doc
 * Nmap: Network Exploration and Security Auditing Cookbook (1591pp)
