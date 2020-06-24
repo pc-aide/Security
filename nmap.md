@@ -17,7 +17,7 @@
 * safe: Considered safe in all situations
 * version: Used for advanced versioning
 * vuln: Related to security vulnerabilities
-  * Loaded 105 scripts for scanning
+  * 105 scripts for scanning
 
 ### Scripts
 * dns-brute
