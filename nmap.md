@@ -2,6 +2,22 @@
 
 ## Nmap Scripting Engine (NSE)
 
+### scripts are divided into the following categories
+* auth: This category is for scripts related to user authentication
+* broadcast: Use broadcast petitions to gather information
+* brute: Conduct brute-froce password auditing
+* default: -sC 
+* discovery: Related to host & service discovery
+* dos: Denial of service attacks
+* exploit: Exploit security vulnerabilities
+* external: Depend on a third-party service
+* fuzzer: Focused on fuzzing
+* intrusive: Might crash something or generate a lot of network noise; scripts that system administrators may consider intrusive belong to this catory
+* malware: Related to malware detection
+* safe: Considered safe in all situations
+* version: Used for advanced versioning
+* vuln: Related to security vulnerabilities
+
 ### script
 * dns-brute
 * broadcast-ping : Discovering live hosts in networks
