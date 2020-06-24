@@ -85,4 +85,4 @@ nmap -sn host
 * -A --Aggressive detection (equivalent -O -sV -sC -traceroute)
 * -v --verbose
 * -sC --equivalent to --script=default
-  * result included the O/P of the ssh-hostkey & http-title scripts
+  * results included the O/P of the ssh-hostkey & http-title scripts
