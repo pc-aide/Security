@@ -31,7 +31,7 @@
 
 ### Script help
 * -script-help \<script\>
-* -script-help dns-*
+* -script-help dns-* --Loaded 18 scripts
 
 ### Script multiple
 * -script \<script1,script2,...\>
