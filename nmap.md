@@ -18,9 +18,12 @@
 * version: Used for advanced versioning
 * vuln: Related to security vulnerabilities
 
-### script
+### scripts
 * dns-brute
 * broadcast-ping : Discovering live hosts in networks
+
+### script arguments
+* -script http-title -script-args http.useragent="Mozilla 999"
 
 ## Doc
 * Nmap: Network Exploration and Security Auditing Cookbook (1591pp)
