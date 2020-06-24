@@ -38,8 +38,11 @@
 * -script \<script1,script2,...\>
 * -script dns-*
 
-### Run all the scripts int the \<vuln\> category
+### All the scripts int the \<vuln\> category
 * -sv -script vuln
+
+###  Script in the version or discovery categories
+* -sv -script="version,discovery"
 
 ## Doc
 * Nmap: Network Exploration and Security Auditing Cookbook (1591pp)
