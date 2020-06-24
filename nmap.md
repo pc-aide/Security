@@ -33,6 +33,9 @@
 * -script-help \<script\>
 * -script-help dns-*
 
+### Script multiple
+* -script \<script1,script2,...\>
+
 ## Doc
 * Nmap: Network Exploration and Security Auditing Cookbook (1591pp)
 
