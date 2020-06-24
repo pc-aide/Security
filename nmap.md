@@ -35,6 +35,7 @@
 
 ### Script multiple
 * -script \<script1,script2,...\>
+* -script dns-*
 
 ### Run all the scripts int the \<vuln\> category
 * -sv -script vuln
