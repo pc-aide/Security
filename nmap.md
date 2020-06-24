@@ -24,6 +24,7 @@
 
 ### Script arguments
 * -script http-title -script-args http.useragent="Mozilla 999"
+* -script -p80 -script http-trace -script-args path
 
 ## Doc
 * Nmap: Network Exploration and Security Auditing Cookbook (1591pp)
