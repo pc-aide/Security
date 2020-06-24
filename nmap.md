@@ -113,6 +113,7 @@ nmap -sn host
 * -dns-servers 
 * -n (reverse DNS query) if you wish to skip
 * -d --Debug
+  * -d[1-9]
 * -open --only open ports
 * -Pn: treat all hosts as online -- skip host discovery
 * Specific port ranges
