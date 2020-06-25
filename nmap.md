@@ -50,6 +50,9 @@
 ### All HTTP scripts except http-brute & http-slowloris
 * -sV -script "(http-*) and not (http-brute or http-slowloris)"
 
+### Debugging NSE script
+* -sV -script-trace
+
 ## Doc
 * Nmap: Network Exploration and Security Auditing Cookbook (1591pp)
 
