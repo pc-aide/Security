@@ -22,6 +22,8 @@
 ### Scripts
 * dns-brute
 * broadcast-ping : Discovering live hosts in networks
+* scrip-trace -- show all data sent & received
+  * User-Agent: Mozilla/5.0 compatible !?
 
 ### Script arguments
 * -script http-title -script-args http.useragent="Mozilla 999"
