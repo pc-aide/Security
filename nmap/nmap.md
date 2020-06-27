@@ -19,13 +19,6 @@
 * vuln: Related to security vulnerabilities
   * 105 scripts for scanning
 
-### Scripts
-* dns-brute
-* broadcast-ping : Discovering live hosts in networks
-* scrip-trace -- show all data sent & received
-  * User-Agent: Mozilla/5.0 compatible !?\
-* whois-domain --(E.g. O/P: Domain name record, Admin Name, Admin Organization, Admin Country, Name Server,NetRange, OrgName, etc)
-
 ### Script arguments
 * -script http-title -script-args http.useragent="Mozilla 999"
 * -script -p80 -script http-trace -script-args path
