@@ -1,5 +1,7 @@
 # sanesecurity.org
 
+## Need Email : yes
+
 ## URL
 https://sanesecurity.org/hesk/ticket.php
 
