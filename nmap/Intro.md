@@ -1,4 +1,4 @@
-# Intro Network Mapper (Nmap)
+# Intro
 
 ## Nmap Scripting Engine (NSE)
 
@@ -67,6 +67,7 @@
 * CPE : Common Platform Enumeration
 * CSRF : Cross Site Request Forgery
 * XSS : Cross site scripting
+* Nmap : Network Mapper 
 
 ## 2 default scanning methods used
 * SYN Stealth Scan
