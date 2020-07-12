@@ -62,7 +62,7 @@
 ## URL
 * https://nmap.org/cgi-bin/submit.cgi?
 * https://svn.nmap.org/nmap-exp/
-* https://www.shodan.io/search?query=<ip>
+* https://www.shodan.io/host/205.237.78.11
 
 ## Acronym
 * CPE : Common Platform Enumeration
