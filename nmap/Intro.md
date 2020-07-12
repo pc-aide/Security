@@ -139,5 +139,6 @@ nmap -sn host
   * script scan mode, which tells Nmap to select the default sripts & execute them if the hsot or port rule matches
 * -iL --\<inputFileName\>: Input from list of hosts/networks
   * nmap -iL .\hosts.txt
+* -excludefile
   
 ## Clock-skey
