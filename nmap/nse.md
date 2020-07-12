@@ -15,5 +15,6 @@ Nmap Script Engine
   * User-Agent: Mozilla/5.0 compatible !?\
 * whois-domain --(E.g. O/P: Domain name record, Admin Name, Admin Organization, Admin Country, Name Server,NetRange, OrgName, etc)
 * -script-updatedb --adding new scripts
+  * Location : Scripts\script.db
   * E.g: 
 *
