@@ -110,6 +110,7 @@ nmap -sn host
 ````Batch
 #Scan range
 nmap -sV 142.213.0.0-255
+nmap -sV 205.237.78.22/24
 ````
 
 ## Args
