@@ -1,6 +1,9 @@
 # nse
 Nmap Script Engine
 
+## URL
+* [nmap/External script library](https://secwiki.org/w/Nmap/External_Script_Library)
+
 ## Location
 * c:\progra~2\namp\scripts\*.nse
 
