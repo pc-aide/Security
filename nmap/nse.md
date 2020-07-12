@@ -18,5 +18,5 @@ Nmap Script Engine
   * Location : Scripts\script.db
   * E.g: 
     * nmap -script ip-geolocation-ip2location rds.ca -script-args ip-geolocation-ip2location.ip2location_db=c:\pogra~2\nmap\db\ip2location-lite-db1.bin
-    [<img src="https://i.imgur.com/81OQEXYg.png">](https://i.imgur.com/81OQEXYg.png)
+    [<img src="https://i.imgur.com/81OQEXYg.png">](https://imgur.com/81OQEXY)
 *
