@@ -138,5 +138,6 @@ nmap -sn host
   * results included the O/P of the ssh-hostkey & http-title scripts
   * script scan mode, which tells Nmap to select the default sripts & execute them if the hsot or port rule matches
 * -iL --\<inputFileName\>: Input from list of hosts/networks
-
+  * nmap -iL .\hosts.txt
+  
 ## Clock-skey
