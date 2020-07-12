@@ -5,7 +5,8 @@ Nmap Script Engine
 * [nmap/External script library](https://secwiki.org/w/Nmap/External_Script_Library)
 
 ## Location
-* c:\progra~2\namp\scripts\*.nse
+* Script :  c:\progra~2\nmpa\scripts\*.nse
+* Lib : c:\pogra~2\nmap\nseLib\*.lua
 
 ## Scripts
 * dns-brute
