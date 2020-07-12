@@ -107,6 +107,11 @@
 nmap -sn host
 ````
 
+````Batch
+#Scan range
+nmap -sV 142.213.0.0-255
+````
+
 ## Args
 * -sn : disables port scanning, sending TCP SYN packet to port 443, TCP ACK packet to port 80 & ICMP ...
 * -traceroute
