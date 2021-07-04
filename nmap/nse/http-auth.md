@@ -11,7 +11,7 @@ Nmap scan report for mkdocs.localdomain (<host>)
 Host is up (0.00041s latency).
 
 PORT     STATE SERVICE
-8080/tcp open  http-proxy
+<port>/tcp open  http-proxy
 | http-auth: 
 | HTTP/1.1 401 Unauthorized\x0D
 |_  Basic realm=uTorrent
