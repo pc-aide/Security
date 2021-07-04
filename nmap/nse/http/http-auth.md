@@ -2,6 +2,11 @@
 
 ---
 
+## Doc
+* [File http-auth](https://nmap.org/nsedoc/scripts/http-auth-finder.html)
+
+---
+
 ## basic
 ````sh
 # -script-args (optional)
