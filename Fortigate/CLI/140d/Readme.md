@@ -41,3 +41,4 @@
 |n|e.g.|O/P|
 |-|----|---|
 |1|# set IP for mgmt <br/>config system interface <br/>edit mgmt <br/> set ip 192.168.1.99 255.255.255.0 <br/> set allowaccess ssh ping https<br/> end|[<img src="https://i.imgur.com/rR3VZBw.png">](https://i.imgur.com/rR3VZBw.png)|
+|2|# enable interface up\|down <br/> config system interface <br/> edit wan1 <br/> set status up <br/> end ||
