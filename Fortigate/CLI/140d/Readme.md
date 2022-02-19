@@ -2,6 +2,13 @@
 
 ---
 
+## ssh
+````sh
+ssh -oKexAlgorithms=+diffie-hellman-group1 admin<IP>
+````
+
+---
+
 ## Defaul
 * USR: admin
 * pwd: empty
