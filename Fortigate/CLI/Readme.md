@@ -10,6 +10,7 @@
 
 * next : check if command are not bad
 * end : save config
+* # : comment
 
 ---
 
@@ -33,3 +34,10 @@
 |n|e.g|O/P|
 |-|---|---|
 |1|show system interface|[<img src="https://i.imgur.com/qzy1zwu.png">](https://i.imgur.com/qzy1zwu.png) <br/> add ? for brief O/P <br/> [<img src="https://i.imgur.com/HsIb6d8.png">](https://i.imgur.com/HsIb6d8.png)|
+
+---
+
+### configure
+|n|e.g.|O/P|
+|-|----|---|
+|1|# set IP for mgmt <br/>config system interface <br/>edit mgmt <br/> set ip 192.168.1.99 255.255.255.0 <br/> set allowaccess ssh ping https<br/> end|[<img src="https://i.imgur.com/rR3VZBw.png">](https://i.imgur.com/rR3VZBw.png)|
