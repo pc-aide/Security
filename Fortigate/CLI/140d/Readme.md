@@ -7,6 +7,8 @@
 ssh -oKexAlgorithms=+diffie-hellman-group1 admin<IP>
 ````
 
+[<img src="https://i.imgur.com/gQRhzxZ.png">](https://i.imgur.com/gQRhzxZ.png)
+
 ---
 
 ## Defaul
