@@ -2,6 +2,11 @@
 
 ---
 
+## Acronym
+* PAC - Proxy Auto-config
+
+---
+
 ## ssh
 ````sh
 ssh -oKexAlgorithms=+diffie-hellman-group1 admin<IP>
