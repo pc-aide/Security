@@ -7,6 +7,11 @@
 
 ---
 
+## URL
+* [downlaod FortiOS (*.out)](https://it-help.tips/en/fortigate-firmware-download/)
+
+---
+
 ## ssh
 ````sh
 ssh -oKexAlgorithms=+diffie-hellman-group1 admin<IP>
