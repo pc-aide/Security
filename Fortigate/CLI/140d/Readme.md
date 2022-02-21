@@ -21,6 +21,8 @@ ssh -oKexAlgorithms=+diffie-hellman-group1 admin<IP>
 
 [<img src="https://i.imgur.com/QSRhEwk.png">](https://i.imgur.com/QSRhEwk.png)
 
+* file *.out
+
 ---
 
 ## Defaul
