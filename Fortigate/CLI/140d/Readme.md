@@ -16,6 +16,13 @@ ssh -oKexAlgorithms=+diffie-hellman-group1 admin<IP>
 
 ---
 
+## OS
+* FortiOS v5.2.4, Build 688
+
+[<img src="https://i.imgur.com/QSRhEwk.png">](https://i.imgur.com/QSRhEwk.png)
+
+---
+
 ## Defaul
 * USR: admin
 * pwd: empty
