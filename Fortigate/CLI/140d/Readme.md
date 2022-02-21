@@ -38,6 +38,10 @@ ssh -oKexAlgorithms=+diffie-hellman-group1 admin<IP>
 
 [<img src="https://i.imgur.com/sOq65Qd.png">](https://i.imgur.com/sOq65Qd.png)
 
+* new GUI:
+
+[<img src="https://i.imgur.com/jjTvLFJ.png">](https://i.imgur.com/jjTvLFJ.png)
+
 ---
 
 ## Defaul
