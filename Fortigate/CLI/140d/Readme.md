@@ -34,6 +34,10 @@ ssh -oKexAlgorithms=+diffie-hellman-group1 admin<IP>
 
 [<img src="https://i.imgur.com/O1S9JPg.png">](https://i.imgur.com/O1S9JPg.png)
 
+* progress bar:
+
+[<img src="https://i.imgur.com/sOq65Qd.png">](https://i.imgur.com/sOq65Qd.png)
+
 ---
 
 ## Defaul
