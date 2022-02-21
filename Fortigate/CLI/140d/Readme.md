@@ -30,6 +30,8 @@ ssh -oKexAlgorithms=+diffie-hellman-group1 admin<IP>
 
 * upgrade 5.2.4 -> 6.2.1 build 1263
 
+[<img src="https://i.imgur.com/RfN8brQ.png">](https://i.imgur.com/RfN8brQ.png)
+
 [<img src="https://i.imgur.com/O1S9JPg.png">](https://i.imgur.com/O1S9JPg.png)
 
 ---
