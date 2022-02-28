@@ -86,3 +86,4 @@ ssh -oKexAlgorithms=+diffie-hellman-group1 admin<IP>
 |-|----|---|
 |1|# set IP for mgmt <br/>config system interface <br/>edit mgmt <br/> set ip 192.168.1.99 255.255.255.0 <br/> set allowaccess ssh ping https<br/> end|[<img src="https://i.imgur.com/rR3VZBw.png">](https://i.imgur.com/rR3VZBw.png)|
 |2|# enable interface up\|down <br/> config system interface <br/><br/> edit wan1 <br/><br/> set status up <br/> end ||
+|3|setup DHCP|conf sys int <br/> edit port1 <br/> set mode dhcp <br/> next <br/> end |
