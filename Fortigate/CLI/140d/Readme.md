@@ -69,6 +69,7 @@ ssh -oKexAlgorithms=+diffie-hellman-group1 admin<IP>
 |-|----|---|
 |1|excute factoryreset|[<img src="https://i.imgur.com/TEcQgIP.png">](https://i.imgur.com/TEcQgIP.png)|
 |2|execute ping 192.168.1.1|[<img src="https://i.imgur.com/mG2iPJB.png">](https://i.imgur.com/mG2iPJB.png)|
+|3|# dhcp client renew <br/> execute interface dhcpclient-renew port1||
 
 
 ---
