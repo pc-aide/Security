@@ -18,6 +18,7 @@
 |-|----|----|----|
 |1|interface brief|show system inter ?|[<img src="https://i.imgur.com/cumaEDq.png">](https://i.imgur.com/cumaEDq.png)|
 |2|dhcp server| show system dhcp server|[<img src="https://i.imgur.com/IQxDDWN.png">](https://i.imgur.com/IQxDDWN.png)|
+|3|full-config|show full-configuration||
 
 ---
 
