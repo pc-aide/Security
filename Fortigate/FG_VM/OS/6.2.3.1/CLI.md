@@ -37,3 +37,10 @@
 |1|ping|execute ping 8.8.8.8||
 |2|factoryreset|execute factoryreset||
 |3|dhcp renew|execute interface dhcpclient-renew port2||
+
+---
+
+## get
+|n|name|e.g.|O/P|
+|-|----|----|---|
+|1|license|get syst status|[<img src="https://i.imgur.com/OdacxuB.png">](https://i.imgur.com/OdacxuB.png)|
