@@ -36,3 +36,4 @@
 |-|----|----|---|
 |1|ping|execute ping 8.8.8.8||
 |2|factoryreset|execute factoryreset||
+|3|dhcp renew|execute interface dhcpclient-renew port2||
