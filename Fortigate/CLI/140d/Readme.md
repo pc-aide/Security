@@ -89,3 +89,4 @@ ssh -oKexAlgorithms=+diffie-hellman-group1 admin<IP>
 |2|# enable interface up\|down <br/> config system interface <br/><br/> edit wan1 <br/><br/> set status up <br/> end ||
 |3|setup DHCP|conf sys int <br/> edit port1 <br/> set mode dhcp <br/> next <br/> end |[<img src="https://i.imgur.com/ZAzFkWp.png">](https://i.imgur.com/ZAzFkWp.png)|
 |4| #config DHCP <br/> config system dhcp server <br/> edit 1 <br/> set dns-service default <br/> set default-gateway 192.168.1.2 <br/> set netmask 255.255.255.0 <br/> set interface "port1" <br/> config ip-range <br/> edit 1 <br/> set start-ip 192.168.1.1 <br/> set end-ip 192.168.1.99 <br/> next <br/> end <br/> |[<img src="https://i.imgur.com/gG5i2jf.png">](https://i.imgur.com/gG5i2jf.png)|
+|5|#delete IPv4 Policy<br/>config firewall policy<br/>delete \<policyId\>|[<img src="https://i.imgur.com/rW3eqbg.png">](https://i.imgur.com/rW3eqbg.png)|
