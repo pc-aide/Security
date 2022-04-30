@@ -40,7 +40,7 @@ ssh -oKexAlgorithms=+diffie-hellman-group1 admin<IP>
 
 * new GUI:
 
-[<img src="https://i.imgur.com/jjTvLFJ.png">](https://i.imgur.com/jjTvLFJ.png)
+[<img src="https://i.imgur.com/lLtQSPX.png">](https://i.imgur.com/lLtQSPX.png)
 
 ---
 
@@ -79,6 +79,7 @@ ssh -oKexAlgorithms=+diffie-hellman-group1 admin<IP>
 |-|---|---|
 |1|show system interface|[<img src="https://i.imgur.com/qzy1zwu.png">](https://i.imgur.com/qzy1zwu.png) <br/> add ? for brief O/P <br/> [<img src="https://i.imgur.com/HsIb6d8.png">](https://i.imgur.com/HsIb6d8.png)|
 |2|# show dhcp on srv LAN <br/> config system dhcp server <br/> show|[<img src="https://i.imgur.com/b4e7yvd.png">](https://i.imgur.com/b4e7yvd.png)|
+|3|policies|show firewall policy||
 
 ---
 
