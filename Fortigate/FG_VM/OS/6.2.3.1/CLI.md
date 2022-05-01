@@ -44,7 +44,8 @@
 |1|ping|execute ping 8.8.8.8||
 |2|factoryreset|execute factoryreset||
 |3|dhcp renew|execute interface dhcpclient-renew port2||
-
+|4|disk|#check ref<br/>#warning needReboot<br/>execute disk list<br/>disk scan refInteger|[<img src="https://i.imgur.com/bZt7hBo.png">](https://i.imgur.com/bZt7hBo.png)|
+  
 ---
 
 ## get
