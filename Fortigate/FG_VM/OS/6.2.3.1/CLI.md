@@ -24,6 +24,7 @@
 |1|interface brief|show system inter ?|[<img src="https://i.imgur.com/cumaEDq.png">](https://i.imgur.com/cumaEDq.png)|
 |2|dhcp server| show system dhcp server|[<img src="https://i.imgur.com/IQxDDWN.png">](https://i.imgur.com/IQxDDWN.png)|
 |3|full-config|show full-configuration||
+|4|static route|show router static|[<img src="https://i.imgur.com/zWSKCpz.png">](https://i.imgur.com/zWSKCpz.png)|
 
 ---
 
