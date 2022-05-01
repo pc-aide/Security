@@ -34,6 +34,7 @@
 |2|DHCP Server|config system dhcp server <br/> edit 1 <br/> set dns-service default <br/> set default-gateway 192.168.1.1 <br/> set netmask 255.255.255.0 <br/> set inteface port2 <br/> config ip-range <br/> edit 1 <br/> set start-ip 10.47.0.10 <br/> set end-ip 10.47.0.99 <br/> next <br/> end <br/> next <br/> end ||
 |3|show the command output without - more|config system console <br/> set output standard <br/> end||
 |4|scp enable|config system global <br/> set admin-scp enble <br/> scp admin@<ipFortigate>:sys_config <destination> |[<img src="https://i.imgur.com/f7jTDYB.png">](https://i.imgur.com/f7jTDYB.png)|
+|5|the idle timeout(sec)|config system global<br/>set admin-lockout-duration 600<br/>end|[<img src="https://i.imgur.com/2lF9tox.png">](https://i.imgur.com/2lF9tox.png)|
 
 ---
 
