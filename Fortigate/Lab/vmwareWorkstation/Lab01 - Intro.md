@@ -3,8 +3,8 @@
 ---
 
 ## Requirement
-1) GNS3
-  a) hypervisor: yes
+1. GNS3
+
 
 ---
 
