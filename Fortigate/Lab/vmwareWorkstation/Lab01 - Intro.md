@@ -4,11 +4,12 @@
 
 ## Requirement
 1) GNS3
+  a) hypervisor: yes
 
 ---
 
 ## Diagram
-[<img src="https://i.imgur.com/7FMiHah.png">](https://i.imgur.com/7FMiHah.png)
+[<img src="https://i.imgur.com/8fuDw1S.png">](https://i.imgur.com/8fuDw1S.png)
 
 ---
 
