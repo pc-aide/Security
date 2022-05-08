@@ -4,6 +4,7 @@
 
 ## Requirement
 1. GNS3
+2. loopback (needReboot when created: yes) on own physicalHost
 
 
 ---
