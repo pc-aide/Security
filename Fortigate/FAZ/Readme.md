@@ -10,4 +10,4 @@
 ## IP address
 |n|name|O/P|
 |-|----|---|
-|1|default MGMT (port1)-> https:192.168.1.99|[<img src="https://i.imgur.com/bYVYzwC.png">](https://i.imgur.com/bYVYzwC.png)|
+|1|default MGMT (port1)-> https:192.168.1.99|[<img src="https://i.imgur.com/bYVYzwC.png">](https://i.imgur.com/bYVYzwC.png)<br/>[<img src="https://i.imgur.com/zm0OXPh.png">](https://i.imgur.com/zm0OXPh.png)|
