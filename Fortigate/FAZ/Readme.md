@@ -33,3 +33,29 @@
 3. device\fortigate
 
 [<img src="https://i.imgur.com/mUrbHuQ.png">](https://i.imgur.com/mUrbHuQ.png)
+
+4. fortigate\log & report\log setting
+    1. Enabled send logs to FortiAnalyzer/FortiManager
+
+[<img src="https://i.imgur.com/2ddiiGS.png">](https://i.imgur.com/2ddiiGS.png)
+
+* test connectivity : 
+
+[<img src="https://i.imgur.com/oxM6Nwi.png">](https://i.imgur.com/oxM6Nwi.png)
+
+* apply (warning)
+````txt
+Could not find a valid serial number associated with your FortiAnalyzer certificate.
+
+If you are using a non-Fortinet certificate or an old VM license, you will have to disable certificate
+verification and add the FortiGate admin credentials to your FortiAnalyzer. For more information,
+please refer to the documentation.
+````
+
+* Disabled: verify fortiAnalyzer cert
+
+[<img src="https://i.imgur.com/D9dcd29.png">](https://i.imgur.com/D9dcd29.png)
+
+5. logs\Real time
+
+[<img src="https://i.imgur.com/mHUMnST.png">](https://i.imgur.com/mHUMnST.png)
