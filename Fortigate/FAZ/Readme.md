@@ -71,3 +71,11 @@ please refer to the documentation.
 6. test\fortiView
 
 [<img src="https://i.imgur.com/gsTHcGL.png">](https://i.imgur.com/gsTHcGL.png)
+
+
+---
+
+## Storage
+* 35Gb
+
+[<img src="https://i.imgur.com/HJzngUX.png">](https://i.imgur.com/HJzngUX.png)
