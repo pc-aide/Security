@@ -7,6 +7,13 @@
 
 ---
 
+## Intro
+* by default, the logs from fortigate it's 7d after delete
+* so we use fortiAnlazer as SRC log for all fortigates
+* it's a option as same title that sysLogRemote
+
+---
+
 ## IP address
 |n|name|O/P|
 |-|----|---|
@@ -59,3 +66,8 @@ please refer to the documentation.
 5. logs\Real time
 
 [<img src="https://i.imgur.com/mHUMnST.png">](https://i.imgur.com/mHUMnST.png)
+
+
+6. test\fortiView
+
+[<img src="https://i.imgur.com/BhqmGsn.png">](https://i.imgur.com/BhqmGsn.png)
