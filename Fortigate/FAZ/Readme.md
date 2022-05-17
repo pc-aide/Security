@@ -70,4 +70,4 @@ please refer to the documentation.
 
 6. test\fortiView
 
-[<img src="https://i.imgur.com/BhqmGsn.png">](https://i.imgur.com/BhqmGsn.png)
+[<img src="https://i.imgur.com/j0qHLmp.png">](https://i.imgur.com/j0qHLmp.png)
