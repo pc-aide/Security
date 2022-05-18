@@ -3,12 +3,14 @@
 ---
 
 ## Diagram
-[<img src="https://i.imgur.com/uhmBcE4.png">](https://i.imgur.com/uhmBcE4.png)
+[<img src="https://i.imgur.com/gUInfA4.png">](https://i.imgur.com/gUInfA4.png)
 
 ---
 
 ## Req
-1. 3x VLAN
+1. FG1
+2. SW1\Cisco
+3. 3x VLAN
    1. HR
    2. SAL
    3. IT
