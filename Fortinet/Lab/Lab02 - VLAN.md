@@ -3,7 +3,7 @@
 ---
 
 ## Diagram
-[<img src="https://i.imgur.com/H9Nb3Ve.png">](https://i.imgur.com/H9Nb3Ve.png)
+[<img src="https://i.imgur.com/mqUAZDN.png">](https://i.imgur.com/mqUAZDN.png)
 
 ---
 
