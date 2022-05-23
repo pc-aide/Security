@@ -36,6 +36,7 @@
 |3|show the command output without - more|config system console <br/> set output standard <br/> end||
 |4|scp enable|config system global <br/> set admin-scp enble <br/> scp admin@<ipFortigate>:sys_config <destination> |[<img src="https://i.imgur.com/f7jTDYB.png">](https://i.imgur.com/f7jTDYB.png)|
 |5|the idle timeout(sec)|config system global<br/>set admin-lockout-duration 600<br/>end|[<img src="https://i.imgur.com/2lF9tox.png">](https://i.imgur.com/2lF9tox.png)|
+|6|static route|configure router static <br/> edit 1 <br/> set device port1 <br/> set gateway 192.168.122.1 <br/> end | [<img src="https://i.imgur.com/mXDqUaJ.png">](https://i.imgur.com/mXDqUaJ.png) <br/> Σroute: <br/> [<img src="https://i.imgur.com/ZivIB96.png">](https://i.imgur.com/ZivIB96.png) <br> interface: <br/> [<img src="https://i.imgur.com/gk2q9YW.png">](https://i.imgur.com/gk2q9YW.png) <br/> gateway: <br/> [<img src="https://i.imgur.com/DHnC1DO.png">](https://i.imgur.com/DHnC1DO.png) <br/> checkUp: <br/> [<img src="https://i.imgur.com/otrjSMu.png">](https://i.imgur.com/otrjSMu.png) <br/> test: <br/> [<img src="https://i.imgur.com/YhEq9xg.png">](https://i.imgur.com/YhEq9xg.png) |
 
 ---
 
