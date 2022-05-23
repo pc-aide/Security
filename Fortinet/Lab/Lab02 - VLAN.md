@@ -39,6 +39,9 @@ bash gns3-remote-install.sh --with-iou --with-i386-repository
 ````yaml
 #cloud-config
 
+# tested on ubuntu-srv-18.04 LTS
+# req: hypervisor : true
+#
 # time: ~2m40s
 # curl <*.sh> Download
 # --with-iou: Install IOU
