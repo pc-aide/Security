@@ -82,3 +82,5 @@ iface eth0 inet static
 #auto eth0
 #iface eth0 inet dhcp
 ````
+
+[<img src="https://i.imgur.com/nk5TXlx.png">](https://i.imgur.com/nk5TXlx.png)
