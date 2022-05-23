@@ -58,6 +58,9 @@ runcmd:
 ---
 
 ## webTerm
-* config (eth0)
+* config\eth0\dhcp:
+````sh
+````
+* config\eth0\static:
 ````sh
 ````
