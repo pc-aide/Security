@@ -32,3 +32,10 @@ bash gns3-remote-install.sh --with-iou --with-i386-repository
 
 # ifconfig eth0 | grep inet | port 3080
 ````
+
+---
+
+## webTerm
+* config (eth0)
+````sh
+````
