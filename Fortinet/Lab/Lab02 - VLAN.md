@@ -38,9 +38,17 @@ bash gns3-remote-install.sh --with-iou --with-i386-repository
 ## cloud-config
 ````yaml
 #cloud-config
+
+# time: ~ 2m40s
+# curl <*.sh> Download
+# --with-iou: Install IOU
+# --with-i386-repository: Add the i386 repositories required by IOU if
+# they are not already available on the system. Warning
 runcmd:
   - curl https://raw.githubusercontent.com/GNS3/gns3-server/master/scripts/remote-install.sh > gns3-remote-install.sh
   - bash gns3-remote-install.sh --with-iou --with-i386-repository
+
+# once installed, ifconfig eth0 | grep inet | port 3080
 ````
 
 ---
