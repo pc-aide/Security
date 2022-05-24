@@ -57,6 +57,174 @@ runcmd:
 
 ---
 
+## ARM
+* Windows 21h2
+````json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the VM"
+      }
+    },
+    "vmSize": {
+      "type": "string",
+      "defaultValue": "Standard_DS3_v2",
+      "allowedValues": [
+        "Standard_DS3_v2",
+        "Standard_D4s_v3"
+      ],
+      "metadata": {
+        "description": "Size of the VM"
+      }
+    },
+      "adminPassword": {
+        "type": "securestring",
+        "minLength": 12,
+        "metadata": {
+          "description": "Password for the virtual machine"
+        }
+      }
+  },
+  "variables": {},
+  "resources": [
+{
+  "name": "windowsVM1-PublicIP",
+  "type": "Microsoft.Network/publicIPAddresses",
+  "apiVersion": "2020-11-01",
+  "location": "[resourceGroup().location]",
+  "properties": {
+    "publicIPAllocationMethod": "Dynamic"
+  }
+},
+{
+  "name": "[concat(parameters('vmName'),'-','nsg')]",
+  "type": "Microsoft.Network/networkSecurityGroups",
+  "apiVersion": "2020-11-01",
+  "location": "[resourceGroup().location]",
+  "properties": {
+    "securityRules": [
+      {
+        "name": "nsgRule1",
+        "properties": {
+          "description": "description",
+          "protocol": "Tcp",
+          "sourcePortRange": "*",
+          "destinationPortRange": "3389",
+          "sourceAddressPrefix": "*",
+          "destinationAddressPrefix": "*",
+          "access": "Allow",
+          "priority": 100,
+          "direction": "Inbound"
+        }
+      }
+    ]
+  }
+},
+{
+  "name": "windowsVM1-VirtualNetwork",
+  "type": "Microsoft.Network/virtualNetworks",
+  "apiVersion": "2020-11-01",
+  "location": "[resourceGroup().location]",
+  "dependsOn": [
+    "[resourceId('Microsoft.Network/networkSecurityGroups', concat(parameters('vmName'),'-','nsg'))]"
+  ],
+  "properties": {
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.0.0.0/16"
+      ]
+    },
+    "subnets": [
+      {
+        "name": "windowsVM1-VirtualNetwork-Subnet",
+        "properties": {
+          "addressPrefix": "10.0.0.0/24",
+          "networkSecurityGroup": {
+            "id": "[resourceId('Microsoft.Network/networkSecurityGroups', concat(parameters('vmName'),'-','nsg'))]"
+          }
+        }
+      }
+    ]
+  }
+},
+{
+  "name": "windowsVM1-NetworkInterface",
+  "type": "Microsoft.Network/networkInterfaces",
+  "apiVersion": "2020-11-01",
+  "location": "[resourceGroup().location]",
+  "dependsOn": [
+    "[resourceId('Microsoft.Network/publicIPAddresses', 'windowsVM1-PublicIP')]",
+    "[resourceId('Microsoft.Network/virtualNetworks', 'windowsVM1-VirtualNetwork')]"
+  ],
+  "properties": {
+    "ipConfigurations": [
+      {
+        "name": "ipConfig1",
+        "properties": {
+          "privateIPAllocationMethod": "Dynamic",
+          "publicIPAddress": {
+            "id": "[resourceId('Microsoft.Network/publicIPAddresses', 'windowsVM1-PublicIP')]"
+          },
+          "subnet": {
+            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'windowsVM1-VirtualNetwork', 'windowsVM1-VirtualNetwork-Subnet')]"
+          }
+        }
+      }
+    ]
+  }
+},
+{
+  "name": "[parameters('vmName')]",
+  "type": "Microsoft.Compute/virtualMachines",
+  "apiVersion": "2021-03-01",
+  "location": "[resourceGroup().location]",
+  "dependsOn": [
+    "[resourceId('Microsoft.Network/networkInterfaces', 'windowsVM1-NetworkInterface')]"
+  ],
+  "properties": {
+    "hardwareProfile": {
+      "vmSize": "[parameters('vmSize')]"
+    },
+    "osProfile": {
+      "computerName": "windowsVM1",
+      "adminUsername": "paul",
+      "adminPassword": "[parameters('adminPassword')]"
+    },
+    "storageProfile": {
+      "imageReference": {
+        "publisher": "MicrosoftWindowsDesktop",
+        "offer": "windows-10",
+        "sku": "win10-21h2-entn-g2",
+        "version": "latest"
+      },
+      "osDisk": {
+        "name": "windowsVM1OSDisk",
+        "caching": "ReadWrite",
+        "createOption": "FromImage"
+      }
+    },
+    "networkProfile": {
+      "networkInterfaces": [
+        {
+          "id": "[resourceId('Microsoft.Network/networkInterfaces', 'windowsVM1-NetworkInterface')]"
+        }
+      ]
+    }
+  }
+}
+  ],
+  "outputs": {
+    
+  }
+}
+````
+
+---
+
 ## webTerm
 * EditConfig\eth0\dhcp:
 ````sh
