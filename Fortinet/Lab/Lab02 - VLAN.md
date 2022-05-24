@@ -96,7 +96,7 @@ runcmd:
   "variables": {},
   "resources": [
 {
-  "name": "windowsVM1-PublicIP",
+  "name": "[concat(parameters('vmName'),'-PublicIP')]",
   "type": "Microsoft.Network/publicIPAddresses",
   "apiVersion": "2020-11-01",
   "location": "[resourceGroup().location]",
@@ -105,7 +105,7 @@ runcmd:
   }
 },
 {
-  "name": "[concat(parameters('vmName'),'-','nsg')]",
+  "name": "[concat(parameters('vmName'),'-nsg')]",
   "type": "Microsoft.Network/networkSecurityGroups",
   "apiVersion": "2020-11-01",
   "location": "[resourceGroup().location]",
@@ -129,12 +129,12 @@ runcmd:
   }
 },
 {
-  "name": "[concat(parameters('vmName'),'-','vnet')]",
+  "name": "[concat(parameters('vmName'),'-vnet')]",
   "type": "Microsoft.Network/virtualNetworks",
   "apiVersion": "2020-11-01",
   "location": "[resourceGroup().location]",
   "dependsOn": [
-    "[resourceId('Microsoft.Network/networkSecurityGroups', concat(parameters('vmName'),'-','nsg'))]"
+    "[resourceId('Microsoft.Network/networkSecurityGroups', concat(parameters('vmName'),'-nsg'))]"
   ],
   "properties": {
     "addressSpace": {
@@ -148,7 +148,7 @@ runcmd:
         "properties": {
           "addressPrefix": "10.0.0.0/24",
           "networkSecurityGroup": {
-            "id": "[resourceId('Microsoft.Network/networkSecurityGroups', concat(parameters('vmName'),'-','nsg'))]"
+            "id": "[resourceId('Microsoft.Network/networkSecurityGroups', concat(parameters('vmName'),'-nsg'))]"
           }
         }
       }
@@ -161,8 +161,8 @@ runcmd:
   "apiVersion": "2020-11-01",
   "location": "[resourceGroup().location]",
   "dependsOn": [
-    "[resourceId('Microsoft.Network/publicIPAddresses', 'windowsVM1-PublicIP')]",
-    "[resourceId('Microsoft.Network/virtualNetworks', concat(parameters('vmName'),'-','vnet'))]"
+    "[resourceId('Microsoft.Network/publicIPAddresses', concat(parameters('vmName'),'-PublicIP'))]",
+    "[resourceId('Microsoft.Network/virtualNetworks', concat(parameters('vmName'),'-vnet'))]"
   ],
   "properties": {
     "ipConfigurations": [
@@ -171,10 +171,10 @@ runcmd:
         "properties": {
           "privateIPAllocationMethod": "Dynamic",
           "publicIPAddress": {
-            "id": "[resourceId('Microsoft.Network/publicIPAddresses', 'windowsVM1-PublicIP')]"
+            "id": "[resourceId('Microsoft.Network/publicIPAddresses', concat(parameters('vmName'),'-PublicIP'))]"
           },
           "subnet": {
-            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', concat(parameters('vmName'),'-','vnet'), 'windowsVM1-VirtualNetwork-Subnet')]"
+            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', concat(parameters('vmName'),'-vnet'), 'windowsVM1-VirtualNetwork-Subnet')]"
           }
         }
       }
@@ -206,7 +206,7 @@ runcmd:
         "version": "latest"
       },
       "osDisk": {
-        "name": "windowsVM1OSDisk",
+        "name": "[concat(parameters('vmName'),'_OSDisk')]",
         "caching": "ReadWrite",
         "createOption": "FromImage"
       }
