@@ -58,7 +58,11 @@ runcmd:
 ---
 
 ## ARM
-* Windows 21h2
+### GNS3
+````json
+````
+
+### Client
 ````json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
