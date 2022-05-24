@@ -144,7 +144,7 @@ runcmd:
     },
     "subnets": [
       {
-        "name": "windowsVM1-VirtualNetwork-Subnet",
+        "name": "[concat(parameters('vmName'),'-subnet')]",
         "properties": {
           "addressPrefix": "10.0.0.0/24",
           "networkSecurityGroup": {
@@ -174,7 +174,7 @@ runcmd:
             "id": "[resourceId('Microsoft.Network/publicIPAddresses', concat(parameters('vmName'),'-PublicIP'))]"
           },
           "subnet": {
-            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', concat(parameters('vmName'),'-vnet'), 'windowsVM1-VirtualNetwork-Subnet')]"
+            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', concat(parameters('vmName'),'-vnet'), concat(parameters('vmName'),'-subnet'))]"
           }
         }
       }
