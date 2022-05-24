@@ -129,7 +129,7 @@ runcmd:
   }
 },
 {
-  "name": "windowsVM1-VirtualNetwork",
+  "name": "[concat(parameters('vmName'),'-','vnet')]",
   "type": "Microsoft.Network/virtualNetworks",
   "apiVersion": "2020-11-01",
   "location": "[resourceGroup().location]",
@@ -162,7 +162,7 @@ runcmd:
   "location": "[resourceGroup().location]",
   "dependsOn": [
     "[resourceId('Microsoft.Network/publicIPAddresses', 'windowsVM1-PublicIP')]",
-    "[resourceId('Microsoft.Network/virtualNetworks', 'windowsVM1-VirtualNetwork')]"
+    "[resourceId('Microsoft.Network/virtualNetworks', concat(parameters('vmName'),'-','vnet'))]"
   ],
   "properties": {
     "ipConfigurations": [
@@ -174,7 +174,7 @@ runcmd:
             "id": "[resourceId('Microsoft.Network/publicIPAddresses', 'windowsVM1-PublicIP')]"
           },
           "subnet": {
-            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'windowsVM1-VirtualNetwork', 'windowsVM1-VirtualNetwork-Subnet')]"
+            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', concat(parameters('vmName'),'-','vnet'), 'windowsVM1-VirtualNetwork-Subnet')]"
           }
         }
       }
