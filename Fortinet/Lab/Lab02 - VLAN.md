@@ -156,7 +156,7 @@ runcmd:
   }
 },
 {
-  "name": "windowsVM1-NetworkInterface",
+  "name": "[concat(parameters('vmName'),'-nic')]",
   "type": "Microsoft.Network/networkInterfaces",
   "apiVersion": "2020-11-01",
   "location": "[resourceGroup().location]",
@@ -187,7 +187,7 @@ runcmd:
   "apiVersion": "2021-03-01",
   "location": "[resourceGroup().location]",
   "dependsOn": [
-    "[resourceId('Microsoft.Network/networkInterfaces', 'windowsVM1-NetworkInterface')]"
+    "[resourceId('Microsoft.Network/networkInterfaces', concat(parameters('vmName'),'-nic'))]"
   ],
   "properties": {
     "hardwareProfile": {
@@ -214,7 +214,7 @@ runcmd:
     "networkProfile": {
       "networkInterfaces": [
         {
-          "id": "[resourceId('Microsoft.Network/networkInterfaces', 'windowsVM1-NetworkInterface')]"
+          "id": "[resourceId('Microsoft.Network/networkInterfaces', concat(parameters('vmName'),'-nic'))]"
         }
       ]
     }
