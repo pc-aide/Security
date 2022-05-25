@@ -84,7 +84,7 @@ runcmd:
     },
     "source_AddressPrefix": {
       "type": "string",
-      "defaultValue": "*",
+      "defaultValue": "192.168.1.10",
       "metadata": {
         "description": "put here your client Public IP for access for gns3 srv"
       }
