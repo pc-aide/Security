@@ -64,11 +64,11 @@ runcmd:
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "customData": {
+    "VMName": {
       "type": "string",
-      "defaultValue": "runcmd:\n- sudo apt install -y nginx",
+      "defaultValue": "gns3",
       "metadata": {
-        "description": "cloud-config"
+        "description": "Name of the VM"
       }
     },
     "vmSize": {
@@ -86,7 +86,7 @@ runcmd:
       "type": "string",
       "defaultValue": "192.168.1.10",
       "metadata": {
-        "description": "put here your client Public IP for access for gns3 srv"
+        "description": "Put here your client Public IP for the access for gns3 srv"
       }
     },
     "adminPassword": {
@@ -97,22 +97,24 @@ runcmd:
     }
   },
   "functions": [],
-  "variables": {},
+  "variables": {
+    "userData": "[concat('#cloud-config\n runcmd:\n - curl https://raw.githubusercontent.com/GNS3/gns3-server/master/scripts/remote-install.sh > gns3-remote-install.sh\n - bash gns3-remote-install.sh --with-iou --with-i386-repository')]"
+  },
   "resources": [
     {
-      "name": "ubuntuVM1-PublicIP",
+      "name": "[concat(parameters('VMName'),'-PublicIP')]",
       "type": "Microsoft.Network/publicIPAddresses",
       "apiVersion": "2020-11-01",
-      "location": "[resourceGroup().location]",
+      "location": "Canada Central",
       "properties": {
         "publicIPAllocationMethod": "Dynamic"
       }
     },
     {
-      "name": "ubuntuVM1-nsg",
+      "name": "[concat(parameters('VMName'),'-nsg')]",
       "type": "Microsoft.Network/networkSecurityGroups",
       "apiVersion": "2020-11-01",
-      "location": "[resourceGroup().location]",
+      "location": "Canada Central",
       "properties": {
         "securityRules": [
           {
@@ -133,12 +135,12 @@ runcmd:
       }
     },
     {
-      "name": "ubuntuVM1-VirtualNetwork",
+      "name": "[concat(parameters('VMName'),'-vnet')]",
       "type": "Microsoft.Network/virtualNetworks",
       "apiVersion": "2020-11-01",
-      "location": "[resourceGroup().location]",
+      "location": "Canada Central",
       "dependsOn": [
-        "[resourceId('Microsoft.Network/networkSecurityGroups', 'ubuntuVM1-nsg')]"
+        "[resourceId('Microsoft.Network/networkSecurityGroups', concat(parameters('VMName'),'-nsg'))]"
       ],
       "properties": {
         "addressSpace": {
@@ -148,11 +150,11 @@ runcmd:
         },
         "subnets": [
           {
-            "name": "ubuntuVM1-VirtualNetwork-Subnet",
+            "name": "[concat(parameters('VMName'),'-subnet')]",
             "properties": {
               "addressPrefix": "10.0.0.0/24",
               "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', 'ubuntuVM1-nsg')]"
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', concat(parameters('VMName'),'-nsg'))]"
               }
             }
           }
@@ -160,13 +162,13 @@ runcmd:
       }
     },
     {
-      "name": "ubuntuVM1-NetworkInterface",
+      "name": "[concat(parameters('VMName'),'-nic')]",
       "type": "Microsoft.Network/networkInterfaces",
       "apiVersion": "2020-11-01",
-      "location": "[resourceGroup().location]",
+      "location": "Canada Central",
       "dependsOn": [
-        "[resourceId('Microsoft.Network/publicIPAddresses', 'ubuntuVM1-PublicIP')]",
-        "[resourceId('Microsoft.Network/virtualNetworks', 'ubuntuVM1-VirtualNetwork')]"
+        "[resourceId('Microsoft.Network/publicIPAddresses', concat(parameters('VMName'),'-PublicIP'))]",
+        "[resourceId('Microsoft.Network/virtualNetworks', concat(parameters('VMName'),'-vnet'))]"
       ],
       "properties": {
         "ipConfigurations": [
@@ -175,10 +177,10 @@ runcmd:
             "properties": {
               "privateIPAllocationMethod": "Dynamic",
               "publicIPAddress": {
-                "id": "[resourceId('Microsoft.Network/publicIPAddresses', 'ubuntuVM1-PublicIP')]"
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', concat(parameters('VMName'),'-PublicIP'))]"
               },
               "subnet": {
-                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'ubuntuVM1-VirtualNetwork', 'ubuntuVM1-VirtualNetwork-Subnet')]"
+                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', concat(parameters('VMName'),'-vnet'), concat(parameters('VMName'),'-subnet'))]"
               }
             }
           }
@@ -186,22 +188,22 @@ runcmd:
       }
     },
     {
-      "name": "ubuntuVM1",
+      "name": "[parameters('VMName')]",
       "type": "Microsoft.Compute/virtualMachines",
       "apiVersion": "2021-03-01",
-      "location": "[resourceGroup().location]",
+      "location": "Canada Central",
       "dependsOn": [
-        "[resourceId('Microsoft.Network/networkInterfaces', 'ubuntuVM1-NetworkInterface')]"
+        "[resourceId('Microsoft.Network/networkInterfaces', concat(parameters('VMName'),'-nic'))]"
       ],
       "properties": {
         "hardwareProfile": {
           "vmSize": "[parameters('vmSize')]"
         },
         "osProfile": {
-          "computerName": "ubuntuVM1",
+          "computerName": "[parameters('VMName')]",
           "adminUsername": "azureuser",
           "adminPassword": "[parameters('adminPassword')]",
-          "customData": "[base64(concat('#cloud-config\n runcmd:\n - curl https://raw.githubusercontent.com/GNS3/gns3-server/master/scripts/remote-install.sh > gns3-remote-install.sh\n - bash gns3-remote-install.sh --with-iou --with-i386-repository'))]"
+          "customData": "[base64(variables('userData'))]"
         },
         "storageProfile": {
           "imageReference": {
@@ -211,7 +213,7 @@ runcmd:
             "version": "latest"
           },
           "osDisk": {
-            "name": "ubuntuVM1-OSDisk",
+            "name": "[concat(parameters('VMName'),'-OSDisk')]",
             "caching": "ReadWrite",
             "createOption": "FromImage"
           }
@@ -219,7 +221,7 @@ runcmd:
         "networkProfile": {
           "networkInterfaces": [
             {
-              "id": "[resourceId('Microsoft.Network/networkInterfaces', 'ubuntuVM1-NetworkInterface')]"
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', concat(parameters('VMName'),'-nic'))]"
             }
           ]
         }
