@@ -201,7 +201,7 @@ runcmd:
           "computerName": "ubuntuVM1",
           "adminUsername": "azureuser",
           "adminPassword": "[parameters('adminPassword')]",
-          "customData": "[base64(concat('#cloud-config\n runcmd:\n - sudo apt update\n - sudo apt install -y nginx'))]"
+          "customData": "[base64(concat('#cloud-config\n runcmd:\n - curl https://raw.githubusercontent.com/GNS3/gns3-server/master/scripts/remote-install.sh > gns3-remote-install.sh\n - bash gns3-remote-install.sh --with-iou --with-i386-repository'))]"
         },
         "storageProfile": {
           "imageReference": {
