@@ -271,7 +271,7 @@ runcmd:
   "name": "[concat(parameters('vmName'),'-PublicIP')]",
   "type": "Microsoft.Network/publicIPAddresses",
   "apiVersion": "2020-11-01",
-  "location": "[resourceGroup().location]",
+  "location": "Canada Central",
   "properties": {
     "publicIPAllocationMethod": "Dynamic"
   }
@@ -280,7 +280,7 @@ runcmd:
   "name": "[concat(parameters('vmName'),'-nsg')]",
   "type": "Microsoft.Network/networkSecurityGroups",
   "apiVersion": "2020-11-01",
-  "location": "[resourceGroup().location]",
+  "location": "Canada Central",
   "properties": {
     "securityRules": [
       {
@@ -304,7 +304,7 @@ runcmd:
   "name": "[concat(parameters('vmName'),'-vnet')]",
   "type": "Microsoft.Network/virtualNetworks",
   "apiVersion": "2020-11-01",
-  "location": "[resourceGroup().location]",
+  "location": "Canada Central",
   "dependsOn": [
     "[resourceId('Microsoft.Network/networkSecurityGroups', concat(parameters('vmName'),'-nsg'))]"
   ],
@@ -331,7 +331,7 @@ runcmd:
   "name": "[concat(parameters('vmName'),'-nic')]",
   "type": "Microsoft.Network/networkInterfaces",
   "apiVersion": "2020-11-01",
-  "location": "[resourceGroup().location]",
+  "location": "Canada Central",
   "dependsOn": [
     "[resourceId('Microsoft.Network/publicIPAddresses', concat(parameters('vmName'),'-PublicIP'))]",
     "[resourceId('Microsoft.Network/virtualNetworks', concat(parameters('vmName'),'-vnet'))]"
@@ -357,7 +357,7 @@ runcmd:
   "name": "[parameters('vmName')]",
   "type": "Microsoft.Compute/virtualMachines",
   "apiVersion": "2021-03-01",
-  "location": "[resourceGroup().location]",
+  "location": "Canada Central",
   "dependsOn": [
     "[resourceId('Microsoft.Network/networkInterfaces', concat(parameters('vmName'),'-nic'))]"
   ],
