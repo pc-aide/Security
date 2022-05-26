@@ -73,13 +73,14 @@ runcmd:
     },
     "vmSize": {
       "type": "string",
-      "defaultValue": "Standard_DS3_v2",
+      "defaultValue": "Standard_D2s_v3",
       "allowedValues": [
         "Standard_DS3_v2",
-        "Standard_D4s_v3"
+        "Standard_D4s_v3",
+	"Standard_D2s_v3"
       ],
       "metadata": {
-        "description": "Size of the VM"
+        "description": "D2s where s for hypervision present"
       }
     },
     "source_AddressPrefix": {
