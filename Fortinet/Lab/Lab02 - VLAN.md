@@ -58,345 +58,228 @@ runcmd:
 ---
 
 ## ARM
-### GNS3
 ````json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "VMName": {
-      "type": "string",
-      "defaultValue": "gns3",
-      "metadata": {
-        "description": "Name of the VM"
-      }
-    },
-    "vmSize": {
-      "type": "string",
-      "defaultValue": "Standard_D2s_v3",
-      "allowedValues": [
-        "Standard_DS3_v2",
-        "Standard_D4s_v3",
-	"Standard_D2s_v3"
-      ],
-      "metadata": {
-        "description": "D2s where s for hypervision present"
-      }
-    },
-    "source_AddressPrefix": {
-      "type": "string",
-      "defaultValue": "192.168.1.10",
-      "metadata": {
-        "description": "Put here your client Public IP for the access for gns3 srv"
-      }
-    },
-    "adminPassword": {
-      "type": "securestring",
-      "metadata": {
-        "description": "Password of the VM"
-      }
-    }
-  },
-  "functions": [],
-  "variables": {
-    "userData": "[concat('#cloud-config\n runcmd:\n - curl https://raw.githubusercontent.com/GNS3/gns3-server/master/scripts/remote-install.sh > gns3-remote-install.sh\n - bash gns3-remote-install.sh --with-iou --with-i386-repository')]"
-  },
-  "resources": [
-    {
-      "name": "[concat(parameters('VMName'),'-PublicIP')]",
-      "type": "Microsoft.Network/publicIPAddresses",
-      "apiVersion": "2020-11-01",
-      "location": "Canada Central",
-      "properties": {
-        "publicIPAllocationMethod": "Dynamic"
-      }
-    },
-    {
-      "name": "[concat(parameters('VMName'),'-nsg')]",
-      "type": "Microsoft.Network/networkSecurityGroups",
-      "apiVersion": "2020-11-01",
-      "location": "Canada Central",
-      "properties": {
-        "securityRules": [
-          {
-            "name": "AllowOnlyOneClientInBound",
-            "properties": {
-              "description": "Allow only one Client on GNS3 SRV",
-              "protocol": "Tcp",
-              "sourcePortRange": "*",
-              "destinationPortRange": "*",
-              "sourceAddressPrefix": "[parameters('source_AddressPrefix')]",
-              "destinationAddressPrefix": "*",
-              "access": "Allow",
-              "priority": 100,
-              "direction": "Inbound"
-            }
-          }
-        ]
-      }
-    },
-    {
-      "name": "[concat(parameters('VMName'),'-vnet')]",
-      "type": "Microsoft.Network/virtualNetworks",
-      "apiVersion": "2020-11-01",
-      "location": "Canada Central",
-      "dependsOn": [
-        "[resourceId('Microsoft.Network/networkSecurityGroups', concat(parameters('VMName'),'-nsg'))]"
-      ],
-      "properties": {
-        "addressSpace": {
-          "addressPrefixes": [
-            "10.0.0.0/16"
-          ]
-        },
-        "subnets": [
-          {
-            "name": "[concat(parameters('VMName'),'-subnet')]",
-            "properties": {
-              "addressPrefix": "10.0.0.0/24",
-              "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', concat(parameters('VMName'),'-nsg'))]"
-              }
-            }
-          }
-        ]
-      }
-    },
-    {
-      "name": "[concat(parameters('VMName'),'-nic')]",
-      "type": "Microsoft.Network/networkInterfaces",
-      "apiVersion": "2020-11-01",
-      "location": "Canada Central",
-      "dependsOn": [
-        "[resourceId('Microsoft.Network/publicIPAddresses', concat(parameters('VMName'),'-PublicIP'))]",
-        "[resourceId('Microsoft.Network/virtualNetworks', concat(parameters('VMName'),'-vnet'))]"
-      ],
-      "properties": {
-        "ipConfigurations": [
-          {
-            "name": "ipConfig1",
-            "properties": {
-              "privateIPAllocationMethod": "Dynamic",
-              "publicIPAddress": {
-                "id": "[resourceId('Microsoft.Network/publicIPAddresses', concat(parameters('VMName'),'-PublicIP'))]"
-              },
-              "subnet": {
-                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', concat(parameters('VMName'),'-vnet'), concat(parameters('VMName'),'-subnet'))]"
-              }
-            }
-          }
-        ]
-      }
-    },
-    {
-      "name": "[parameters('VMName')]",
-      "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2021-03-01",
-      "location": "Canada Central",
-      "dependsOn": [
-        "[resourceId('Microsoft.Network/networkInterfaces', concat(parameters('VMName'),'-nic'))]"
-      ],
-      "properties": {
-        "hardwareProfile": {
-          "vmSize": "[parameters('vmSize')]"
-        },
-        "osProfile": {
-          "computerName": "[parameters('VMName')]",
-          "adminUsername": "azureuser",
-          "adminPassword": "[parameters('adminPassword')]",
-          "customData": "[base64(variables('userData'))]"
-        },
-        "storageProfile": {
-          "imageReference": {
-            "publisher": "Canonical",
-            "offer": "UbuntuServer",
-            "sku": "18.04-LTS",
-            "version": "latest"
-          },
-          "osDisk": {
-            "name": "[concat(parameters('VMName'),'-OSDisk')]",
-            "caching": "ReadWrite",
-            "createOption": "FromImage"
-          }
-        },
-        "networkProfile": {
-          "networkInterfaces": [
-            {
-              "id": "[resourceId('Microsoft.Network/networkInterfaces', concat(parameters('VMName'),'-nic'))]"
-            }
-          ]
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "adminPassword": {
+            "type": "securestring",
+            "minLength": 12
         }
-      }
-    }
-  ],
-  "outputs": {
-
-  }
-}
-````
-
-### Client
-````json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "vmName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the VM"
-      }
     },
-    "vmSize": {
-      "type": "string",
-      "defaultValue": "Standard_DS3_v2",
-      "allowedValues": [
-        "Standard_DS3_v2",
-        "Standard_D4s_v3"
-      ],
-      "metadata": {
-        "description": "Size of the VM"
-      }
-    },
-      "adminPassword": {
-        "type": "securestring",
-        "minLength": 12,
-        "metadata": {
-          "description": "Password for the virtual machine"
-        }
-      }
-  },
-  "variables": {},
-  "resources": [
-{
-  "name": "[concat(parameters('vmName'),'-PublicIP')]",
-  "type": "Microsoft.Network/publicIPAddresses",
-  "apiVersion": "2020-11-01",
-  "location": "Canada Central",
-  "properties": {
-    "publicIPAllocationMethod": "Dynamic"
-  }
-},
-{
-  "name": "[concat(parameters('vmName'),'-nsg')]",
-  "type": "Microsoft.Network/networkSecurityGroups",
-  "apiVersion": "2020-11-01",
-  "location": "Canada Central",
-  "properties": {
-    "securityRules": [
-      {
-        "name": "nsgRule1",
-        "properties": {
-          "description": "description",
-          "protocol": "Tcp",
-          "sourcePortRange": "*",
-          "destinationPortRange": "3389",
-          "sourceAddressPrefix": "*",
-          "destinationAddressPrefix": "*",
-          "access": "Allow",
-          "priority": 100,
-          "direction": "Inbound"
-        }
-      }
-    ]
-  }
-},
-{
-  "name": "[concat(parameters('vmName'),'-vnet')]",
-  "type": "Microsoft.Network/virtualNetworks",
-  "apiVersion": "2020-11-01",
-  "location": "Canada Central",
-  "dependsOn": [
-    "[resourceId('Microsoft.Network/networkSecurityGroups', concat(parameters('vmName'),'-nsg'))]"
-  ],
-  "properties": {
-    "addressSpace": {
-      "addressPrefixes": [
-        "10.0.0.0/16"
-      ]
-    },
-    "subnets": [
-      {
-        "name": "[concat(parameters('vmName'),'-subnet')]",
-        "properties": {
-          "addressPrefix": "10.0.0.0/24",
-          "networkSecurityGroup": {
-            "id": "[resourceId('Microsoft.Network/networkSecurityGroups', concat(parameters('vmName'),'-nsg'))]"
-          }
-        }
-      }
-    ]
-  }
-},
-{
-  "name": "[concat(parameters('vmName'),'-nic')]",
-  "type": "Microsoft.Network/networkInterfaces",
-  "apiVersion": "2020-11-01",
-  "location": "Canada Central",
-  "dependsOn": [
-    "[resourceId('Microsoft.Network/publicIPAddresses', concat(parameters('vmName'),'-PublicIP'))]",
-    "[resourceId('Microsoft.Network/virtualNetworks', concat(parameters('vmName'),'-vnet'))]"
-  ],
-  "properties": {
-    "ipConfigurations": [
-      {
-        "name": "ipConfig1",
-        "properties": {
-          "privateIPAllocationMethod": "Dynamic",
-          "publicIPAddress": {
-            "id": "[resourceId('Microsoft.Network/publicIPAddresses', concat(parameters('vmName'),'-PublicIP'))]"
-          },
-          "subnet": {
-            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', concat(parameters('vmName'),'-vnet'), concat(parameters('vmName'),'-subnet'))]"
-          }
-        }
-      }
-    ]
-  }
-},
-{
-  "name": "[parameters('vmName')]",
-  "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2021-03-01",
-  "location": "Canada Central",
-  "dependsOn": [
-    "[resourceId('Microsoft.Network/networkInterfaces', concat(parameters('vmName'),'-nic'))]"
-  ],
-  "properties": {
-    "hardwareProfile": {
-      "vmSize": "[parameters('vmSize')]"
-    },
-    "osProfile": {
-      "computerName": "windowsVM1",
-      "adminUsername": "paul",
-      "adminPassword": "[parameters('adminPassword')]"
-    },
-    "storageProfile": {
-      "imageReference": {
-        "publisher": "MicrosoftWindowsDesktop",
-        "offer": "windows-10",
-        "sku": "win10-21h2-entn-g2",
-        "version": "latest"
-      },
-      "osDisk": {
-        "name": "[concat(parameters('vmName'),'_OSDisk')]",
-        "caching": "ReadWrite",
-        "createOption": "FromImage"
-      }
-    },
-    "networkProfile": {
-      "networkInterfaces": [
+    "resources": [
         {
-          "id": "[resourceId('Microsoft.Network/networkInterfaces', concat(parameters('vmName'),'-nic'))]"
+            "name": "[variables('nsgClient')]",
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "apiVersion": "2019-02-01",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "securityRules": [
+                    {
+                        "name": "AllowRDPInBound",
+                        "properties": {
+                            "description": "Allow RDP InBound",
+                            "protocol": "Tcp",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "3389",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 100,
+                            "direction": "Inbound"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "[variables('PublicIPClient')]",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2020-11-01",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "publicIPAllocationMethod": "Dynamic"
+            }
+        },
+        {
+            "name": "[variables('clientNicName')]",
+            "type": "Microsoft.Network/networkInterfaces",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2020-11-01",
+            "dependsOn": [
+                "[concat('Microsoft.Network/networkSecurityGroups/', variables('nsgClient'))]",
+                "[concat('Microsoft.Network/virtualNetworks/', 'test-vnet')]",
+                "[concat('Microsoft.Network/publicIpAddresses/',variables('PublicIPClient'))]"
+            ],
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "properties": {
+                            "publicIPAddress": {
+                                "id": "[resourceId(resourceGroup().name,'Microsoft.Network/publicIpAddresses',variables('PublicIPClient'))]"
+                            },
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[variables('clientSubnetRef')]"
+                            }
+                        }
+                    }
+                ],
+                "networkSecurityGroup": {
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups',variables('nsgClient'))]"
+                }
+            }
+        },
+        {
+            "name": "[variables('clientName')]",
+            "type": "Microsoft.Compute/virtualMachines",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2021-03-01",
+            "dependsOn": [
+                "[concat('Microsoft.Network/networkInterfaces/', variables('clientNicName'))]"
+            ],
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "[variables('vmSize')]"
+                },
+                "osProfile": {
+                    "computerName": "[variables('clientName')]",
+                    "adminUsername": "[variables('adminUserName')]",
+                    "adminPassword": "[parameters('adminPassword')]"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "MicrosoftWindowsDesktop",
+                        "offer": "windows-10",
+                        "sku": "win10-21h2-entn-g2",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "name": "clientOSDisk",
+                        "createOption": "FromImage"
+                    }
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('clientNicName'))]"
+                            
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "test-vnet",
+            "type": "Microsoft.Network/virtualNetworks",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2015-06-15",
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "[variables('test-vnetPrefix')]"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "[variables('test-vnetSubnet1Name')]",
+                        "properties": {
+                            "addressPrefix": "[variables('test-vnetSubnet1Prefix')]"
+                        }
+                    },
+                    {
+                        "name": "[variables('test-vnetSubnet2Name')]",
+                        "properties": {
+                            "addressPrefix": "[variables('test-vnetSubnet2Prefix')]"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "[variables('gns3NicName')]",
+            "type": "Microsoft.Network/networkInterfaces",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2015-06-15",
+            "dependsOn": [
+                "[concat('Microsoft.Network/virtualNetworks/', 'test-vnet')]"
+            ],
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[variables('gns3SubnetRef')]"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "[variables('gns3Name')]",
+            "type": "Microsoft.Compute/virtualMachines",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2021-03-01",
+            "dependsOn": [
+                "[concat('Microsoft.Network/networkInterfaces/', variables('gns3NicName'))]"
+            ],
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "[variables('vmSize')]"
+                },
+                "osProfile": {
+                    "computerName": "[variables('gns3Name')]",
+                    "adminUsername": "[variables('adminUserName')]",
+                    "adminPassword": "[parameters('adminPassword')]",
+                    "customData": "[base64(variables('customData'))]"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "Canonical",
+                        "offer": "UbuntuServer",
+                        "sku": "18.04-LTS",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "name": "gns3OSDisk",
+                        "createOption": "FromImage"
+                    }
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('gns3NicName'))]"
+                        }
+                    ]
+                }
+            }
         }
-      ]
+    ],
+    "variables": {
+        "PublicIPClient":"[concat(variables('clientName'),'PublicIP')]",
+        "nsgClient": "[concat(variables('clientName'),'-nsg')]",
+        "customData": "[concat('#cloud-config\n runcmd:\n - curl https://raw.githubusercontent.com/GNS3/gns3-server/master/scripts/remote-install.sh > gns3-remote-install.sh\n - bash gns3-remote-install.sh --with-iou --with-i386-repository')]",
+        "clientName": "client",
+        "adminUserName": "paul",
+        "gns3Name": "gns3",
+        "vmSize": "Standard_D2s_v3",
+        "clientVnetID": "[resourceId('Microsoft.Network/virtualNetworks', 'test-vnet')]",
+        "clientSubnetRef": "[concat(variables('clientVnetID'), '/subnets/', variables('test-vnetSubnet1Name'))]",
+        "clientNicName": "[concat(variables('clientName'), 'NetworkInterface')]",
+        "test-vnetPrefix": "10.0.0.0/16",
+        "test-vnetSubnet1Name": "Subnet-1",
+        "test-vnetSubnet1Prefix": "10.0.0.0/24",
+        "test-vnetSubnet2Name": "Subnet-2",
+        "test-vnetSubnet2Prefix": "10.0.1.0/24",
+        "gns3VnetID": "[resourceId('Microsoft.Network/virtualNetworks', 'test-vnet')]",
+        "gns3SubnetRef": "[concat(variables('gns3VnetID'), '/subnets/', variables('test-vnetSubnet1Name'))]",
+        "gns3NicName": "[concat(variables('gns3Name'), 'NetworkInterface')]"
     }
-  }
-}
-  ],
-  "outputs": {
-    
-  }
 }
 ````
 
