@@ -22,7 +22,14 @@ $loopbackName = "Loopback"
 # host send/recieve which is most likely required for the traffic to work for the loopback interface.
 $primary_interface = 'Ethernet'
 
-# NEW NIC
+# Modules
+Install-Module -Name LoopbackAdapter -MinimumVersion 1.2.0.0 -Force
+
+# New NIC
+Import-Module -Name LoopbackAdapter
+New-LoopbackAdapter -Name $loopback_name -Force
+
+# NIC_loopback
 $interface_loopback = Get-NetAdapter -Name $loopbackName
 $interface_main = Get-NetAdapter -Name $primary_interface
 
