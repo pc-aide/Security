@@ -48,6 +48,20 @@ New-NetIPAddress -InterfaceAlias $loopbackName -IPAddress $loopback_ipv4 `
 
 ---
 
+## FortiOS
+* MGMT
+````fortiOS
+config system interface
+edit port2
+set alias MGMT
+set mode static
+set ip 192.168.3.100/24
+set allow ping http
+end
+````
+
+---
+
 ## ARM
 ````json
 {
