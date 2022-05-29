@@ -7,6 +7,20 @@
 
 ---
 
+## loopback
+````powershell
+* SRC: https://gbe0.com/posts/windows/server-windows/create-loopback-interface-with-powershell/
+# The name for the loopback adapter interface that will be created.
+$loopback_name = 'Loopback'
+# The name for the servers main network interface. This will be updated to allow weak host send/recieve which is most likely required for the traffic to work for the loopback interface.
+$primary_interface = 'Ethernet'
+
+# The IPv4 address that you would like to assign to the loopback interface along with the prefix length (eg. if the IP is routed to the server usually you would set the prefix length to 32).
+$loopback_ipv4 = '192.168.3.10'
+$loopback_ipv4_length = '24'
+````
+
+
 ## Diagram
 
 
