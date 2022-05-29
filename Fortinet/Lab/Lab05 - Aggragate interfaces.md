@@ -7,6 +7,11 @@
 
 ---
 
+## Diagram
+[<img src="https://i.imgur.com/2flFC82.png">](https://i.imgur.com/2flFC82.png)
+
+---
+
 ## loopback
 ````powershell
 # SRC: https://gbe0.com/posts/windows/server-windows/create-loopback-interface-with-powershell/
@@ -30,10 +35,6 @@ $loopback_ipv4_length = '24'
 New-NetIPAddress -InterfaceAlias $loopback_name -IPAddress $loopback_ipv4 `
     -PrefixLength $loopback_ipv4_length -AddressFamily ipv4
 ````
-
-
-## Diagram
-
 
 ---
 
