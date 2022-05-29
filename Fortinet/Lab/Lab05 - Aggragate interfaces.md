@@ -17,13 +17,13 @@
 # SRC: https://gbe0.com/posts/windows/server-windows/create-loopback-interface-with-powershell/
 
 # Variables
-$loopback_name = 'Loopback'
+$loopbackName = "Loopback"
 # The name for the servers main network interface. This will be updated to allow weak
 # host send/recieve which is most likely required for the traffic to work for the loopback interface.
 $primary_interface = 'Ethernet'
 
 # NEW NIC
-$interface_loopback = Get-NetAdapter -Name $loopback_name
+$interface_loopback = Get-NetAdapter -Name $loopbackNname
 $interface_main = Get-NetAdapter -Name $primary_interface
 
 # IP
@@ -32,7 +32,7 @@ $loopback_ipv4 = '192.168.3.10'
 $loopback_ipv4_length = '24'
 
 # Set the IPv4 address
-New-NetIPAddress -InterfaceAlias $loopback_name -IPAddress $loopback_ipv4 `
+New-NetIPAddress -InterfaceAlias $loopbackName -IPAddress $loopback_ipv4 `
     -PrefixLength $loopback_ipv4_length -AddressFamily ipv4
 ````
 
