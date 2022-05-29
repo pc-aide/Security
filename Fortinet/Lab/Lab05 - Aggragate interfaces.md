@@ -23,7 +23,7 @@ $loopbackName = "Loopback"
 $primary_interface = 'Ethernet'
 
 # NEW NIC
-$interface_loopback = Get-NetAdapter -Name $loopbackNname
+$interface_loopback = Get-NetAdapter -Name $loopbackName
 $interface_main = Get-NetAdapter -Name $primary_interface
 
 # IP
