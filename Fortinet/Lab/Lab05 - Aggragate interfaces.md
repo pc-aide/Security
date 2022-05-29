@@ -7,7 +7,7 @@
 
 ---
 
-## loopback
+## ScriptExtension
 ````powershell
 # SRC: https://gbe0.com/posts/windows/server-windows/create-loopback-interface-with-powershell/
 
