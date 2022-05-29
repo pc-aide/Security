@@ -20,14 +20,16 @@
 $loopbackName = "Loopback"
 # The name for the servers main network interface. This will be updated to allow weak
 # host send/recieve which is most likely required for the traffic to work for the loopback interface.
-$primary_interface = 'Ethernet'
+$primary_interface = "Ethernet"
 
+# Pck Nuget
+#Find-PackageProvider -Name "NuGet" -AllVersions
+Install-PackageProvider -Name "NuGet" -RequiredVersion " 2.8.5.208" -Force
 # Modules
 Install-Module -Name LoopbackAdapter -MinimumVersion 1.2.0.0 -Force
 
 # New NIC
-Import-Module -Name LoopbackAdapter
-New-LoopbackAdapter -Name $loopback_name -Force
+New-LoopbackAdapter -Name $loopbackName -Force
 
 # NIC_loopback
 $interface_loopback = Get-NetAdapter -Name $loopbackName
@@ -39,7 +41,7 @@ $loopback_ipv4 = '192.168.3.10'
 $loopback_ipv4_length = '24'
 
 # Set the IPv4 address
-Set-NetIPAddress -InterfaceAlias $loopbackName -IPAddress $loopback_ipv4 `
+New-NetIPAddress -InterfaceAlias $loopbackName -IPAddress $loopback_ipv4 `
     -PrefixLength $loopback_ipv4_length -AddressFamily ipv4
 ````
 
