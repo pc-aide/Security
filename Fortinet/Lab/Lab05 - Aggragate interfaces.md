@@ -9,7 +9,7 @@
 
 ## loopback
 ````powershell
-* SRC: https://gbe0.com/posts/windows/server-windows/create-loopback-interface-with-powershell/
+# SRC: https://gbe0.com/posts/windows/server-windows/create-loopback-interface-with-powershell/
 # The name for the loopback adapter interface that will be created.
 $loopback_name = 'Loopback'
 # The name for the servers main network interface. This will be updated to allow weak
