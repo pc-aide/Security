@@ -39,7 +39,7 @@ $loopback_ipv4 = '192.168.3.10'
 $loopback_ipv4_length = '24'
 
 # Set the IPv4 address
-New-NetIPAddress -InterfaceAlias $loopbackName -IPAddress $loopback_ipv4 `
+Set-NetIPAddress -InterfaceAlias $loopbackName -IPAddress $loopback_ipv4 `
     -PrefixLength $loopback_ipv4_length -AddressFamily ipv4
 ````
 
