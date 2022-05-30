@@ -222,9 +222,9 @@
             "typeHandlerVersion": "1.10",
             "autoUpgradeMinorVersion": true,
             "settings": {
-              "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File loopback.ps1",
+              "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File loopback_and_gns3.ps1",
               "fileUris": [
-                "https://raw.githubusercontent.com/pc-aide/Windows/master/PowerShell/ARM/loopback.ps1"
+                "https://raw.githubusercontent.com/pc-aide/Windows/master/PowerShell/ARM/loopback_and_gns3.ps1"
               ]
             }
           }
