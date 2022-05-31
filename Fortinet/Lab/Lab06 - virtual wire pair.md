@@ -1,4 +1,4 @@
-# Lab06 
+# Lab06 - virtual wire pair
 
 ---
 
