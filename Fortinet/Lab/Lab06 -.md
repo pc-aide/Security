@@ -231,7 +231,7 @@
         }
     ],
     "variables": {
-        "PublicIPClient":"[concat(variables('clientName'),'-PublicIP')]",
+        "PublicIPClient":"[concat(variables('clientName'),'-PIP')]",
         "nsgClient": "[concat(variables('clientName'),'-nsg')]",
         "customData": "[concat('#cloud-config\n runcmd:\n - curl https://raw.githubusercontent.com/GNS3/gns3-server/master/scripts/remote-install.sh > gns3-remote-install.sh\n - bash gns3-remote-install.sh --with-iou --with-i386-repository')]",
         "clientName": "client",
