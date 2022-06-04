@@ -235,7 +235,7 @@
         "adminUserName": "paul",
         "customData": "[concat('#cloud-config\n runcmd:\n - curl https://raw.githubusercontent.com/GNS3/gns3-server/master/scripts/remote-install.sh > gns3-remote-install.sh\n - bash gns3-remote-install.sh --with-iou --with-i386-repository')]",
         "vmSize": "Standard_D2s_v3",
-        "clientNSG": "[concat(variables('clientName'),'-nsg')]",
+        "clientNSG": "[concat(variables('clientName'),'-nsg-nic')]",
         "clientName": "client",
         "clientScript": "[concat(variables('clientName'),'/','Script')]", //Only one version of an extension can be installed on a VM at a point in time. Specifying a custom script twice in the same Azure Resource Manager template for the same VM will fail. (https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows#extension-schema)
         "clientPIP":"[concat(variables('clientName'),'-pip')]",
