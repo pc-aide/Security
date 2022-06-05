@@ -223,9 +223,9 @@
             "typeHandlerVersion": "1.10",
             "autoUpgradeMinorVersion": true,
             "settings": {
-              "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File 01-06-2022.ps1",
+              "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File 05-06-2022.ps1",
               "fileUris": [
-                "https://raw.githubusercontent.com/pc-aide/Windows/master/PowerShell/ARM/gns3_%26_loopback/01-06-2022.ps1"
+                "https://raw.githubusercontent.com/pc-aide/Windows/master/PowerShell/ARM/gns3_%26_loopback/05-06-2022.ps1"
               ]
             }
           }
