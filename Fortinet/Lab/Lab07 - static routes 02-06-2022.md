@@ -259,7 +259,6 @@
 
 ## MGMT
 ````ios
-# default factory
 admin
 
 123
