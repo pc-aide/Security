@@ -279,4 +279,9 @@ edit port1
 set mode static
 end
 
+# hostname
+conf system global
+set hostname FG
+end
+
 ````
