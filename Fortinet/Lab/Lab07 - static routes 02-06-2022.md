@@ -268,7 +268,6 @@ admin
 config system interface
 edit port3
 set alias MGMT
-set role wan
 set mode static
 set ip 192.168.3.100/24
 set allow ping http
