@@ -1,4 +1,4 @@
-# Lab07 - static routes 02-06-2022
+# Lab07 - static routes
 
 ---
 
