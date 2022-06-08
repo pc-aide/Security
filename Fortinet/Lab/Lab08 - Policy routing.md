@@ -371,7 +371,7 @@ no shut
 exit
 
 # telnet
-line vty 04
+line vty 0 4
 transport input all
 password 123
 login
@@ -413,7 +413,7 @@ no shut
 exit
 
 # telnet
-line vty 04
+line vty 0 4
 transport input all
 password 123
 login
