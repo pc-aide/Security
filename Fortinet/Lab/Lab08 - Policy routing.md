@@ -11,7 +11,7 @@
 ````ps1
 # Deploy template (time: ~8m6s)
 $Deploy = New-AzResourceGroupDeployment -ResourceGroupName (New-AzResourceGroup -Name test -location canadacentral).ResourceGroupName `
--TemplateFile 'Lab008.json' -Name test
+-TemplateFile 'Lab08.json' -Name test
 
 # O/P 
 $Deploy |
