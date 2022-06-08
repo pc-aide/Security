@@ -7,6 +7,19 @@
 
 ---
 
+## ps1
+````ps1
+# Deploy template
+New-AzResourceGroupDeployment `
+-ResourceGroupName (New-AzResourceGroup -Name test -location canadacentral).ResourceGroupName `
+-TemplateFile 'Lab002 - outputs.json' -Name test
+
+# Delete RGTest
+Remove-azResourceGroup -name test -force
+````
+
+---
+
 ## ARM
 ````json
 {
@@ -17,6 +30,27 @@
             "type": "securestring",
             "minLength": 12
         }
+    },
+    "variables": {
+        "adminUserName": "paul",
+        "customData": "[concat('#cloud-config\n runcmd:\n - curl https://raw.githubusercontent.com/GNS3/gns3-server/master/scripts/remote-install.sh > gns3-remote-install.sh\n - bash gns3-remote-install.sh --with-iou --with-i386-repository')]",
+        "vmSize": "Standard_D2s_v3",
+        "clientNSG": "[concat(variables('clientName'),'-nsg-nic')]",
+        "clientName": "client",
+        "clientScript": "[concat(variables('clientName'),'/','Script')]", //Only one version of an extension can be installed on a VM at a point in time. Specifying a custom script twice in the same Azure Resource Manager template for the same VM will fail. (https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows#extension-schema)
+        "clientPIP":"[concat(variables('clientName'),'-pip')]",
+        "clientVnetID": "[resourceId('Microsoft.Network/virtualNetworks', 'test-vnet')]",
+        "clientSubnetRef": "[concat(variables('clientVnetID'), '/subnets/', variables('test-vnetSubnet1Name'))]",
+        "clientNicName": "[concat(variables('clientName'), '-nic')]",
+        "test-vnetPrefix": "10.0.0.0/16",
+        "test-vnetSubnet1Name": "Subnet-1",
+        "test-vnetSubnet1Prefix": "10.0.0.0/24",
+        "test-vnetSubnet2Name": "Subnet-2",
+        "test-vnetSubnet2Prefix": "10.0.1.0/24",
+        "gns3Name": "gns3",
+        "gns3VnetID": "[resourceId('Microsoft.Network/virtualNetworks', 'test-vnet')]",
+        "gns3SubnetRef": "[concat(variables('gns3VnetID'), '/subnets/', variables('test-vnetSubnet1Name'))]",
+        "gns3NicName": "[concat(variables('gns3Name'), '-nic')]"
     },
     "resources": [
         {
@@ -49,7 +83,7 @@
             "apiVersion": "2020-11-01",
             "location": "[resourceGroup().location]",
             "properties": {
-                "publicIPAllocationMethod": "Dynamic"
+                "publicIPAllocationMethod": "Static"
             }
         },
         {
@@ -125,7 +159,7 @@
             "name": "test-vnet",
             "type": "Microsoft.Network/virtualNetworks",
             "location": "[resourceGroup().location]",
-            "apiVersion": "2015-06-15",
+            "apiVersion": "2020-06-01",
             "properties": {
                 "addressSpace": {
                     "addressPrefixes": [
@@ -152,7 +186,7 @@
             "name": "[variables('gns3NicName')]",
             "type": "Microsoft.Network/networkInterfaces",
             "location": "[resourceGroup().location]",
-            "apiVersion": "2015-06-15",
+            "apiVersion": "2020-06-01",
             "dependsOn": [
                 "[concat('Microsoft.Network/virtualNetworks/', 'test-vnet')]"
             ],
@@ -231,26 +265,11 @@
           }
         }
    ],
-    "variables": {
-        "adminUserName": "paul",
-        "customData": "[concat('#cloud-config\n runcmd:\n - curl https://raw.githubusercontent.com/GNS3/gns3-server/master/scripts/remote-install.sh > gns3-remote-install.sh\n - bash gns3-remote-install.sh --with-iou --with-i386-repository')]",
-        "vmSize": "Standard_D2s_v3",
-        "clientNSG": "[concat(variables('clientName'),'-nsg-nic')]",
-        "clientName": "client",
-        "clientScript": "[concat(variables('clientName'),'/','Script')]", //Only one version of an extension can be installed on a VM at a point in time. Specifying a custom script twice in the same Azure Resource Manager template for the same VM will fail. (https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows#extension-schema)
-        "clientPIP":"[concat(variables('clientName'),'-pip')]",
-        "clientVnetID": "[resourceId('Microsoft.Network/virtualNetworks', 'test-vnet')]",
-        "clientSubnetRef": "[concat(variables('clientVnetID'), '/subnets/', variables('test-vnetSubnet1Name'))]",
-        "clientNicName": "[concat(variables('clientName'), '-nic')]",
-        "test-vnetPrefix": "10.0.0.0/16",
-        "test-vnetSubnet1Name": "Subnet-1",
-        "test-vnetSubnet1Prefix": "10.0.0.0/24",
-        "test-vnetSubnet2Name": "Subnet-2",
-        "test-vnetSubnet2Prefix": "10.0.1.0/24",
-        "gns3Name": "gns3",
-        "gns3VnetID": "[resourceId('Microsoft.Network/virtualNetworks', 'test-vnet')]",
-        "gns3SubnetRef": "[concat(variables('gns3VnetID'), '/subnets/', variables('test-vnetSubnet1Name'))]",
-        "gns3NicName": "[concat(variables('gns3Name'), '-nic')]"
+   "outputs": {
+       "publicIPAddress": {
+           "type": "string",
+           "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses',variables('clientPIP'))).IpAddress]"
+       }
     }
 }
 ````
