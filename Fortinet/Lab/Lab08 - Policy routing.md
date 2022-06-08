@@ -276,6 +276,37 @@ Remove-azResourceGroup -name test -force
 
 ---
 
+## FG
+````fortiOS
+admin
+
+123
+123
+
+# MGMT
+config system interface
+edit port3
+set alias MGMT
+set mode static
+set ip 192.168.3.100/24
+set allow ping http
+end
+
+# port 0 static
+config sys int
+set allow ping
+edit port1
+set mode static
+end
+
+# hostname
+conf system global
+set hostname FG
+end
+````
+
+---
+
 ## PC-1
 ````sh
 auto eth0
