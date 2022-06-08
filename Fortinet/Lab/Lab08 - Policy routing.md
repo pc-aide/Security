@@ -292,6 +292,12 @@ set ip 192.168.3.100/24
 set allow ping http
 end
 
+# remove first start wizard
+config system admin
+edit admin
+set gui-ignore-release-overview-version "6.4.1"
+end
+
 # port 0 static
 config sys int
 set allow ping
