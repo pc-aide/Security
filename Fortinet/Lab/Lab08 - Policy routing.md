@@ -305,8 +305,8 @@ end
 
 # port 0 static
 config sys int
-set allow ping
 edit port1
+set allow ping
 set mode static
 end
 
