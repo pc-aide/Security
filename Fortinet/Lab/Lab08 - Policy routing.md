@@ -15,7 +15,8 @@ $Deploy = New-AzResourceGroupDeployment -ResourceGroupName (New-AzResourceGroup 
 
 # 
 $Deploy |
-# how to get my client-pip.value from the outputs ?
+# how to get my client-pip.value from the outputs 
+# via select ?
 # $Deploy.outputs.client-pip.value
 select ProvisioningState,Timestamp,outputs |
 fl
