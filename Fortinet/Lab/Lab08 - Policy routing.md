@@ -327,4 +327,22 @@ iface eth0 inet static
 
 ## PC-2
 ````ios
+# ip add
+config t
+int gi0/0
+ip add 192.168.1.2 255.255.255.0
+no shut
+exit
+
+# no routing
+no ip routing
+ip default-gateway 192.168.1.100
+
+# hostname
+hostname PC-2
+end
+
+# save
+wr
+
 ````
