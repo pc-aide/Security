@@ -271,7 +271,7 @@ Remove-azResourceGroup -name NetworkWatcherRG -force
         }
    ],
    "outputs": {
-       "client-pip": {
+       "clientPip": {
            "type": "string",
            "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses',variables('clientPIP'))).IpAddress]"
        }
