@@ -268,7 +268,7 @@ Remove-azResourceGroup -name test -force
    "outputs": {
        "publicIPAddress": {
            "type": "string",
-           "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses',variables('clientPIP'))).IpAddress]"
+           "value": "[resourceId('Microsoft.Network/publicIPAddresses',variables('clientPIP')).IpAddress]"
        }
     }
 }
