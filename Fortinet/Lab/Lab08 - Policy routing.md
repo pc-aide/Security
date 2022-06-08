@@ -9,17 +9,15 @@
 
 ## ps1
 ````ps1
-# Deploy template (time: ~8min)
+# Deploy template (time: ~8m6s)
 $Deploy = New-AzResourceGroupDeployment -ResourceGroupName (New-AzResourceGroup -Name test -location canadacentral).ResourceGroupName `
 -TemplateFile 'Lab002 - outputs.json' -Name test
 
-# 
-$Deploy |
 # how to get my client-pip.value from the outputs 
 # via select ?
 # $Deploy.outputs.client-pip.value
-select ProvisioningState,Timestamp,outputs |
-fl
+$Deploy |
+select ProvisioningState,Timestamp,outputs | fl
 
 # Delete RGTest, 
 Remove-azResourceGroup -name test -force
