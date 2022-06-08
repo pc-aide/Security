@@ -13,12 +13,13 @@
 $Deploy = New-AzResourceGroupDeployment -ResourceGroupName (New-AzResourceGroup -Name test -location canadacentral).ResourceGroupName `
 -TemplateFile 'Lab002 - outputs.json' -Name test
 
-# how to get my client-pip.value from the outputs 
-# via select ?
-# $Deploy.outputs.client-pip.value
+# client-pip
+$ClinentPIP = $Deploy.outputs.clientPIP.value
+
+# O/P formated
 $Deploy |
 select -property ProvisioningState,Timestamp,
-@{n='client-pip';e={($_.outputs)}} | fl
+@{n='client-pip';e={($ClinentPIP)}} | fl
 
 # Delete RGTest, 
 Remove-azResourceGroup -name test -force
