@@ -13,7 +13,8 @@
 $Deploy = New-AzResourceGroupDeployment -ResourceGroupName (New-AzResourceGroup -Name test -location canadacentral).ResourceGroupName `
 -TemplateFile 'Lab002 - outputs.json' -Name test
 
-$Deploy
+# client-pip
+$Deploy.outputs.publicIPAddress.value
 
 # Delete RGTest, 
 Remove-azResourceGroup -name test -force
