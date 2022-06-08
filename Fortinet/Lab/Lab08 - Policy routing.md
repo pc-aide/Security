@@ -10,12 +10,14 @@
 ## ps1
 ````ps1
 # Deploy template
-New-AzResourceGroupDeployment `
--ResourceGroupName (New-AzResourceGroup -Name test -location canadacentral).ResourceGroupName `
+$Deploy = New-AzResourceGroupDeployment -ResourceGroupName (New-AzResourceGroup -Name test -location canadacentral).ResourceGroupName `
 -TemplateFile 'Lab002 - outputs.json' -Name test
 
-# Delete RGTest
+$Deploy
+
+# Delete RGTest, 
 Remove-azResourceGroup -name test -force
+Remove-azResourceGroup -name NetworkWatcherRG -force
 ````
 
 ---
