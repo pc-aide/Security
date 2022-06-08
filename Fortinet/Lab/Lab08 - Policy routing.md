@@ -19,7 +19,7 @@ p -Name test -location canadacentral).ResourceGroupName `
 # client-pip
 $Deploy | 
 select ProvisioningState,Timestamp,outputs | 
-# how the get only value of the client-pip ?
+# how to get the only value of the client-pip ?
 fl
 
 # Delete RGTest, 
