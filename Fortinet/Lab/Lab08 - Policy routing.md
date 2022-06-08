@@ -13,13 +13,10 @@
 $Deploy = New-AzResourceGroupDeployment -ResourceGroupName (New-AzResourceGroup -Name test -location canadacentral).ResourceGroupName `
 -TemplateFile 'Lab002 - outputs.json' -Name test
 
-# client-pip
-$ClinentPIP = $Deploy.outputs.clientPIP.value
-
-# O/P formated
+# O/P 
 $Deploy |
 select -property ProvisioningState,Timestamp,
-@{n='client-pip';e={($ClinentPIP)}} | fl
+@{n='client-pip';e={($Deploy.outputs.clientPIP.value)}} | fl
 
 # Delete RGTest, 
 Remove-azResourceGroup -name test -force
