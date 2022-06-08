@@ -16,7 +16,7 @@ $Deploy = New-AzResourceGroupDeployment -ResourceGroupName (New-AzResourceGroup 
 # O/P 
 $Deploy |
 select -property ProvisioningState,Timestamp,
-@{n='client-pip';e={($Deploy.outputs.clientPIP.value)}} | fl
+@{n='client-pip';e={($deploy.outputs.clientPip.value)}} | fl
 
 # Delete RGTest, 
 Remove-azResourceGroup -name test -force
