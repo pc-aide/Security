@@ -312,7 +312,7 @@ end
 
 # hostname
 conf system global
-set hostname FG
+set hostname FG-1
 end
 ````
 
