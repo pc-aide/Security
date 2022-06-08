@@ -10,17 +10,11 @@
 ## ps1
 ````ps1
 # Deploy template
-$Deploy | 
-select ProvisioningState,Timestamp,outputs | fl(New-AzResourceGrou
-# how the get only value of the client-pip ?
-p -Name test -location canadacentral).ResourceGroupName `
+$Deploy | select ProvisioningState,Timestamp,outputs | fl(New-AzResourceGroup -Name test -location canadacentral).ResourceGroupName `
 -TemplateFile 'Lab002 - outputs.json' -Name test
 
 # client-pip
-$Deploy | 
-select ProvisioningState,Timestamp,outputs | 
-# how to get the only value of the client-pip ?
-fl
+$Deploy | select ProvisioningState,Timestamp,outputs | fl
 
 # Delete RGTest, 
 Remove-azResourceGroup -name test -force
