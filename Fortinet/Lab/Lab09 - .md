@@ -265,14 +265,12 @@
 ## azcli
 ````bash
 # Template | time: ~9m
-#  create group
-clear
-az group create -n test -l canadacentral \
-  --query properties
 # Deploy
-az deployment group create -g test -n test \
+az deployment group create -n test \
+  -g $(az group create -n test -l canadacentral \
+  --query 'name' -o tsv) \
   -f Lab08.json #--query outputs
 
 # Del test group
-az group delete -n test --yes
+az group delete -n test -yes
 ````
