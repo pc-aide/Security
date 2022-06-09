@@ -264,11 +264,16 @@
 
 ## ps1
 ````ps1
+# adminPassword
+ $param = @{
+  adminPassword = "2!rU=3m+Um+hf^X^vNje"
+}
+
 # Deploy template (time: ~8m6s)
 $Deploy = New-AzResourceGroupDeployment -ResourceGroupName (
-New-AzResourceGroup -Name test -location canadacentral
-).ResourceGroupName `
--TemplateFile 'Lab08.json' -Name test
+  New-AzResourceGroup -Name test -location canadacentral
+  ).ResourceGroupName `
+-Name test -TemplateFile 'Lab08.json' -TemplateParameterObject $param
 
 # O/P 
 $Deploy |
@@ -277,4 +282,5 @@ select -property ProvisioningState,Timestamp,
 
 # Delete RGTest, 
 Remove-azResourceGroup -name test -force
+Remove-azResourceGroup -name NetworkWatcherRG -force
 ````
