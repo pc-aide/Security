@@ -266,10 +266,12 @@
 ````bash
 # Template | time: ~9m
 #  create group
-az group create -n test -l canadacentral
+clear
+az group create -n test -l canadacentral \
+  --query properties
 # Deploy
 az deployment group create -g test -n test \
-  -f Lab08.json
+  -f Lab08.json #--query outputs
 
 # Del test group
 az group delete -n test --yes
