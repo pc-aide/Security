@@ -262,25 +262,15 @@
 
 ---
 
-## ps1
-````ps1
-# adminPassword
- $param = @{
-  adminPassword = "2!rU=3m+Um+hf^X^vNje"
-}
+## azcli
+````azcli
+# Template | time: ~9m
+#  create group
+az group create -n test -l canadacentral
+# Deploy
+az deployment group create -g test -n test \
+  -f Lab08.json
 
-# Deploy template (time: ~8m6s)
-$Deploy = New-AzResourceGroupDeployment -ResourceGroupName (
-  New-AzResourceGroup -Name test -location canadacentral
-  ).ResourceGroupName `
--Name test -TemplateFile 'Lab08.json' -TemplateParameterObject $param
-
-# O/P 
-$Deploy |
-select -property ProvisioningState,Timestamp,
-@{n='client-pip';e={($deploy.outputs.clientPip.value)}} | fl
-
-# Delete RGTest, 
-Remove-azResourceGroup -name test -force
-Remove-azResourceGroup -name NetworkWatcherRG -force
+# Del test group
+az group delete -n test --yes
 ````
