@@ -264,6 +264,9 @@
 
 ## azcli
 ````bash
+# userName: email
+az login --username
+
 # Template | time: ~9m
 # Deploy
 az deployment group create -n test \
