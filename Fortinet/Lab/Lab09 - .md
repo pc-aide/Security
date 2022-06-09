@@ -263,7 +263,7 @@
 ---
 
 ## azcli
-````azcli
+````bash
 # Template | time: ~9m
 #  create group
 az group create -n test -l canadacentral
