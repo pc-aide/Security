@@ -282,3 +282,123 @@ az deployment group create -n test \
 # Del test group
 az group delete -n test --yes
 ````
+
+---
+
+## PC1
+````sh
+auto eth0
+iface eth0 inet static
+	address 192.168.1.1
+	netmask 255.255.255.0
+	gateway 192.168.1.100
+	up echo nameserver 8.8.8.8 > /etc/resolv.conf
+````
+
+---
+
+## PC2
+````ios
+# ip add
+config t
+int gi0/0
+ip add 192.168.1.2 255.255.255.0
+no shut
+exit
+
+# no routing
+no ip routing
+ip default-gateway 192.168.1.100
+
+# hostname
+hostname PC-2
+end
+
+# save
+wr
+
+````
+
+---
+
+## RT1
+````ios
+# hostname
+config t
+hostname RT-1
+
+# interfaces:
+int gi0/0 
+ip add 192.168.2.1 255.255.255.0
+no shut
+exit
+int loopback 1
+ip add 8.8.8.8 255.0.0.0
+no shut
+exit
+
+# telnet
+line vty 0 4
+transport input all
+password 123
+login
+exit
+
+# cred
+username admin privilege 15 password 123
+
+# web srv
+ip http server
+ip http secure-server
+ip http authentication local
+
+# route
+ip route 0.0.0.0 0.0.0.0 192.168.2.100
+end
+
+# save
+wr
+
+````
+
+---
+
+## RT2
+````ios
+# hostname
+config t
+hostname RT-2
+
+# interfaces:
+int gi0/0 
+ip add 192.168.2.2 255.255.255.0
+no shut
+exit
+int loopback 1
+ip add 8.8.8.8 255.0.0.0
+no shut
+exit
+
+# telnet
+line vty 0 4
+transport input all
+password 123
+login
+exit
+
+# cred
+username admin privilege 15 password 123
+
+# web srv
+ip http server
+ip http secure-server
+ip http authentication local
+
+# route
+ip route 0.0.0.0 0.0.0.0 192.168.2.100
+end
+
+# save
+wr
+
+````
