@@ -439,12 +439,6 @@ set alias LAN
 set role lan
 end
 
-# remove first start wizard
-config system admin
-edit admin
-set gui-ignore-release-overview-version "6.4.1"
-end
-
 # WAN
 config sys int
 edit port1
