@@ -56,4 +56,5 @@
 |n|name|e.g.|O/P|
 |-|----|----|---|
 |1|license|get syst status|[<img src="https://i.imgur.com/OdacxuB.png">](https://i.imgur.com/OdacxuB.png)|
-|2|routing-table|get router info routing-table static|[<img src="https://i.imgur.com/nr0AQjL.png">](https://i.imgur.com/nr0AQjL.png)|
+|2|static|get router info routing-table static|[<img src="https://i.imgur.com/nr0AQjL.png">](https://i.imgur.com/nr0AQjL.png)|
+|3|rip|get router info routing-tabgle rip|[<img src="https://i.imgur.com/ZyXfoqt.png">](https://i.imgur.com/ZyXfoqt.png)|  
