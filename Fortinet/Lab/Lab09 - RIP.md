@@ -474,8 +474,4 @@ conf system global
 set hostname FG-1
 end
 
-# hostname
-conf system global
-set hostname FG-1
-end
 ````
