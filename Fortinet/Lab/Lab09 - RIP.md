@@ -439,11 +439,6 @@ set alias LAN
 set role lan
 end
 
-admin
-
-123
-123
-
 # MGMT
 config system interface
 edit port3
