@@ -439,15 +439,6 @@ set alias LAN
 set role lan
 end
 
-# MGMT
-config system interface
-edit port3
-set alias MGMT
-set mode static
-set ip 192.168.3.100/24
-set allow ping http
-end
-
 # remove first start wizard
 config system admin
 edit admin
