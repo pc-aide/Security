@@ -270,14 +270,14 @@
 ## azcli
 ````bash
 # userName: email
-az login --username
+az login --username pluralsight-e8320245@prod.pluralsightlabs.com
 
 # Template | time: ~9m
 # Deploy
 az deployment group create -n test \
   -g $(az group create -n test -l canadacentral \
   --query 'name' -o tsv) \
-  -f Lab08.json #--query outputs
+  -f Lab.json --query 'properties.outputs.clientPip.value' -otsv
 
 # Del test group
 az group delete -n test --yes
@@ -401,4 +401,51 @@ end
 # save
 wr
 
+````
+
+---
+
+## FG
+````foriOS
+admin
+
+123
+123
+
+# MGMT
+config system interface
+edit port3
+set alias MGMT
+set mode static
+set ip 192.168.3.100/24
+set allow ping http
+end
+
+# remove first start wizard
+config system admin
+edit admin
+set gui-ignore-release-overview-version "6.4.1"
+end
+
+# port 0 WAN
+config sys int
+edit port0
+set allow ping
+set mode static
+set role WAN
+set alias WAN
+end
+
+# port 1 LAN
+config sys int
+edit port1
+set allow ping
+set mode static
+set role LAN
+set alias LAN
+
+# hostname
+conf system global
+set hostname FG-1
+end
 ````
