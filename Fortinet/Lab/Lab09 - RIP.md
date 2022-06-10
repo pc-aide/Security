@@ -280,5 +280,5 @@ az deployment group create -n test \
   -f Lab08.json #--query outputs
 
 # Del test group
-az group delete -n test -yes
+az group delete -n test --yes
 ````
