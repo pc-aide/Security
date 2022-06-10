@@ -413,7 +413,6 @@ admin
 123
 123
 
-# MGMT
 config system interface
 edit port3
 set alias MGMT
@@ -422,13 +421,11 @@ set ip 192.168.3.100/24
 set allow ping http
 end
 
-# remove first start wizard
 config system admin
 edit admin
 set gui-ignore-release-overview-version "6.4.1"
 end
 
-# WAN
 config sys int
 edit port1
 set allow ping
@@ -438,7 +435,7 @@ set role wan
 set alias WAN
 end
 
-# port LAN
+
 config sys int
 edit port2
 set allow ping
@@ -447,7 +444,6 @@ set ip 192.168.1.100/24
 set role lan
 set alias LAN
 
-# hostname
 conf system global
 set hostname FG-1
 end
