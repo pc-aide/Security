@@ -439,6 +439,41 @@ set alias LAN
 set role lan
 end
 
+admin
+
+123
+123
+
+# MGMT
+config system interface
+edit port3
+set alias MGMT
+set mode static
+set ip 192.168.3.100/24
+set allow ping http
+end
+
+# remove first start wizard
+config system admin
+edit admin
+set gui-ignore-release-overview-version "6.4.1"
+end
+
+# WAN
+config sys int
+edit port1
+set allow ping
+set mode static
+set ip 192.168.2.100/24
+set alias WAN
+set role wan
+end
+
+# hostname
+conf system global
+set hostname FG-1
+end
+
 # hostname
 conf system global
 set hostname FG-1
