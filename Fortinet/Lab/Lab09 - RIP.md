@@ -1,4 +1,9 @@
-# Lab09 - 
+# Lab09 - RiP
+
+---
+
+## Acronym
+* RIP - Routing Information Protocol
 
 ---
 
