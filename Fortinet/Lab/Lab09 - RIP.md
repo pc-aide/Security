@@ -277,7 +277,8 @@ az login --username pluralsight-e8320245@prod.pluralsightlabs.com
 az deployment group create -n test \
   -g $(az group create -n test -l canadacentral \
   --query 'name' -o tsv) \
-  -f Lab.json --query 'properties.outputs.clientPip.value' -otsv
+  -f Lab.json --query 'properties.outputs.clientPip.value' \
+  -otsv
 
 # Del test group
 az group delete -n test --yes
