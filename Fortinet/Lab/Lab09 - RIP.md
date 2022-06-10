@@ -428,18 +428,18 @@ edit admin
 set gui-ignore-release-overview-version "6.4.1"
 end
 
-# port 0 WAN
+# WAN
 config sys int
-edit port0
+edit port1
 set allow ping
 set mode static
 set role WAN
 set alias WAN
 end
 
-# port 1 LAN
+# port LAN
 config sys int
-edit port1
+edit port2
 set allow ping
 set mode static
 set role LAN
