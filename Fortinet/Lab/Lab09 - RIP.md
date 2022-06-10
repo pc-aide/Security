@@ -433,6 +433,7 @@ config sys int
 edit port1
 set allow ping
 set mode static
+set ip 192.168.2.100/24
 set role WAN
 set alias WAN
 end
@@ -442,6 +443,7 @@ config sys int
 edit port2
 set allow ping
 set mode static
+set ip 192.168.1.100/24
 set role LAN
 set alias LAN
 
