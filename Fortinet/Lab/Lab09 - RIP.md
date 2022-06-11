@@ -270,15 +270,14 @@
 ## azcli
 ````bash
 # userName: email
-az login --username pluralsight-e8320245@prod.pluralsightlabs.com
+az login --username
 
 # Template | time: ~9m
 # Deploy
 az deployment group create -n test \
   -g $(az group create -n test -l canadacentral \
   --query 'name' -o tsv) \
-  -f Lab.json --query 'properties.outputs.clientPip.value' \
-  -otsv
+  -f Lab.json --query '{clientPip:properties.outputs.clientPip.value,provisioningState:properties.provisioningState}' 
 
 # Del test group
 az group delete -n test --yes
