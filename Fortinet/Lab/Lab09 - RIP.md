@@ -447,6 +447,28 @@ config sys int
 		set role wan
 end
 
+# LAN_192.168.1.0 (db)
+config firewall address
+	edit "LAN_192.168.1.0"
+		set associated-interface port2
+		set subnet 192.168.1.0/24
+end
+
+# LAN2WAN
+config firewall policy
+	edit 1
+		set name "LAN2WAN"
+		set srcintf "port2"
+		set dstintf "port1"
+		set srcaddr "LAN_192.168.1.0"
+		set dstaddr "all"
+		set action accept
+		set service "PING" "TELNET" "TRACEROUTE"
+		set logtraffic all
+		set schedule "always"
+		set nat enable
+end
+
 # hostname
 conf system global
 set hostname FG-1
