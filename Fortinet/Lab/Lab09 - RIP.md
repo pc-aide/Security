@@ -298,7 +298,7 @@ iface eth0 inet static
 ---
 
 ## PC2
-````ios
+````ruby
 # ip add
 config t
 int gi0/0
@@ -322,7 +322,7 @@ wr
 ---
 
 ## RT1
-````ios
+````ruby
 # hostname
 config t
 hostname RT-1
@@ -364,7 +364,7 @@ wr
 ---
 
 ## RT2
-````ios
+````ruby
 # hostname
 config t
 hostname RT-2
