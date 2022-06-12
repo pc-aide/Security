@@ -369,7 +369,7 @@ end
 # ip add
 config t
 int gi0/0
-ip add 192.168.1.2 255.255.255.0
+ip add 192.168.1.1 255.255.255.0
 no shut
 exit
 
@@ -378,7 +378,7 @@ no ip routing
 ip default-gateway 192.168.1.100
 
 # hostname
-hostname PC-2
+hostname PC-1
 end
 
 # save
