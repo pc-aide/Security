@@ -25,6 +25,7 @@
 |2|dhcp server| show system dhcp server|[<img src="https://i.imgur.com/IQxDDWN.png">](https://i.imgur.com/IQxDDWN.png)|
 |3|full-config|show full-configuration||
 |4|static route|show router static|[<img src="https://i.imgur.com/zWSKCpz.png">](https://i.imgur.com/zWSKCpz.png)|
+|5|firewall policy|show firewall policy|[<img src="https://i.imgur.com/bMXmioM.png">](https://i.imgur.com/bMXmioM.png)|
 
 ---
 
@@ -38,13 +39,14 @@
 |5|the idle timeout(sec)|config system global<br/>set admin-lockout-duration 600<br/>end|[<img src="https://i.imgur.com/2lF9tox.png">](https://i.imgur.com/2lF9tox.png)|
 |6|static route|configure router static <br/> edit 1 <br/> set device port1 <br/> set gateway 192.168.122.1 <br/> end | [<img src="https://i.imgur.com/mXDqUaJ.png">](https://i.imgur.com/mXDqUaJ.png) <br/> Σroute: <br/> [<img src="https://i.imgur.com/ZivIB96.png">](https://i.imgur.com/ZivIB96.png) <br> interface: <br/> [<img src="https://i.imgur.com/gk2q9YW.png">](https://i.imgur.com/gk2q9YW.png) <br/> gateway: <br/> [<img src="https://i.imgur.com/DHnC1DO.png">](https://i.imgur.com/DHnC1DO.png) <br/> checkUp: <br/> [<img src="https://i.imgur.com/otrjSMu.png">](https://i.imgur.com/otrjSMu.png) <br/> test: <br/> [<img src="https://i.imgur.com/YhEq9xg.png">](https://i.imgur.com/YhEq9xg.png) |
 |7|hostname|config sys global <br/><br/> set hostname FG <br/><br/> end|[<img src="https://i.imgur.com/jLbvA0p.png">](https://i.imgur.com/jLbvA0p.png)|
+|8|loopback|config sys inter <br/> edit loopback1 <br/> set vdom root <br/> set ip 1.1.1.1/8 set allow ping <br/> set type loopback <br/> next|[<img src="https://i.imgur.com/V5F7kAH.png">](https://i.imgur.com/V5F7kAH.png)|
   
 ---
   
 ### firewall
 |n|name|e.g.|O/P|
 |-|----|----|---|
-|1|policy|config firewall policy <br/> ||
+|1|policy|config firewall policy <br/> edt 1 <br/> set name "WAN2LAN" <br/> set srcintf "port1" <br/>  set dstintf "port2" <br/>  set srcaddr "all" <br/> set dstaddr "all" <br/> set action accept <br/> set schedule "always" <br/> set service "PING" "TRACEROUTE" <br/> set logtraffic all <br/> next |[<img src="https://i.imgur.com/WcoUjGI.png">](https://i.imgur.com/WcoUjGI.png)|
 
 ---
 
