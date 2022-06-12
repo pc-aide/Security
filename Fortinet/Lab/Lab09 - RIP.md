@@ -285,7 +285,8 @@ az group delete -n test --yes
 
 # list account
 # --query "[].{email:user.name,isDefault:isDefault}"
-az account list --query "[].{email:user.name,isDefault:isDefault}"
+# --query "[? to_string(isDefault) == 'true']"
+az account list --query "[? to_string(isDefault) == 'true']"
 # lout out
 az logout --username
 ````
