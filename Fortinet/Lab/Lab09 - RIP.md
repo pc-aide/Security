@@ -8,7 +8,7 @@
 ---
 
 ## Diagram
-[<img src="https://i.imgur.com/COopGcr.png">](https://i.imgur.com/COopGcr.png)
+[<img src="https://i.imgur.com/Z0Irw1E.png">](https://i.imgur.com/Z0Irw1E.png)
 
 ---
 
