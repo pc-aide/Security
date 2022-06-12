@@ -4,6 +4,7 @@
 
 ## Acronym
 * OSPF - Open Shortest Path First
+* vdom - virtual domain
 
 ---
 
@@ -291,7 +292,7 @@ az logout --username
 
 ---
 
-## FG
+## FG-1
 ````ruby
 admin
 
@@ -305,6 +306,27 @@ set alias MGMT
 set mode static
 set ip 192.168.3.100/24
 set allow ping http
+end
+
+# loopback 1,2,3
+config sys int
+edit loopback1
+set ip 1.1.1.1/8
+set type loopback
+set allow ping
+set vdom root
+next
+edit loopback2
+set ip 2.2.2.2/8
+set type loopback
+set allow ping
+set vdom root
+next
+edit loopback3
+set ip 3.3.3.3/8
+set type loopback
+set allow ping
+set vdom root
 end
 
 # remove first start wizard
@@ -353,6 +375,19 @@ set service "PING" "TELNET" "TRACEROUTE"
 set logtraffic all
 set schedule "always"
 set nat enable
+next
+# WAN2LAN
+edit 2
+set name "WAN2LAN
+set srcintf "port1"
+set dstintf "port2"
+set srcaddr "all"
+set dstaddr "all"
+set action accept
+set service "PING" "TRACEROUTE"
+set logtraffic all
+set schedule "always"
+set nat enable
 end
 
 # hostname
@@ -394,13 +429,21 @@ wr
 config t
 hostname RT-1
 
-# interfaces:
+# interfaces gi0/0:
 int gi0/0 
 ip add 192.168.2.1 255.255.255.0
 no shut
 exit
 int loopback 1
 ip add 8.8.8.8 255.0.0.0
+no shut
+exit
+int loopback 2
+ip add 9.9.9.9 255.0.0.0
+no shut
+exit
+int loopback 3
+ip add 19.9.9.9 255.0.0.0
 no shut
 exit
 
