@@ -378,7 +378,7 @@ set nat enable
 next
 # WAN2LAN
 edit 2
-set name "WAN2LAN
+set name "WAN2LAN"
 set srcintf "port1"
 set dstintf "port2"
 set srcaddr "all"
