@@ -313,22 +313,58 @@ edit admin
 set gui-ignore-release-overview-version "6.4.1"
 end
 
-# port 0 static
+# LAN
+config sys int
+edit port2
+set allow ping
+set mode static
+set ip 192.168.1.100/24
+set alias LAN
+set role lan
+end
+
+# WAN
 config sys int
 edit port1
 set allow ping
 set mode static
+set ip 192.168.2.100/24
+set alias WAN
+set role wan
+end
+
+# LAN_192.168.1.0 (db)
+config firewall address
+edit "LAN_192.168.1.0"
+set associated-interface port2
+set subnet 192.168.1.0/24
+end
+
+# LAN2WAN
+config firewall policy
+edit 1
+set name "LAN2WAN"
+set srcintf "port2"
+set dstintf "port1"
+set srcaddr "LAN_192.168.1.0"
+set dstaddr "all"
+set action accept
+set service "PING" "TELNET" "TRACEROUTE"
+set logtraffic all
+set schedule "always"
+set nat enable
 end
 
 # hostname
 conf system global
 set hostname FG-1
 end
+
 ````
 
 ---
 
-## PC-2
+## PC-1
 ````ruby
 # ip add
 config t
