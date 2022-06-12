@@ -447,21 +447,6 @@ ip add 19.9.9.9 255.0.0.0
 no shut
 exit
 
-# telnet
-line vty 0 4
-transport input all
-password 123
-login
-exit
-
-# cred
-username admin privilege 15 password 123
-
-# web srv
-ip http server
-ip http secure-server
-ip http authentication local
-
 # route
 ip route 0.0.0.0 0.0.0.0 192.168.2.100
 end
@@ -488,21 +473,6 @@ int loopback 1
 ip add 8.8.8.8 255.0.0.0
 no shut
 exit
-
-# telnet
-line vty 0 4
-transport input all
-password 123
-login
-exit
-
-# cred
-username admin privilege 15 password 123
-
-# web srv
-ip http server
-ip http secure-server
-ip http authentication local
 
 # route
 ip route 0.0.0.0 0.0.0.0 192.168.2.100
