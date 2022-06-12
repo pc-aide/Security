@@ -271,17 +271,23 @@
 ## azcli
 ````bash
 # userName: email
-az login --username
+az login --username 
 
 # Template | time: ~9m
 # Deploy
 az deployment group create -n test \
   -g $(az group create -n test -l canadacentral \
   --query 'name' -o tsv) \
-  -f Lab.json --query '{clientPip:properties.outputs.clientPip.value,provisioningState:properties.provisioningState}' 
+  -f Lab.json --query '{clientPip:properties.outputs.clientPip.value,provisioningState:properties.provisioningState}'
 
 # Del test group
 az group delete -n test --yes
+
+# list account
+# --query "[].{email:user.name,isDefault:isDefault}"
+az account list --query "[].{email:user.name,isDefault:isDefault}"
+# lout out
+az logout --username
 ````
 
 ---
