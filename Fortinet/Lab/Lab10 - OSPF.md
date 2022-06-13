@@ -124,7 +124,10 @@
                 "osProfile": {
                     "computerName": "[variables('clientName')]",
                     "adminUsername": "[variables('adminUserName')]",
-                    "adminPassword": "[parameters('adminPassword')]"
+                    "adminPassword": "[parameters('adminPassword')]",
+                    "windowsConfiguration": {
+                      "timeZone": "Eastern Standard Time" //[System.TimezoneInfo]::getSystemTimeZones() or tzutil /l
+                    }
                 },
                 "storageProfile": {
                     "imageReference": {
