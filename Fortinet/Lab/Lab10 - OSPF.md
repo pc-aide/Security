@@ -419,7 +419,7 @@ set dstintf "port1"
 set srcaddr "LAN_192.168.1.0"
 set dstaddr "all"
 set action accept
-set service "PING" "TELNET" "TRACEROUTE"
+set service "PING" "TRACEROUTE"
 set logtraffic all
 set schedule "always"
 set nat enable
