@@ -9,6 +9,7 @@
 ---
 
 ## Diagram
+[<img src="https://i.imgur.com/VWAqB6w.png">](https://i.imgur.com/VWAqB6w.png)
 
 ---
 
