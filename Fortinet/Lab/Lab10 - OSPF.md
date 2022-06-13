@@ -358,19 +358,19 @@ end
 
 # loopback 1,2,3
 config sys int
-edit loopback1
+edit Loopback1
 set ip 1.1.1.1/8
 set type loopback
 set allow ping
 set vdom root
 next
-edit loopback2
+edit Loopback2
 set ip 2.2.2.2/8
 set type loopback
 set allow ping
 set vdom root
 next
-edit loopback3
+edit Loopback3
 set ip 3.3.3.3/8
 set type loopback
 set allow ping
