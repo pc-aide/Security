@@ -2,11 +2,8 @@
 
 ---
 
-## Acronym
-
----
-
 ## Diagram
+[<img src="https://i.imgur.com/4JKNqC2.png">](https://i.imgur.com/4JKNqC2.png)
 
 ---
 
