@@ -428,7 +428,7 @@ next
 edit 2
 set name "WAN2LAN"
 set srcintf "port1"
-set dstintf "port2"
+set dstintf "port2" "Loopback1" "Loopback2" "Loopback3"
 set srcaddr "all"
 set dstaddr "all"
 set action accept
