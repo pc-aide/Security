@@ -493,7 +493,7 @@ exit
 int loopback 3
 ip add 19.9.9.9 255.0.0.0
 no shut
-exit
+end
 
 # save
 wr
@@ -516,7 +516,7 @@ exit
 int loopback 1
 ip add 8.8.8.8 255.0.0.0
 no shut
-exit
+end
 
 # save
 wr
