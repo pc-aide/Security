@@ -13,6 +13,50 @@
 
 ---
 
+## synopsis
+````md
+Goal
+1. New OSPF
+    * Router ID: 1.1.1.1
+    * Areas\NewID: 0.0.0.0
+    * Network\New: Area: 0.0.0.0
+        * IP/Netmask: 1.0.0.0/8
+        * IP/Netmask: 2.0.0.0/8
+        * IP/Netmask: 3.0.0.0/8
+        * IP/Netmask: 192.168.2.0/24
+    * Interfaces\Add
+        * Name: WAN
+        * Interface: WAN
+        * Cost: 0
+        * Timer\Hello Inteval: 10s
+        * Timer\Dead Interval: 40s
+
+2. R1 ping 1.1.1.1 or ping 2.2.2.2 - no reply
+
+3. PC2 ping 8.8.8.8 - no reply
+
+4. (RTs): router ospf 1
+    * network 0.0.0.0 0.0.0.0 area 0
+
+5. RT1\show ip route ospf
+    * ping 1.1.1.1 or 2.2.2.2 or 3.3.3.3 - reply
+
+6. PC2\ping 8.8.8.8 or 9.9.9.9 - reply
+
+7. PortWAN: Packet capture
+    * filter (ctrl+/): ospf - info\HelloPacket
+
+8. PC2\show ip route ospf
+
+9. RT-2\show ip route ospf
+
+10. FG\Dashboard\Network\Routing\
+    * cli console: get router info routing-table ospf
+    * ping 8.8.8.8 & traceroute 8.8.8.8
+````
+
+---
+
 ## ARM
 ````json
 {
