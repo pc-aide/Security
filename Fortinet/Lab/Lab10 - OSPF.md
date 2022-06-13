@@ -33,26 +33,27 @@ Goal
 
 2. R1 ping 1.1.1.1 or ping 2.2.2.2 - no reply
 
-3. PC2 ping 8.8.8.8 - no reply
+3. PC1 ping 8.8.8.8 - no reply
 
 4. (RTs): router ospf 1
     * network 0.0.0.0 0.0.0.0 area 0
 
 5. RT1\show ip route ospf
-    * ping 1.1.1.1 or 2.2.2.2 or 3.3.3.3 - reply
+    * ping 1.1.1.1 or 2.2.2.2 or 3.3.3.3 - reply 
 
-6. PC2\ping 8.8.8.8 or 9.9.9.9 - reply
+6. PC1\ping 8.8.8.8 or 9.9.9.9 - reply
 
 7. PortWAN: Packet capture
     * filter (ctrl+/): ospf - info\HelloPacket
+			* 224.0.0.5 - multicast hello packet
 
-8. PC2\show ip route ospf
+8. PC1\show ip route ospf
 
 9. RT-2\show ip route ospf
 
 10. FG\Dashboard\Network\Routing\
     * cli console: get router info routing-table ospf
-    * ping 8.8.8.8 & traceroute 8.8.8.8
+    * ping 8.8.8.8 
 ````
 
 ---
