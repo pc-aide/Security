@@ -273,7 +273,7 @@
 ## ps1
 ````ps1
 <#
-  timpe: ~8 minutes 41 seconds
+  timp: ~8 minutes 41 seconds
 #>
 
 # Variables
