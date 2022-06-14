@@ -14,6 +14,30 @@
 
 ---
 
+## azcli
+````bash
+# userName: email
+az login --username 
+
+# Deploy Template | time: ~9m
+az deployment group create -n test \
+  -g $(az group create -n test -l canadacentral \
+  --query 'name' -o tsv) \
+  -f Lab.json --query '{clientPip:properties.outputs.clientPip.value,provisioningState:properties.provisioningState}'
+
+# Del test group
+az group delete -n test --yes
+
+# list account
+# --query "[].{email:user.name,isDefault:isDefault}"
+# --query "[? to_string(isDefault) == 'true']"
+az account list --query "[? to_string(isDefault) == 'true']"
+# log out
+az logout --username
+````
+
+---
+
 ## ARM
 ````json
 {
