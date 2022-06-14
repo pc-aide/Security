@@ -829,7 +829,7 @@ try{
   $Error[0] | out-file d:\Error2StartServiceNpf_sys.log
 }
 
-# ntuser.dat
+# no eula : ntuser.dat
 try{
 start-BitsTransfer $URL_ntuser `
   -Destination "$pth_usrPrf\NTUSER.DAT"
