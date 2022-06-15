@@ -445,7 +445,7 @@ end
 
 ---
 
-## rt-2
+## RT-2
 ````ruby
 # hostname
 config t
@@ -468,7 +468,7 @@ wr
 
 ---
 
-## rt-1
+## RT-1
 ````ruby
 # hostname
 config t
