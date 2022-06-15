@@ -20,13 +20,13 @@
 az login --username 
 
 # Deploy Template | time: ~9m
-az deployment group create -n test \
-  -g $(az group create -n test -l canadacentral \
+az deployment group create -n gns3 \
+  -g $(az group create -n gns3 -l canadacentral \
   --query 'name' -o tsv) \
   -f Lab.json --query '{clientPip:properties.outputs.clientPip.value,provisioningState:properties.provisioningState}'
 
 # Del test group
-az group delete -n test --yes
+az group delete -n gns3 --yes
 
 # list account
 # --query "[].{email:user.name,isDefault:isDefault}"
@@ -53,11 +53,12 @@ az logout --username
         "adminUserName": "paul",
         "customData": "[concat('#cloud-config\n runcmd:\n - curl https://raw.githubusercontent.com/GNS3/gns3-server/master/scripts/remote-install.sh > gns3-remote-install.sh\n - bash gns3-remote-install.sh --with-iou --with-i386-repository')]",
         "vmSize": "Standard_D2s_v3",
+        "vnetName": "gns3-vnet",
         "clientNSG": "[concat(variables('clientName'),'-nsg-nic')]",
         "clientName": "client",
         "clientScript": "[concat(variables('clientName'),'/','Script')]", //Only one version of an extension can be installed on a VM at a point in time. Specifying a custom script twice in the same Azure Resource Manager template for the same VM will fail. (https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows#extension-schema)
         "clientPIP":"[concat(variables('clientName'),'-pip')]",
-        "clientVnetID": "[resourceId('Microsoft.Network/virtualNetworks', 'test-vnet')]",
+        "clientVnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('vnetName'))]",
         "clientSubnetRef": "[concat(variables('clientVnetID'), '/subnets/', variables('test-vnetSubnet1Name'))]",
         "clientNicName": "[concat(variables('clientName'), '-nic')]",
         "test-vnetPrefix": "10.0.0.0/16",
@@ -66,7 +67,7 @@ az logout --username
         "test-vnetSubnet2Name": "Subnet-2",
         "test-vnetSubnet2Prefix": "10.0.1.0/24",
         "gns3Name": "gns3",
-        "gns3VnetID": "[resourceId('Microsoft.Network/virtualNetworks', 'test-vnet')]",
+        "gns3VnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('vnetName'))]",
         "gns3SubnetRef": "[concat(variables('gns3VnetID'), '/subnets/', variables('test-vnetSubnet1Name'))]",
         "gns3NicName": "[concat(variables('gns3Name'), '-nic')]"
     },
@@ -111,7 +112,7 @@ az logout --username
             "apiVersion": "2020-11-01",
             "dependsOn": [
                 "[concat('Microsoft.Network/networkSecurityGroups/', variables('clientNSG'))]",
-                "[concat('Microsoft.Network/virtualNetworks/', 'test-vnet')]",
+                "[concat('Microsoft.Network/virtualNetworks/', variables('vnetName'))]",
                 "[concat('Microsoft.Network/publicIpAddresses/',variables('clientPIP'))]"
             ],
             "properties": {
@@ -177,7 +178,7 @@ az logout --username
             }
         },
         {
-            "name": "test-vnet",
+            "name": "[variables('vnetName')]",
             "type": "Microsoft.Network/virtualNetworks",
             "location": "[resourceGroup().location]",
             "apiVersion": "2020-06-01",
@@ -209,7 +210,7 @@ az logout --username
             "location": "[resourceGroup().location]",
             "apiVersion": "2020-06-01",
             "dependsOn": [
-                "[concat('Microsoft.Network/virtualNetworks/', 'test-vnet')]"
+                "[concat('Microsoft.Network/virtualNetworks/', variables('vnetName'))]"
             ],
             "properties": {
                 "ipConfigurations": [
@@ -278,7 +279,7 @@ az logout --username
             "typeHandlerVersion": "1.10",
             "autoUpgradeMinorVersion": true,
             "settings": {
-              "commandToExecute": "powershell -nop -c \"iex(New-Object Net.WebClient).DownloadString('https://pastebin.com/raw/yYWmrPM5')\""
+              "commandToExecute": "powershell -nop -c \"iex(New-Object Net.WebClient).DownloadString('https://pastebin.com/raw/xijwGbhH')\""
             }
           }
         }
