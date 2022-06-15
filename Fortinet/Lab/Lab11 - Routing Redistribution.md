@@ -1565,3 +1565,62 @@ set hostname FG-1
 end
 
 ````
+
+---
+
+## pc-1
+````ruby
+# ip add
+config t
+int gi0/0
+ip add 192.168.1.1 255.255.255.0
+no shut
+exit
+
+# no routing
+no ip routing
+ip default-gateway 192.168.1.100
+
+# hostname
+hostname PC-1
+end
+
+# save
+wr
+````
+
+---
+
+## rt-1
+````ruby
+# hostname
+config t
+hostname RT-1
+
+# interfaces gi0/0:
+int gi0/0 
+ip add 192.168.2.1 255.255.255.0
+no shut
+exit
+int loopback 1
+ip add 8.8.8.8 255.0.0.0
+no shut
+exit
+int loopback 2
+ip add 9.9.9.9 255.0.0.0
+no shut
+exit
+int loopback 3
+ip add 19.9.9.9 255.0.0.0
+no shut
+exit
+
+# ospf
+router ospf 1
+network 0.0.0.0 0.0.0.0 area 0
+end
+
+# save
+wr
+
+````
