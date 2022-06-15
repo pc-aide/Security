@@ -666,23 +666,27 @@ $primary_interface = "Ethernet"
 # Find-PackageProvider -Name "NuGet" -AllVersions
 Install-PackageProvider -Name "NuGet" -RequiredVersion " 2.8.5.208" -Force
 # Modules
-Install-Module -Name LoopbackAdapter -MinimumVersion 1.2.0.0 -Force
+try{
+  Install-Module -Name LoopbackAdapter -MinimumVersion 1.2.0.0 -Force
+  # New NIC
+  New-LoopbackAdapter -Name $loopbackName -Force
 
-# New NIC
-New-LoopbackAdapter -Name $loopbackName -Force
+  # NIC_loopback
+  $interface_loopback = Get-NetAdapter -Name $loopbackName
+  $interface_main = Get-NetAdapter -Name $primary_interface
 
-# NIC_loopback
-$interface_loopback = Get-NetAdapter -Name $loopbackName
-$interface_main = Get-NetAdapter -Name $primary_interface
+  # IP
+  $loopback_ipv4 = '192.168.3.10'
+  # Subnet mask
+  $loopback_ipv4_length = '24'
 
-# IP
-$loopback_ipv4 = '192.168.3.10'
-# Subnet mask
-$loopback_ipv4_length = '24'
-
-# Set the IPv4 address
-New-NetIPAddress -InterfaceAlias $loopbackName -IPAddress $loopback_ipv4 `
-  -PrefixLength $loopback_ipv4_length -AddressFamily ipv4
+  # Set the IPv4 address
+  New-NetIPAddress -InterfaceAlias $loopbackName -IPAddress $loopback_ipv4 `
+    -PrefixLength $loopback_ipv4_length -AddressFamily ipv4
+  
+}catch{
+  $Error[0] | out-file d:\ErrorInstallModuleLoopback.txt
+}
 
 # UserProfile
 cd $pth_usrPrf
