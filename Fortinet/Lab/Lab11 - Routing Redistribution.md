@@ -1534,6 +1534,8 @@ set schedule "always"
 set nat enable
 end
 
+# ospf
+
 # hostname
 conf system global
 set hostname FG-1
