@@ -1624,3 +1624,33 @@ end
 wr
 
 ````
+
+---
+
+---
+
+## rt-2
+````ruby
+# hostname
+config t
+hostname RT-2
+
+# interfaces:
+int gi0/0 
+ip add 192.168.2.2 255.255.255.0
+no shut
+exit
+int loopback 1
+ip add 8.8.8.8 255.0.0.0
+no shut
+exit
+
+# ospf
+router ospf 1
+network 0.0.0.0 0.0.0.0 area 0
+end
+
+# save
+wr
+
+````
