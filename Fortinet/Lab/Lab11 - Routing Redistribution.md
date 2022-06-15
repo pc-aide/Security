@@ -1554,8 +1554,6 @@ set prefix 1.0.0.0 255.0.0.0
 next
 edit 2
 set prefix 192.168.2.0 255.255.255.0
-next
-end
 end
 
 # hostname
