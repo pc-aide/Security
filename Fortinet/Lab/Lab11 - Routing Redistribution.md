@@ -1473,10 +1473,11 @@ set allow ping
 set vdom root
 end
 
-# remove first start wizard
+# remove first start wizard + dashboard-template
 config system admin
 edit admin
 set gui-ignore-release-overview-version "6.4.1"
+set gui-default-dashboard-template "minimal"
 end
 
 # LAN
