@@ -1535,6 +1535,25 @@ set nat enable
 end
 
 # ospf
+config router ospf
+set router-id 1.1.1.1
+config area
+edit 0.0.0.0
+next
+end
+config ospf-interface
+edit "WAN"
+set interface "port1"
+set dead-interval 40
+set hello-interval 10
+next
+end
+config network
+edit 1
+set prefix 1.0.0.0 255.0.0.0
+next
+end
+end
 
 # hostname
 conf system global
