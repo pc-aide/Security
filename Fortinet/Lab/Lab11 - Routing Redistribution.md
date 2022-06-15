@@ -365,6 +365,12 @@ $URL_ScriptLogon = "https://raw.githubusercontent.com/pc-aide/Windows/master/Pow
 # NTUSER.DAT
 $URL_ntuser = "https://master.dl.sourceforge.net/project/images/NTUSER.DAT/NTUSER.DAT?viasf=1"
 
+# loopback
+$loopbackName = "Loopback"
+# loopback nic
+$primary_interface = "Ethernet"
+
+# files
 # gns3_gui.ini
 $fil_gns3_gui = @"
 {
@@ -656,11 +662,6 @@ $fil_test_gns3 = @"
     "zoom": 100
 }
 "@
-
-# loopback
-$loopbackName = "Loopback"
-# loopback nic
-$primary_interface = "Ethernet"
 
 # Pckg Nuget
 # Find-PackageProvider -Name "NuGet" -AllVersions
