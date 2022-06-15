@@ -1476,8 +1476,9 @@ end
 # remove first start wizard + dashboard-template
 config system admin
 edit admin
-set gui-ignore-release-overview-version "6.4.1"
 set gui-default-dashboard-template "minimal"
+set gui-ignore-release-overview-version "6.4.1"
+next
 end
 
 # LAN
