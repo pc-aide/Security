@@ -43,10 +43,26 @@
   
 ---
   
+### system admin
+|n|name|e.g.|O/P|
+|-|----|----|---|
+|1|start wizard| config system admin <br/> edit admin <br/> set gui-ignore-release-overview-version "6.4.1" <br/> end ||
+|2|dashboard| config system admin <br/> edit admin <br/> set gui-default-dashboard-template "minimal" <br/> end ||
+
+  
+---
+  
 ### firewall
 |n|name|e.g.|O/P|
 |-|----|----|---|
 |1|policy|config firewall policy <br/> edt 1 <br/> set name "WAN2LAN" <br/> set srcintf "port1" <br/>  set dstintf "port2" <br/>  set srcaddr "all" <br/> set dstaddr "all" <br/> set action accept <br/> set schedule "always" <br/> set service "PING" "TRACEROUTE" <br/> set logtraffic all <br/> next |[<img src="https://i.imgur.com/WcoUjGI.png">](https://i.imgur.com/WcoUjGI.png)|
+  
+---
+  
+### router
+|n|name|e.g.|O/P|
+|-|----|----|---|
+|1|ospf|configure router ospf <br/> set router-id 1.1.1.1 <br/> config area <br/> edit 0.0.0.0 <br/> next <br/> end <br/> config ospf-interface <br/> edit "WAN" <br/> set interface "port1" <br/> set dead-interval 40 <br/> set hello-intervalle 10 <br/> next <br/> end <br/> config network <br/> edit 1 <br/> set prefix 1.0.0.0 255.0.0.0 <br/> next edit 2 <br/> set prefix 192.168.2.0 255.255.255.0 <br/> end <br/> end ||
 
 ---
 
