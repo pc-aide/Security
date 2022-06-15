@@ -9,7 +9,21 @@
 
 ## Synopsis
 ````md
+1. rt-2:
+    * show ip route ospf
+    * ping 1.1.1.1 - reply
+    * ping 2.2.2.2 - no reply
+    * ping 3.3.3.3 - no reply
 
+2. fg-1
+    * ospf\Redistribute\toggleOn: connected: 2
+
+3. rt-2
+    * ping 1.1..1 or 3.3.3.3 - reply
+    * show ip route ospf
+    * ping 192.168.1.1 - reply
+    * ping 192.168.2.1 - reply
+    * traceroute 192.168.1.1
 ````
 
 ---
