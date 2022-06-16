@@ -67,7 +67,7 @@ az logout --username
   * network 8.0.0.0 mask 255.0.0.0
   * show ip bgp nighbor
   * show ip bgp
-  * ping 1.1.1.1 - 
+  * ping 1.1.1.1 - no reply 
   
 5. fg-1
   * gui\dashboard\network\routing
