@@ -62,29 +62,18 @@ az logout --username
     * 192.168.2.0/24
     
 2. RTs
-  * router bgp 2 - 2 ref 192.168.2.2 remote as 2 in the fg-1
-  * neighbor 192.168.2.100 remote-as 1 - 1 ref local as of the fg-1
+  * ping 1.1.1.1 or ping 2.2.2.2 - no reply normal
+  * add bgp:
+    * router bgp 2 - 2 ref 192.168.2.2 remote as 2 in the fg-1
+    * neighbor 192.168.2.100 remote-as 1 - 1 ref local as of the fg-1
+    * network <loopback_each_rt> mask 255.0.0.0
+  * ping 1.1.1.1 or 2.2.2.2 or 3.3.3.3 - repy
   
 3. fg-1
   * gui\dashboard\network\routing
     * new entry: bgp for each add bgp in the routers - nothing with bgp
-
-4. rt-2
-  * network 8.0.0.0 mask 255.0.0.0
-  * show ip bgp nighbor
-  * show ip bgp
-  * ping 1.1.1.1 - no reply 
-  
-5. fg-1
-  * gui\dashboard\network\routing
-    * new entry: bgp for each add bgp in the routers
-  
-6. rt-1
-  * network 9.0.0.0 mask 255.0.0.0
-  * network 19.0.0.0 mask 255.0.0.0
-  * ping 1.1.1.1 - reply
-  
-7. fg-1
+   
+4. fg-1
   * gui\dashboard\network\routing
     * new entry: bgp for each add bgp in the routers
     * cli\get router info routing-table bgp
