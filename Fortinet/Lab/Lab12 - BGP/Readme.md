@@ -82,6 +82,7 @@ az logout --username
 6. rt-1
   * network 9.0.0.0 mask 255.0.0.0
   * network 19.0.0.0 mask 255.0.0.0
+  * ping 1.1.1.1 - reply
   
 7. fg-1
   * gui\dashboard\network\routing
