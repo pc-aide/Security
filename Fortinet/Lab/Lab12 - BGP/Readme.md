@@ -140,6 +140,21 @@ set alias WAN
 set role wan
 end
 
+# WAN2Loopback
+Config firewall policy
+edit 1
+set name "WAN2Loopback"
+set srcintf "port1"
+set dstintf "Loopback1" "Loopback2" "Loopback3"
+set srcaddr "all"
+set dstaddr "all"
+set action accept
+set service "PING" "TRACEROUTE"
+set logtraffic all
+set schedule "always"
+set nat enable
+end
+
 # hostname
 conf system global
 set hostname FG-1
