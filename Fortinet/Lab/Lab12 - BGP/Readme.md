@@ -141,7 +141,7 @@ set role wan
 end
 
 # WAN2Loopback
-Config firewall policy
+config firewall policy
 edit 1
 set name "WAN2Loopback"
 set srcintf "port1"
