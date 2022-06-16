@@ -8,6 +8,12 @@
 
 ---
 
+## sensitive case
+* warning: sensitive case for fg-1\<input_code>\ e.g Config | config not
+* same thing, & firt notworking (command unknow)
+
+---
+
 ## Diagram
 [<img src="https://i.imgur.com/XwWhMiM.png">](https://i.imgur.com/XwWhMiM.png)
 
