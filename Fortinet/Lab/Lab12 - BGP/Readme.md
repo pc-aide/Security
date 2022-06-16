@@ -8,6 +8,11 @@
 
 ---
 
+## Diagram
+[<img src="https://i.imgur.com/XwWhMiM.png">](https://i.imgur.com/XwWhMiM.png)
+
+---
+
 ## azcli
 ````bash
 # userName: email
