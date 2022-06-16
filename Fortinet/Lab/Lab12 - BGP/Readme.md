@@ -61,7 +61,7 @@ az logout --username
   
 3. fg-1
   * gui\dashboard\network\routing
-    * new entry: bgp for each add bgp in the routers
+    * new entry: bgp for each add bgp in the routers - nothing with bgp
 
 4. rt-2
   * network 8.0.0.0 mask 255.0.0.0
