@@ -4,7 +4,7 @@
 
 ## Acronym
 * AS - Autonomous System
-* BGP - Border Group Protocol
+* BGP - Border Gateway Protocol
 
 ---
 
