@@ -57,6 +57,66 @@ az logout --username
 
 ## FG-1
 ````ruby
+admin
+
+123
+123
+
+# MGMT
+config system interface
+edit port3
+set alias MGMT
+set mode static
+set ip 192.168.3.100/24
+set allow ping http
+end
+
+# loopback 1,2,3
+config sys int
+edit Loopback1
+set ip 1.1.1.1/8
+set type loopback
+set allow ping
+set vdom root
+next
+edit Loopback2
+set ip 2.2.2.2/8
+set type loopback
+set allow ping
+set vdom root
+next
+edit Loopback3
+set ip 3.3.3.3/8
+set type loopback
+set allow ping
+set vdom root
+end
+
+# remove first start wizard + dashboard-template
+config system admin
+edit admin
+set gui-default-dashboard-template ""expanded""
+set gui-ignore-release-overview-version "6.4.1"
+next
+end
+
+# LAN
+config sys int
+edit port2
+set allow ping
+set mode static
+set ip 192.168.1.100/24
+set alias LAN
+set role Lan
+end
+
+# WAN 
+
+# hostname
+conf system global
+set hostname FG-1
+end
+
 ````
 
 ---
