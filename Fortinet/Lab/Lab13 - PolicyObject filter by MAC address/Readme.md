@@ -110,7 +110,7 @@ set alias LAN
 set role Lan
 end
 
-# WAN 
+# NAT-Internet
 
 # hostname
 conf system global
@@ -123,10 +123,22 @@ end
 
 ## PC-1
 ````bash
+auto eth0
+iface eth0 inet static
+	address 192.168.1.1
+	netmask 255.255.255.0
+	gateway 192.168.1.100
+	up echo nameserver 8.8.8.8 > /etc/resolv.conf
 ````
 
 ---
 
 ## PC-2
 ````bash
+auto eth0
+iface eth0 inet static
+	address 192.168.1.2
+	netmask 255.255.255.0
+	gateway 192.168.1.100
+	up echo nameserver 8.8.8.8 > /etc/resolv.conf
 ````
