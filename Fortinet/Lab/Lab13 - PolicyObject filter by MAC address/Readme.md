@@ -89,7 +89,20 @@ set alias LAN
 set role Lan
 end
 
-# NAT-Internet
+# nat-internet
+config sys int
+edit port1
+set mode static
+set ip 192.168.122.100/24
+set alias NAT-internet
+end
+
+# static route
+configure router static
+edit 1
+set device port1
+set gateway 192.168.122.1
+end
 
 # hostname
 conf system global
