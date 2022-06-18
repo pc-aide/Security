@@ -15,10 +15,12 @@
 
 ## azcli
 ````bash
+# userName: email
+az login --username 
+
 #######################
 # upload *.ps1 online #
 #######################
-# pastebinit -l --list paste code online
 # valide: 30d URL
 vmExtension="$(pastebinit -i vmExtension.ps1 -f powershell -b dpaste.com)".txt
 
@@ -26,9 +28,6 @@ vmExtension="$(pastebinit -i vmExtension.ps1 -f powershell -b dpaste.com)".txt
 # upload *.json online #
 ########################
 armJson="$(pastebinit -i arm.json -f json -b dpaste.com)".txt
-
-# userName: email
-az login --username 
 
 #######################
 # deploy arm template #
