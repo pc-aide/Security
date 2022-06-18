@@ -1,5 +1,5 @@
 <#
-  time: ~9 minutes 41 seconds
+  time: ~8 minutes 41 seconds
 #>
 
 # Variables
@@ -12,6 +12,8 @@ $pth_OneDriveSetup = "C:\Windows\SysWOW64\OneDriveSetup.exe"
 # taskBar
 $pth_PinnedTaskBar = "C:\Users\Default\AppData\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar"
 
+# drivers
+$pth_drivers = "$env:winDir\system32\drivers"
 # shell:startUp
 $pth_StartUp = ni "C:\Users\Default\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\StartUp" -type directory
 
@@ -898,30 +900,24 @@ try{
   $Error[0] | out-file d:\ErroInstallDirWinPcap.log
 }
 
-# packet.dll x64
-try{
-  Start-BitsTransfer $URL_packet_x64 "c:\windows\system32\packet.dll"
-}catch{
-  $Error[0] | out-file d:\ErrorPacket_ddl_x64.log
-}
 # npf.sys x64
 try{
   Start-BitsTransfer -Source $URL_npf_sys `
-   -Destination "c:\windows\system32\drivers\npf.sys"
+   -Destination "$pth_drivers\npf.sys"
 }catch{
   $Error[0] | out-file d:\ErrorNpf_drivers_x64.log
 }
 # wpcap.dll x32
 try{
   Start-BitsTransfer -Source $URL_wpcap_x32 `
-   -Destination "c:\windows\SysWOW64\wpcap.dll"
+   -Destination "$env:winDir\SysWOW64\wpcap.dll"
 }catch{
   $Error[0] | out-file d:\ErrorWpcap_ddl_x32.log
 }
 # packet.dll x32
 try{
   Start-BitsTransfer -Source $URL_packet_x32 `
-   -Destination "c:\windows\SysWOW64\Packet.dll"
+   -Destination "$env:winDir\SysWOW64\Packet.dll"
 }catch{
   $Error[0] | out-file d:\ErrorPacket_ddl_x32.log
 }
