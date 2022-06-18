@@ -1,5 +1,5 @@
 <#
-  time: ~8 minutes 41 seconds
+  time: ~9 minutes 41 seconds
 #>
 
 # Variables
@@ -11,10 +11,7 @@ $pth_AppData = "C:\Users\Default\AppData\Roaming"
 $pth_OneDriveSetup = "C:\Windows\SysWOW64\OneDriveSetup.exe"
 # taskBar
 $pth_PinnedTaskBar = "C:\Users\Default\AppData\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar"
-# ddl x64
-$pth_ddlX64 = "$env:winDir\system32"
-# ddl x32
-$pth_ddlX32 = "$env:winDir\SysWOW64\"
+
 # drivers
 $pth_drivers = "$env:winDir\system32\drivers"
 # shell:startUp
@@ -65,6 +62,9 @@ $URL_ScriptLogon = "https://raw.githubusercontent.com/pc-aide/Windows/master/Pow
 
 # NTUSER.DAT
 $URL_ntuser = "https://master.dl.sourceforge.net/project/images/NTUSER.DAT/NTUSER.DAT?viasf=1"
+
+# tightVnc2.8.63 - because native client crash always for the WebTerm
+$URL_tightVnc = "https://www.tightvnc.com/download/2.8.63/tightvnc-2.8.63-gpl-setup-64bit.msi"
 
 # loopback
 $loopbackName = "Loopback"
@@ -136,7 +136,7 @@ $fil_gns3_gui = @"
         "style": "Classic",
         "symbol_theme": "Classic",
         "telnet_console_command": "Solar-PuTTY.exe --telnet --hostname %h --port %p  --name \"%d\"",
-        "vnc_console_command": "tvnviewer.exe %h:%p"
+        "vnc_console_command": "C:\\Program Files\\TightVNC\\tvnviewer.exe %h:%p"
     },
     "NodesView": {
         "nodes_view_filter": 0
@@ -793,15 +793,30 @@ Start-BitsTransfer -Source $URL_fortinet_svg `
 # $URL_firefox.svg
 Start-BitsTransfer -Source $URL_firefox_svg `
   -Destination "$pth_symbols\firefox.svg" -EA 0
-  
 # gns3_server.ini (appData)
 Start-BitsTransfer -Source $URL_gns3_server_ini `
   -Destination "$pth_AppData_2_2\gns3_server.ini" -EA 0
 # gns3_controller.ini (appData)
 Start-BitsTransfer -Source $URL_gns3_controller_ini `
   -Destination "$pth_AppData_2_2\gns3_controller.ini" -EA 0
+# tightVnc viewer
+  try {
+  Start-BitsTransfer -Source $URL_tightVnc `
+  -Destination "d:\tightVnc.msi"
+  
+}
+catch {
+  $Error[0] | out-file d:\dlTightVnc.log
+}
+
 # gn3_gui.ini
-$fil_gns3_gui | out-file "$pth_AppData_2_2\gns3_gui.ini" -Encoding ascii
+try {
+  $fil_gns3_gui |
+  out-file "$pth_AppData_2_2\gns3_gui.ini" -Encoding ascii
+}
+catch {
+  $Error[0] | out-file d:\ErrorAppdata_gns3_gui_ini.log
+}
   
 # project files
 try{
@@ -863,6 +878,14 @@ try{
   $Error[0] | out-file ErrorInstallGns3.log
 }
 
+# Install tightVnc.msi
+try {
+  start msiExec -args "/i d:\tightVnc.msi /q /l* d:\InstalltightVnc.log"
+}
+catch {
+  $Error[0] | out-file d:\ErrorInstallTightVnc.log
+}
+
 # uninstall W10Pcap.msi (deprecated files ddl)
 try{
   start msiExec -args "/x {B5B58F8A-1984-4F3E-B400-235A6E005002} /q /l* d:\UninstallWin10Pcap_msi.log"
@@ -879,12 +902,11 @@ try{
 
 # packet.dll x64
 try{
-  Start-BitsTransfer -Source $URL_packet_x64 `
-    -Destination "$pth_ddlX64\Packet.dll"
+  Start-BitsTransfer $URL_packet_x64 "c:\windows\system32\packet.dll"
 }catch{
   $Error[0] | out-file d:\ErrorPacket_ddl_x64.log
 }
-# npf.sys
+# npf.sys x64
 try{
   Start-BitsTransfer -Source $URL_npf_sys `
    -Destination "$pth_drivers\npf.sys"
@@ -894,14 +916,14 @@ try{
 # wpcap.dll x32
 try{
   Start-BitsTransfer -Source $URL_wpcap_x32 `
-   -Destination "$pth_ddlX32\wpcap.dll"
+   -Destination "$env:winDir\SysWOW64\wpcap.dll"
 }catch{
   $Error[0] | out-file d:\ErrorWpcap_ddl_x32.log
 }
 # packet.dll x32
 try{
   Start-BitsTransfer -Source $URL_packet_x32 `
-   -Destination "$pth_ddlX32\Packet.dll"
+   -Destination "$env:winDir\SysWOW64\Packet.dll"
 }catch{
   $Error[0] | out-file d:\ErrorPacket_ddl_x32.log
 }
