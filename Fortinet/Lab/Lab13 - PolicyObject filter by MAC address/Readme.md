@@ -27,6 +27,8 @@ vmExtension="$(pastebinit -i vmExtension.ps1 -f powershell -b dpaste.com)".txt
 ########################
 # upload *.json online #
 ########################
+# pastebinit -l --list
+# sprunge.us if dpaste.com = null
 armJson="$(pastebinit -i arm.json -f json -b dpaste.com)".txt
 
 #######################
