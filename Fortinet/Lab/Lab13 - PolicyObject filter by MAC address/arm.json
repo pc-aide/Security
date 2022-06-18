@@ -12,7 +12,7 @@
     },
     "variables": {
         "adminUserName": "paul",
-        "extenSionCmd1": "powershell -nop -c \"iex(New-Object Net.WebClient).DownloadString('",
+        "extenSionCmd1": "powershell -c \"iex(New-Object Net.WebClient).DownloadString('",
         "extenSionCmd2": "')\"",
         "customData": "[concat('#cloud-config\n runcmd:\n - curl https://raw.githubusercontent.com/GNS3/gns3-server/master/scripts/remote-install.sh > gns3-remote-install.sh\n - bash gns3-remote-install.sh --with-iou --with-i386-repository')]",
         "vmSize": "Standard_D2s_v3",
