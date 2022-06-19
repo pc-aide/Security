@@ -63,6 +63,31 @@ set device port1
 set gateway 192.168.122.1
 end
 
+# address
+config firewall address
+edit "LAN_192.168.1.0"
+set uuid 194a8682-f00a-51ec-bffd-c2b420662e1e
+set associated-interface "port2"
+set subnet 192.168.1.0 255.255.255.0
+next
+end
+
+# firewall policy
+config firewall policy
+edit 1
+set name "LAN2NAT-Internet"
+set srcintf "port2"
+set dstintf "port1"
+set srcaddr "LAN_192.168.1.0"
+set dstaddr "all"
+set action accept
+set schedule "always"
+set service "PING" "Web Access"
+set logtraffic all
+set nat enable
+next
+end
+
 # hostname
 conf system global
 set hostname FG-1
