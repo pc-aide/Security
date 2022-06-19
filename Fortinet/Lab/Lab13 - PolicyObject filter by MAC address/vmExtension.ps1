@@ -920,7 +920,7 @@ catch {
 }
 
 # gns3\ubrige.exe depend wpcap.dll 32 in winPcap
-# sometime winpcap dll not present
+# sometime files dll not present
 if (!(Test-Path C:\Windows\system32\packet.dll)){
   "packet.dll x64 absent"  | out-file d:\ErrorAbsentPacket_dll_x64.log
   # checkup
