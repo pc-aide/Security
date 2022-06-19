@@ -56,7 +56,7 @@ set alias NAT-internet
 end
 
 # static route
-configure router static
+config router static
 edit 1
 set device port1
 set gateway 192.168.122.1
