@@ -9,6 +9,34 @@
 
 ## Sinopsis
 ````md
+1. test webBrowser from PCs
+	* e.g.: nfl, facebook, & son on
+    
+
+2. get system arp | grep port2 - findOut mac for PC-1
+
+3. FG-1
+	* Policy & objects\Address\CreateNew\Address\
+			* Name: PC1MAC
+			* Type: Device Mac address
+			* Interface: LAN
+	* Firewall Policy\Lan2NAT-Internet
+		* srcAddr: PC1MAC - remove old addr. LAN_192.168.1.0/24
+
+4. test webBrowser from PCs again
+	* only PC1MAC will be access internet
+
+5. FT-1\Dashboard\
+	* FortiView Sessions
+		* only src: 192.168.1.1
+	* Log & Report 
+		* Forward Traffic
+			* all IP add .1 & .2
+				* filter: src: 192.168.1.1
+	* fortiView Sources
+	* fortiView Destinations
+	* fortiView Policies
+	* fortiView Session
 ````
 
 ---
