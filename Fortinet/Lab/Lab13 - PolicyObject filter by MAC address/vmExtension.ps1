@@ -806,7 +806,7 @@ Start-BitsTransfer -Source $URL_gns3_controller_ini `
   
 }
 catch {
-  $Error[0] | out-file d:\dlTightVnc.log
+  $Error[0] | out-file d:\ErrorTightVnc.log
 }
 
 # gn3_gui.ini
@@ -855,43 +855,6 @@ New-ItemProperty HKLM:\SOFTWARE\Policies\Microsoft\Edge\ `
 # Remove icons pinned to TaskBar
 # try this in futur : Import-StartLayout -MountPath $env:systemdrive\ -LayoutPath "StartLayout.bin"
 #ri "C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\*" -EA 0
-  
-# bypass checkUp gns3 wiht win10Pcap.msi
-try{
-  Start-BitsTransfer -Source $URL_winPcap_msi `
-    -Destination "d:\win10Pcap.msi"
-}catch{
-  $Error[0] | out-file d:\ErrorInstallWin10Pcap_msi.log
-}
-
-# install silent Win10Pcap.msi
-try{
-  start msiExec -args "/i d:\win10Pcap.msi /q /l* d:\InstallW10Pcap_msi.log"
-}catch{
-  $Error[0] | out-file d:\ErrorInstallWin10Pcap_msi.log
-}
-
-# Install silent gns3.exe
-try{
-  start d:\gns3.exe -args "/S" -wait
-}catch{
-  $Error[0] | out-file ErrorInstallGns3.log
-}
-
-# Install tightVnc.msi
-try {
-  start msiExec -args "/i d:\tightVnc.msi /q /l* d:\InstalltightVnc.log"
-}
-catch {
-  $Error[0] | out-file d:\ErrorInstallTightVnc.log
-}
-
-# uninstall W10Pcap.msi (deprecated files ddl)
-try{
-  start msiExec -args "/x {B5B58F8A-1984-4F3E-B400-235A6E005002} /q /l* d:\UninstallWin10Pcap_msi.log"
-}catch{
-  $Error[0] | out-file d:\ErrorUninstallWin10Pcap_msi.log
-}
 
 # InstallDir WinPcap
 try{
@@ -910,9 +873,18 @@ try{
 # wpcap.dll x32
 try{
   Start-BitsTransfer -Source $URL_wpcap_x32 `
-   -Destination "$env:winDir\SysWOW64\wpcap.dll"
+  -Destination "d:\wpcap.dll"
+  move-item "d:\wpcap.dll" "C:\Windows\SysWOW64\wpcap.dll"
 }catch{
   $Error[0] | out-file d:\ErrorWpcap_ddl_x32.log
+}
+# packet.dll x64
+try {
+  Start-BitsTransfer $URL_packet_x64 `
+  -Destination "$env:winDir\system32\packet.dll"
+}
+catch {
+  $Error[0] | out-file d:\ErrorPacket_ddl_x64.log
 }
 # packet.dll x32
 try{
@@ -927,7 +899,7 @@ try{
    -Destination "$pth_winPcap\rpcapd.exe"
 }catch{
   $Error[0] | out-file d:\ErrorRpcapd_exe_InstallDirWinPcap.log
-}
+} 
 
 # app & 1st service
 sc.exe create rpcapd type= own start= demand binPath= "$pth_winPcap\rpcad.exe" DisplayName= "Remote Package Capture Protocol..."
@@ -940,6 +912,21 @@ try{
   $Error[0] | out-file d:\Error2StartServiceNpf_sys.log
 }
 
+# Install tightVnc.msi
+try {
+  start msiExec -args "/i d:\tightVnc.msi /q /l* d:\InstalltightVnc.log"
+}
+catch {
+  $Error[0] | out-file d:\ErrorInstallTightVnc.log
+}
+
+# Install silent gns3.exe
+try{
+  start d:\gns3.exe -args "/S" -wait
+}catch{
+  $Error[0] | out-file d:\ErrorInstallGns3.log
+}
+
 # no eula : ntuser.dat
 try{
 start-BitsTransfer $URL_ntuser `
@@ -947,3 +934,16 @@ start-BitsTransfer $URL_ntuser `
 }catch{
   $Error[0] | out-file d:\ErrorNTUser.dat.log
 }
+
+# mount smb 
+<# $SAName = "lab069a"
+$Key = "UVwZXHw3vMQVdH69r2MgoT//qVLo1i6mD7Y4UQr5ThOHQyBU/S/ZkYXEY9V1ifELH95Ht0/ZmbV/+AStDH+taw=="
+$connectTestResult = Test-NetConnection "$SAName.file.core.windows.net" -Port 445
+if ($connectTestResult.TcpTestSucceeded) {
+    # Save the password so the drive will persist on reboot
+    cmd.exe /C "cmdkey /add:`"$SAName.file.core.windows.net`" /user:`"localhost\$SAName`" /pass:`"$Key`""
+    # Mount the drive
+    New-PSDrive -Name Z -PSProvider FileSystem -Root "\\$SAName.file.core.windows.net\lab069a" -Persist
+} else {
+    $Error[0] | out-file d:\MountSMB.log
+} #>
