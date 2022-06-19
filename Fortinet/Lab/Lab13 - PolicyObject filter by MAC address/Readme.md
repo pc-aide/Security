@@ -53,6 +53,7 @@ edit port1
 set mode static
 set ip 192.168.122.100/24
 set alias NAT-internet
+set allow ping
 end
 
 # static route
