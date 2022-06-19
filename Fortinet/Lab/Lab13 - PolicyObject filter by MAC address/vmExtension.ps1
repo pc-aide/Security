@@ -803,7 +803,6 @@ Start-BitsTransfer -Source $URL_gns3_controller_ini `
   try {
   Start-BitsTransfer -Source $URL_tightVnc `
   -Destination "d:\tightVnc.msi"
-  
 }
 catch {
   $Error[0] | out-file d:\ErrorTightVnc.log
