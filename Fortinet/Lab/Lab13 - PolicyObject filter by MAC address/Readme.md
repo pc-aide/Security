@@ -16,7 +16,7 @@
 2. get system arp | grep port2 - findOut mac for PC-1
 
 3. FG-1
-	* Policy & objects\Address\CreateNew\Address\
+	* Policy & objects\Address\CreateNew\Address\ 
 	* Name: PC1MAC
 	* Type: Device Mac address
 	* Interface: LAN
