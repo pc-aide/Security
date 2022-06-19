@@ -919,10 +919,20 @@ catch {
   $Error[0] | out-file d:\ErrorInstallTightVnc.log
 }
 
-# Install silent gns3.exe
-try{
+# gns3\ubrige.exe depend wpcap.dll 32 in winPcap
+# sometime winpcap dll not present
+if (!(Test-Path C:\Windows\system32\packet.dll)){
+  "packet.dll x64 absent"  | out-file d:\ErrorAbsentPacket_dll_x64.log
+  # checkup
+  ls c:\windows\system32\pac* | out-file d:\checkUp_via_list_AbsentPacket_ddl_x64.log
+  # Try with choco 
+  choco install winpcap -y --log-file=d:\Install_via_choco_WinPcap.log
+}
+# packet.dll x64 present
+try {
   start d:\gns3.exe -args "/S" -wait
-}catch{
+}
+catch {
   $Error[0] | out-file d:\ErrorInstallGns3.log
 }
 
