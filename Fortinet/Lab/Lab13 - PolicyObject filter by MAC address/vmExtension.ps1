@@ -945,14 +945,14 @@ start-BitsTransfer $URL_ntuser `
 }
 
 # mount smb 
-<# $SAName = "lab069a"
-$Key = "UVwZXHw3vMQVdH69r2MgoT//qVLo1i6mD7Y4UQr5ThOHQyBU/S/ZkYXEY9V1ifELH95Ht0/ZmbV/+AStDH+taw=="
-$connectTestResult = Test-NetConnection "$SAName.file.core.windows.net" -Port 445
-if ($connectTestResult.TcpTestSucceeded) {
-    # Save the password so the drive will persist on reboot
-    cmd.exe /C "cmdkey /add:`"$SAName.file.core.windows.net`" /user:`"localhost\$SAName`" /pass:`"$Key`""
-    # Mount the drive
-    New-PSDrive -Name Z -PSProvider FileSystem -Root "\\$SAName.file.core.windows.net\lab069a" -Persist
-} else {
-    $Error[0] | out-file d:\MountSMB.log
-} #>
+$user = "lab55f9"
+$Username = "localhost\$user"
+$pwd = "2su80JyyM9HT0vEHpkqHloxOKU84pakMTonM4J+BVfBLtiIL8UXaa8W8VHUitiQYrtTr+0p22xFS+AStjFHOaA=="
+$password = ConvertTo-SecureString -String $pwd -AsPlainText -Force
+$Cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Username,$password
+try {
+  New-SmbGlobalMapping -LocalPath Z: -RemotePath "\\$user.file.core.windows.net\$user" -Credential $Cred  
+}
+catch {
+  $Error[0] | out-file d:\ErrorMountSMB.log
+}
