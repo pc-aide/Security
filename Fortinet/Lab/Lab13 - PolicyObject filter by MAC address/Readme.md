@@ -17,11 +17,11 @@
 
 3. FG-1
 	* Policy & objects\Address\CreateNew\Address\
-		* Name: PC1MAC
-		* Type: Device Mac address
-		* Interface: LAN
-		* Firewall Policy\Lan2NAT-Internet
-			* srcAddr: PC1MAC - remove old addr. LAN_192.168.1.0/24
+	* Name: PC1MAC
+	* Type: Device Mac address
+	* Interface: LAN
+	* Firewall Policy\Lan2NAT-Internet
+	  * srcAddr: PC1MAC - remove old addr. LAN_192.168.1.0/24
 
 4. test webBrowser from PCs again
 	* only PC1MAC will be access internet
