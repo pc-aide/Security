@@ -196,9 +196,9 @@ $fil_test_gns3 = @"
               "drawing_id": "f1675736-35fb-437a-8c17-7138eda57109",
               "locked": false,
               "rotation": 0,
-              "svg": "<svg height=\"24\" width=\"280\"><text fill=\"#000000\" fill-opacity=\"1.0\" font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\">Lab13 -PolicyObject filter by MAC address</text></svg>",
-              "x": -111,
-              "y": -402,
+              "svg": "<svg height=\"24\" width=\"207\"><text fill=\"#000000\" fill-opacity=\"1.0\" font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\">Lab14 -Local user based policy</text></svg>",
+              "x": -68,
+              "y": -399,
               "z": 2
           },
           {
@@ -357,9 +357,9 @@ $fil_test_gns3 = @"
                       "label": {
                           "rotation": 0,
                           "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
-                          "text": "eth0",
-                          "x": 67,
-                          "y": 56
+                          "text": "eth0\n(.1)",
+                          "x": 84,
+                          "y": 16
                       },
                       "node_id": "c4418b36-3f3f-4e29-8b47-931bd7fce68d",
                       "port_number": 0
@@ -389,8 +389,8 @@ $fil_test_gns3 = @"
                       "label": {
                           "rotation": 0,
                           "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
-                          "text": "eth0",
-                          "x": 69,
+                          "text": "eth0\n(.2)",
+                          "x": 80,
                           "y": 18
                       },
                       "node_id": "f794a1f0-8bc4-425e-87ba-51edc6d1a392",
@@ -488,7 +488,7 @@ $fil_test_gns3 = @"
                   "console_http_path": "/",
                   "console_http_port": 80,
                   "console_resolution": "1024x768",
-                  "container_id": "4aaa30ca67fcc9d1782ff2879325bbbdd0361a0d5b42d0adc6c42e30f04e4e06",
+                  "container_id": "58007e8c6f5679fc51cefc64bbec3a610732c4c1fb3ee0d82feb86fd7f9ab925",
                   "environment": null,
                   "extra_hosts": null,
                   "extra_volumes": [],
@@ -515,8 +515,8 @@ $fil_test_gns3 = @"
                   "rotation": 0,
                   "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
                   "text": "PC-2",
-                  "x": 14,
-                  "y": -25
+                  "x": 21,
+                  "y": 76
               },
               "locked": false,
               "name": "PC-2",
@@ -530,7 +530,7 @@ $fil_test_gns3 = @"
                   "console_http_path": "/",
                   "console_http_port": 80,
                   "console_resolution": "1024x768",
-                  "container_id": "b6e3eb2be28e0521ec7c179fb3fd96d6201d4c749a0b397565dab0e851fea72b",
+                  "container_id": "d1c5bd403ceee547b363dca80df59a2285323d63cec3a8a6a30345809a9bcb3d",
                   "environment": null,
                   "extra_hosts": null,
                   "extra_volumes": [],
@@ -685,7 +685,7 @@ $fil_test_gns3 = @"
               "compute_id": "2e0d1578-d11f-46cf-b22b-d02aa3a5d426",
               "console": null,
               "console_auto_start": false,
-              "console_type": null,
+              "console_type": "none",
               "custom_adapters": [],
               "first_port_name": null,
               "height": 71,
