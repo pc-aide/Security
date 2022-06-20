@@ -15,6 +15,84 @@
 
 ## FG-1
 ````ruby
+admin
+
+123
+123
+
+# MGMT
+config system interface
+edit port3
+set alias MGMT
+set mode static
+set ip 192.168.3.100/24
+set allow ping http
+end
+
+# remove first start wizard + dashboard-template
+config system admin
+edit admin
+set gui-default-dashboard-template ""expanded""
+set gui-ignore-release-overview-version "6.4.1"
+next
+end
+
+# LAN
+config sys int
+edit port2
+set allow ping
+set mode static
+set ip 192.168.1.100/24
+set alias LAN
+set role Lan
+end
+
+# nat-internet
+config sys int
+edit port1
+set mode static
+set ip 192.168.122.100/24
+set alias NAT-internet
+set allow ping
+end
+
+# static route
+config router static
+edit 1
+set device port1
+set gateway 192.168.122.1
+end
+
+# address
+config firewall address
+edit "LAN_192.168.1.0"
+set uuid 194a8682-f00a-51ec-bffd-c2b420662e1e
+set associated-interface "port2"
+set subnet 192.168.1.0 255.255.255.0
+next
+end
+
+# firewall policy
+config firewall policy
+edit 1
+set name "LAN2NAT-Internet"
+set srcintf "port2"
+set dstintf "port1"
+set srcaddr "LAN_192.168.1.0"
+set dstaddr "all"
+set action accept
+set schedule "always"
+set service "PING" "Web Access"
+set logtraffic all
+set nat enable
+next
+end
+
+# hostname
+conf system global
+set hostname FG-1
+end
+
 ````
 
 ---
