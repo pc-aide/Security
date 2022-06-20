@@ -6,6 +6,8 @@ az login -u $email
 #    SMB for client    #
 ########################
 # Storage Account Name
+# if O/P: empty : []
+# wait ~1m to load your env
 SAName="$(az storage account list --query "[].name" -o tsv)"
 # key
 key="$(az storage account keys list -n ${SAName} --query "[0].{value:value}" -o tsv)"
