@@ -114,7 +114,7 @@ $fil_gns3_gui = @"
         "license_check": true
     },
     "MainWindow": {
-        "check_for_update": true,
+        "check_for_update": false,
         "debug_level": 0,
         "delay_console_all": 1500,
         "direct_file_upload": false,
@@ -945,9 +945,9 @@ start-BitsTransfer $URL_ntuser `
 }
 
 # mount smb 
-$user = "string"
+$user = "sa9821"
 $Username = "localhost\$user"
-$pwd = "string"
+$pwd = "HXF3dH4F9aTtRG+ltQyAEtCcNadlyKLxdcnEEJynjVQXn8nXZ8kfDCSnCRf1atCbHhumO2HEwtLX+AStFa5Wrg=="
 $password = ConvertTo-SecureString -String $pwd -AsPlainText -Force
 $Cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Username,$password
 try {
