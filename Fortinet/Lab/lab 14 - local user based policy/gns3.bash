@@ -1,14 +1,43 @@
-# -u email
+# Storage Account unique name
+export SAName="sa$RANDOM"
+
+# acount cleanUp
+az account clear
+
+# login
 read -p "Your email: " email
 az login -u $email
 
 ########################
 #    SMB for client    #
 ########################
-# Storage Account Name
-# if O/P: empty : []
-# wait ~1m to load your env
+# Variables
+rgName=gns3
+location=canadacentral
+
+# New gns3-RG
+az group create \
+  -n $rgName \
+  -l $location
+
+# New StorageAccount
+az storage account create \
+--name $SAName \
+--resource-group $rgName \
+--location $location \
+--sku Standard_LRS \
+
+# variable SAName
 SAName="$(az storage account list --query "[].name" -o tsv)"
+
+# New SMB
+az storage share-rm create \
+  --resource-group $rgName \
+  --storage-account $SAName \
+  --name $SAName \
+  --access-tier "TransactionOptimized" \
+  --enabled-protocols SMB 
+
 # key
 key="$(az storage account keys list -n ${SAName} --query "[0].{value:value}" -o tsv)"
 
@@ -40,8 +69,7 @@ armJson="$(pastebinit -i arm.json -f json -b dpaste.com)".txt
 
 # Time: ~9m
 az deployment group create -n gns3 \
-  -g $(az group create -n gns3 -l canadacentral \
-  --query 'name' -o tsv) \
+  -g $rgName \
   -u $armJson \
   -p vmExtension=$vmExtension \
   --query '{clientPip:properties.outputs.clientPip.value,provisioningState:properties.provisioningState}'
@@ -49,9 +77,5 @@ az deployment group create -n gns3 \
 # Del gns3 group
 az group delete -n gns3 --yes
 
-# if toop subscription
-az account clear
-# CheckUp
-az account list
 # which active account
 az account list --query "[? to_string(isDefault) == 'true']"
