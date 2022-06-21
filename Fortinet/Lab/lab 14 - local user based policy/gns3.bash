@@ -25,8 +25,8 @@ az storage account create \
 --name $SAName \
 --resource-group $rgName \
 --location $location \
---access-tier Premium
---sku Premium_LRS \
+--access-tier Hot \
+--sku Premium_LRS 
 
 # variable SAName
 SAName="$(az storage account list --query "[].name" -o tsv)"
