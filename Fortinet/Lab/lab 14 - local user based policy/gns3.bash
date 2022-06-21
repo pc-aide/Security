@@ -1,5 +1,8 @@
 # Storage Account unique name
 export SAName="sa$RANDOM"
+# Variables
+rgName=gns3
+location=canadacentral
 
 # acount cleanUp
 az account clear
@@ -11,10 +14,6 @@ az login -u $email
 ########################
 #    SMB for client    #
 ########################
-# Variables
-rgName=gns3
-location=canadacentral
-
 # New gns3-RG
 az group create \
   -n $rgName \
@@ -22,11 +21,11 @@ az group create \
 
 # New StorageAccount
 az storage account create \
---name $SAName \
---resource-group $rgName \
---location $location \
---access-tier Hot \
---sku Premium_LRS 
+-n $SAName \
+-g $rgName \
+-l $location \
+--sku Premium_LRS \
+--kind FileStorage
 
 # variable SAName
 SAName="$(az storage account list --query "[].name" -o tsv)"
@@ -36,7 +35,6 @@ az storage share-rm create \
   --resource-group $rgName \
   --storage-account $SAName \
   --name $SAName \
-  --access-tier "TransactionOptimized" \
   --enabled-protocols SMB 
 
 # key
