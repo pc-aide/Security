@@ -25,6 +25,7 @@ az storage account create \
 --name $SAName \
 --resource-group $rgName \
 --location $location \
+--access-tier Premium
 --sku Premium_LRS \
 
 # variable SAName
