@@ -18,7 +18,7 @@ $pth_drivers = "$env:winDir\system32\drivers"
 $pth_StartUp = ni "C:\Users\Default\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\StartUp" -type directory
 
 # ddl-gns3 (93.3M)
-$URL_gns3 = "https://downloads.solarwinds.com/solarwinds/GNS3/v2.2.32/GNS3-2.2.32-all-in-one-regular.exe"
+$URL_gns3 = "https://github.com/GNS3/gns3-gui/releases/download/v2.2.33.1/GNS3-2.2.33.1-all-in-one.exe"
 
 # empty30G_qcow2 (FG)
 $URL_empty30G_qcow2  = "https://cfhcable.dl.sourceforge.net/project/gns-3/Empty%20Qemu%20disk/empty30G.qcow2"
@@ -945,9 +945,9 @@ start-BitsTransfer $URL_ntuser `
 }
 
 # mount smb 
-$user = "sa9821"
+$user = ""
 $Username = "localhost\$user"
-$pwd = "HXF3dH4F9aTtRG+ltQyAEtCcNadlyKLxdcnEEJynjVQXn8nXZ8kfDCSnCRf1atCbHhumO2HEwtLX+AStFa5Wrg=="
+$pwd = ""
 $password = ConvertTo-SecureString -String $pwd -AsPlainText -Force
 $Cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Username,$password
 try {
