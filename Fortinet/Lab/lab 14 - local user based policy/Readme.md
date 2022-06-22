@@ -2,6 +2,11 @@
 
 ---
 
+## Acronym
+* FSSO - Fortinet Single Sign-On
+
+---
+
 ## Diagram
 [<img src="https://i.imgur.com/aT3EUGO.png">](https://i.imgur.com/aT3EUGO.png)
       
@@ -9,6 +14,28 @@
 
 ## Sinopsis
 ````md
+1. Test Web Browser with PCs
+
+2. FG-1
+	* User & Auth.\User definition\Create New\
+		* User Type: local
+		* usr: paul
+		* pwd: admin123
+		* submit
+	* Policy & Objects\Firewall Policy\Lan2Nat-internet\Edit:
+		* Source: LAN_1092.168.1.0, paul
+
+3. Test web Browser again
+	* we have now 'Open network login page'
+	
+4. FG-1
+	* Dashboard:
+		* Firewall User Monitor
+			* Test Deauth. & web browser again without auth
+		* FortiView Sources
+	* log & report
+		* Forward Traffic
+			* double click on entry (log Details)
 ````
 
 ---
