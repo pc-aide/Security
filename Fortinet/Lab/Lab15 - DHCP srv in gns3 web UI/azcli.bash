@@ -78,6 +78,3 @@ az deployment group create -n gns3 \
 
 # Del gns3 group
 az group delete -n gns3 --yes
-
-# which active account
-az account list --query "[? to_string(isDefault) == 'true']"
