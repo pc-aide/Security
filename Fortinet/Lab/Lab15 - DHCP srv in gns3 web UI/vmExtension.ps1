@@ -112,6 +112,14 @@ catch {
   $Error[0] | d:\ErrorDownloadFiles_Qcow2.log
 }
 
+# gns3 Web UI desktop url
+$new_object = New-Object -ComObject WScript.Shell
+$destination = $new_object.SpecialFolders.Item("AllUsersDesktop")
+$source_path = Join-Path -Path $destination -ChildPath "gns3 Web UI.url"
+$source = $new_object.CreateShortcut($source_path)
+$source.TargetPath = "http://gns3:3080"
+$source.Save()
+
 ################
 #  CUSTOM OS   #
 ################
