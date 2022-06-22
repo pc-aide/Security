@@ -44,7 +44,7 @@ set allow ping
 set mode static
 set ip 192.168.1.100/24
 set alias LAN
-set role Lan
+set role lan
 end
 
 # nat-internet
