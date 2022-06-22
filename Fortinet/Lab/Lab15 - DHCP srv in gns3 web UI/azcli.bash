@@ -69,7 +69,7 @@ armJson="$(pastebinit -i arm.json -f json -b dpaste.com)".txt
 # Deploy arm template #
 #######################
 
-# Time: ~9m
+# Time: ~8m
 az deployment group create -n gns3 \
   -g $rgName \
   -u $armJson \
