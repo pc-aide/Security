@@ -66,7 +66,6 @@ end
 # address
 config firewall address
 edit "LAN_192.168.1.0"
-set uuid 194a8682-f00a-51ec-bffd-c2b420662e1e
 set associated-interface "port2"
 set subnet 192.168.1.0 255.255.255.0
 next
