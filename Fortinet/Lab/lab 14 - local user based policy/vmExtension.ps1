@@ -20,6 +20,9 @@ $pth_StartUp = ni "C:\Users\Default\AppData\Roaming\Microsoft\Windows\Start Menu
 # ddl-gns3 (93.3M)
 $URL_gns3 = "https://github.com/GNS3/gns3-gui/releases/download/v2.2.33.1/GNS3-2.2.33.1-all-in-one.exe"
 
+# Solar-Putty.exe
+$URL_solarPutty = "https://master.dl.sourceforge.net/project/images/ProgramFiles_GNS3/Solar-PuTTY.exe?viasf=1"
+
 # empty30G_qcow2 (FG)
 $URL_empty30G_qcow2  = "https://cfhcable.dl.sourceforge.net/project/gns-3/Empty%20Qemu%20disk/empty30G.qcow2"
 # SW_iosv_2020.qcow2
@@ -935,6 +938,14 @@ try {
 catch {
   $Error[0] | out-file d:\ErrorInstallGns3.log
 }
+# solar-putty.exe in gns3 because missing newVer 2.2.33.1
+try {
+  start-BitsTransfer $URL_solarPutty `
+  -Destination "C:\Program Files\GNS3\Solar-PuTTY.exe"
+}
+catch {
+  $Error[0] | out-file d:\ErrorSolarPutty.log
+}
 
 # no eula : ntuser.dat
 try{
@@ -945,9 +956,9 @@ start-BitsTransfer $URL_ntuser `
 }
 
 # mount smb 
-$user = "sa23664"
+$user = ""
 $Username = "localhost\$user"
-$pwd = "OVhQZjn+Kkxx5WyBGYJ9pQ3ThE18w0yQ5E2NETpFKXWPAu2OeKWRVbx3KYUzC89WCKmVKfCT5tzF+AStWYu/NA=="
+$pwd = ""
 $password = ConvertTo-SecureString -String $pwd -AsPlainText -Force
 $Cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Username,$password
 try {
