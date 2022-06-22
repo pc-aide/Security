@@ -1,9 +1,3 @@
-# Storage Account unique name
-export SAName="sa$RANDOM"
-# Variables
-rgName=gns3
-location=canadacentral
-
 # acount cleanUp
 az account clear
 
@@ -11,9 +5,12 @@ az account clear
 read -p "Your email: " email
 az login -u $email
 
-########################
-#    SMB for client    #
-########################
+# Storage Account unique name
+export SAName="sa$RANDOM"
+# Variables
+rgName=gns3
+location=canadacentral
+
 # New gns3-RG
 az group create \
   -n $rgName \
@@ -43,11 +40,7 @@ az storage share-rm create \
 key="$(az storage account keys list -n ${SAName} \
   --query "[0].{value:value}" -o tsv)"
 
-# Replace a variable in a file using sed
-# -i --in-place[=SUFFIX]
-# s - The substitute command
-# g - Global replacement flag
-# '$variableBash' 
+# Replace a variable in a file
 sed -i 's/$user =.*/$user = "'$SAName'"/' vmExtension.ps1
 # sed\escape character: , vs /
 sed -i 's,$pwd =.*,$pwd = "'$key'",' vmExtension.ps1
@@ -64,10 +57,6 @@ vmExtension="$(pastebinit -i vmExtension.ps1 -f powershell -b dpaste.com)".txt
 # pastebinit -l --list
 # sprunge.us if dpaste.com = null
 armJson="$(pastebinit -i arm.json -f json -b dpaste.com)".txt
-
-#######################
-# Deploy arm template #
-#######################
 
 # Time: ~8m
 az deployment group create -n gns3 \
