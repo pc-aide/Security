@@ -35,10 +35,12 @@ az storage share-rm create \
   --resource-group $rgName \
   --storage-account $SAName \
   --name $SAName \
-  --enabled-protocols SMB 
+  --enabled-protocols SMB
 
 # key
-key="$(az storage account keys list -n ${SAName} --query "[0].{value:value}" -o tsv)"
+key="$(az storage account keys list -n ${SAName} \
+  -g gns3 \
+  --query "[0].{value:value}" -o tsv)"
 
 # Replace a variable in a file using sed
 # -i --in-place[=SUFFIX]
