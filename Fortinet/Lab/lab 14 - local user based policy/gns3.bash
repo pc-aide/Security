@@ -28,7 +28,9 @@ az storage account create \
 --kind FileStorage
 
 # variable SAName
-SAName="$(az storage account list --query "[].name" -o tsv)"
+SAName="$(az storage account list \
+  -g gns3 \
+  --query "[].name" -o tsv)"
 
 # New SMB
 az storage share-rm create \
@@ -39,7 +41,6 @@ az storage share-rm create \
 
 # key
 key="$(az storage account keys list -n ${SAName} \
-  -g gns3 \
   --query "[0].{value:value}" -o tsv)"
 
 # Replace a variable in a file using sed
