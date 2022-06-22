@@ -22,3 +22,7 @@
 ### S
 1. RAM: 456
 2. Qemu binary: /usr/bin/qemu-system-x86_64
+
+### R
+1. RAM: 456
+2. Qemu binary: /usr/bin/qemu-system-x86_64
