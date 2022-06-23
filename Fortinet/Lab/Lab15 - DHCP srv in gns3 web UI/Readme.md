@@ -50,7 +50,7 @@ admin
 123
 123
 
-# MGMT
+# MGMT (port3)
 config system interface
 edit port3
 set alias MGMT
@@ -86,6 +86,24 @@ config router static
 edit 1
 set device port1
 set gateway 192.168.122.1
+end
+
+# DMZ (port2)
+config sys int
+edit port2
+set mode static
+set ip 192.168.2.100/24
+set alias DMZ
+set allow ping
+end
+
+# IN (port4)
+config sys int
+edit port4
+set mode static
+set ip 192.168.1.100/24
+set alias IN
+set allow ping
 end
 
 ````
