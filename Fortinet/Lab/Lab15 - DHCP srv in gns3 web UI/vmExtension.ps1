@@ -97,7 +97,7 @@ catch {
 # Set env var scoped to the machine
 # after: run\Powershell start $env:vnc -args "gns3<port>"
 [Environment]::SetEnvironmentVariable("vnc",
- "%ProgramFiles%\TightVNC\tvnviewer.exe", "Machine")
+ "C:\Program Files\TightVNC\tvnviewer.exe", "Machine")
 
 ################
 #  CUSTOM OS   #
@@ -135,9 +135,9 @@ New-ItemProperty HKLM:\SOFTWARE\Policies\Microsoft\Edge\ `
 #ri "C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\*" -EA 0
 
 # Mount SMB
-$user = ""
+$user = "sa15047"
 $Username = "localhost\$user"
-$pwd = ""
+$pwd = "T0rp3x3HitL8o85SfOjk0vFPRaK7o3/7/32A/lBfkMtgGdqvLtVP641x+DsLpYzI5WmSWDaUIfCj+ASt2klLeQ=="
 $password = ConvertTo-SecureString -String $pwd -AsPlainText -Force
 $Cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Username,$password
 try {
