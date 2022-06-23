@@ -23,7 +23,7 @@
   * Qemu binary: /usr/bin/qemu-system-x86_64
 2. HDD
   * HDA: 
-    * Disk image: FGT6.4.7.qcow2 & 
+    * Disk image: FGT6.4.7.qcow2
     * Disk interface: virtio
 3. Network
   * Name format: Port{port1}
@@ -31,8 +31,15 @@
 
 
 ### SW
-1. RAM: 456
-2. Qemu binary: /usr/bin/qemu-system-x86_64
+1. General settings
+  * RAM: 456
+  * Qemu binary: /usr/bin/qemu-system-x86_64
+2. HDD
+  * HDA: 
+    * Disk image: FGT6.4.7.qcow2
+    * Disk interface: virtio
+3. Network
+  * Name format: 
 
 ---
 
