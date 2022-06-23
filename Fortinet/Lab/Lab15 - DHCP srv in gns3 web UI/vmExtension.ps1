@@ -135,9 +135,9 @@ New-ItemProperty HKLM:\SOFTWARE\Policies\Microsoft\Edge\ `
 #ri "C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\*" -EA 0
 
 # Mount SMB
-$user = "sa15047"
+$user = ""
 $Username = "localhost\$user"
-$pwd = "T0rp3x3HitL8o85SfOjk0vFPRaK7o3/7/32A/lBfkMtgGdqvLtVP641x+DsLpYzI5WmSWDaUIfCj+ASt2klLeQ=="
+$pwd = ""
 $password = ConvertTo-SecureString -String $pwd -AsPlainText -Force
 $Cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Username,$password
 try {
