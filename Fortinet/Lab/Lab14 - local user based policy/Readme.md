@@ -124,6 +124,7 @@ end
 ---
 
 ## PCs
+* file: /etc/network/interfaces
 ````ruby
 auto eth0
 iface eth0 inet static
