@@ -116,7 +116,7 @@ end
 
 # hostname
 conf system global
-set hostname FG-1
+set hostname FG1
 end
 
 ````
