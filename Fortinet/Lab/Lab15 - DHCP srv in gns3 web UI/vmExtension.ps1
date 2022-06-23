@@ -59,7 +59,7 @@ try {
   Start-BitsTransfer $URL_iosv_startup_cfg_img `
     -Destination "d:\Router_startup_config.img"
   Start-BitsTransfer $URL_empty30G_qcow2 `
-    -Destination d:\empty30G.qcow2
+    -Destination "d:\empty30G.qcow2"
 }
 catch {
   $Error[0] | d:\ErrorDownloadFiles_Qcow2.log
@@ -73,7 +73,7 @@ $source = $new_object.CreateShortcut($source_path)
 $source.TargetPath = "http://gns3:3080"
 $source.Save()
 
-# tightVnc viewer
+# TightVnc viewer
 try {
   Start-BitsTransfer $URL_tightVnc `
   -Destination "d:\tightVnc.msi"
@@ -93,6 +93,11 @@ try {
 catch {
   $Error[0] | out-file d:\ErrorInstallTightVnc.log
 }
+
+# Set env var scoped to the machine
+# after: run\Powershell start $env:vnc -args "gns3<port>"
+[Environment]::SetEnvironmentVariable("vnc",
+ "C:\Program Files\TightVNC\tvnviewer.exe", "Machine")
 
 ################
 #  CUSTOM OS   #
