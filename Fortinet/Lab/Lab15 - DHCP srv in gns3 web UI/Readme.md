@@ -75,3 +75,15 @@ set allow ping
 end
 
 ````
+
+---
+
+## MGMT
+````bash
+auto eth0
+iface eth0 inet static
+	address 192.168.3.10
+	netmask 255.255.255.0
+	gateway 192.168.3.100
+	up echo nameserver 8.8.8.8 > /etc/resolv.conf
+````
