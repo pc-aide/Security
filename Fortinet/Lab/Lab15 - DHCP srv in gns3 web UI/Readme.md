@@ -15,8 +15,16 @@
 
 ## qemu
 ### FG
-1. RAM: 856
-2. Qemu binary: /usr/bin/qemu-system-x86_64
+1. General settings
+  * RAM: 856
+  * Qemu binary: /usr/bin/qemu-system-x86_64
+2. HDD
+  * HDA: 
+    * Disk image: FGT6.4.7.qcow2 & 
+    * Disk interface: virtio
+  * HDB:
+    * Disk image: empty30G.qcow2
+    * disk int: virtio
 
 
 ### S
