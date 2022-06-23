@@ -3,13 +3,16 @@
 ---
 
 ## Acronym
+* DHCP - Dynamic Host Configuration Protocol
+* DMZ - Demilitarized zone
 * FG - Fortigate
-* S - Switch
-* R - Router
+* NAT - Network Address Translation
+* SW - Switch
 
 ---
 
 ## Diagram
+[<img src="https://i.imgur.com/O47Y67w.png">](https://i.imgur.com/O47Y67w.png)
 
 ---
 
@@ -30,10 +33,6 @@
   * Segment size: 0
 
 
-### S
-1. RAM: 456
-2. Qemu binary: /usr/bin/qemu-system-x86_64
-
-### R
+### SW
 1. RAM: 456
 2. Qemu binary: /usr/bin/qemu-system-x86_64
