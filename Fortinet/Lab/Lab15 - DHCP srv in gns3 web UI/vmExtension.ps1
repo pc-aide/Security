@@ -55,9 +55,9 @@ try {
   Start-BitsTransfer $URL_FGT6_4_7_qcow2 `
     -Destination "d:\FGT6.4.7.qcow2"
   Start-BitsTransfer $URL_vios_159_3_m4_qcow2 `
-    -Destination "d:\vios_159-3.m4.qcow2"
+    -Destination "d:\Router.qcow2"
   Start-BitsTransfer $URL_iosv_startup_cfg_img `
-    -Destination "d:\iosv_startup_config.img"
+    -Destination "d:\Router_startup_config.img"
   Start-BitsTransfer $URL_empty30G_qcow2 `
     -Destination d:\empty30G.qcow2
 }
