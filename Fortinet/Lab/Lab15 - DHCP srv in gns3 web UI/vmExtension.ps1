@@ -97,7 +97,7 @@ catch {
 # Set env var scoped to the machine
 # after: run\Powershell start $env:vnc -args "gns3<port>"
 [Environment]::SetEnvironmentVariable("vnc",
- "C:\Program Files\TightVNC\tvnviewer.exe", "Machine")
+ "%ProgramFiles%\TightVNC\tvnviewer.exe", "Machine")
 
 ################
 #  CUSTOM OS   #
