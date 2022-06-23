@@ -25,9 +25,6 @@
   * HDA: 
     * Disk image: FGT6.4.7.qcow2 & 
     * Disk interface: virtio
-  * HDB:
-    * Disk image: empty30G.qcow2
-    * disk int: virtio
 3. Network
   * Name format: Port{port1}
   * Segment size: 0
