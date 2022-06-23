@@ -25,6 +25,9 @@
   * HDB:
     * Disk image: empty30G.qcow2
     * disk int: virtio
+3. Network
+  * Name format: Port{port1}
+  * Segment size: 0
 
 
 ### S
