@@ -65,4 +65,13 @@ conf system global
 set hostname FG-1
 end
 
+# NAT-Internet
+config sys int
+edit port1
+set mode static
+set ip 192.168.122.100/24
+set alias NAT-internet
+set allow ping
+end
+
 ````
