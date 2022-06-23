@@ -33,3 +33,36 @@
 ### SW
 1. RAM: 456
 2. Qemu binary: /usr/bin/qemu-system-x86_64
+
+---
+
+## FG1
+````ruby
+admin
+
+123
+123
+
+# MGMT
+config system interface
+edit port3
+set alias MGMT
+set mode static
+set ip 192.168.3.100/24
+set allow ping http
+end
+
+# remove first start wizard + dashboard-template
+config system admin
+edit admin
+set gui-default-dashboard-template "expanded"
+set gui-ignore-release-overview-version "6.4.1"
+next
+end
+
+# hostname
+conf system global
+set hostname FG-1
+end
+
+````
