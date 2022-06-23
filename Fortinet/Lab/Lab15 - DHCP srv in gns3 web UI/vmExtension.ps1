@@ -30,56 +30,9 @@ $URL_vios_159_3_m4_qcow2 = "https://master.dl.sourceforge.net/project/images/qco
 # iosV_startup_config.img (router)
 $URL_iosv_startup_cfg_img = "https://master.dl.sourceforge.net/project/images/qcow2/iosv_startup_config.img?viasf=1"
 
-# Packet dll_x64
-$URL_packet_x64 = "https://master.dl.sourceforge.net/project/images/System32/Packet.dll?viasf=1"
-# wpcap ddl_x32
-$URL_wpcap_x32 = "https://master.dl.sourceforge.net/project/images/SysWOW64/wpcap.dll?viasf=1"
-# pthreadVC.dll
-$URL_pthreadVC_x32 = "https://master.dl.sourceforge.net/project/images/SysWOW64/pthreadVC.dll?viasf=1"
-# Packet ddl_x32
-$URL_packet_x32 = "https://master.dl.sourceforge.net/project/images/SysWOW64/Packet.dll?viasf=1"
-# npf.sys
-$URL_npf_sys = "https://master.dl.sourceforge.net/project/images/drivers/npf.sys?viasf=1"
-# rpcapd.exe in InstallDir\WinPcap
-$URL_rpcapd_exe = "https://altushost-swe.dl.sourceforge.net/project/images/ProgramFilesX86/rpcapd.exe"
+# tightVnc2.8.63 - because native client crash always for the WebTerm
+$URL_tightVnc = "https://www.tightvnc.com/download/2.8.63/tightvnc-2.8.63-gpl-setup-64bit.msi"
 
-# winPcap (tmp - bypass checkUp from gns3.exe)
-$URL_winPcap_msi = "http://www.win10pcap.org/download/Win10Pcap-v10.2-5002.msi"
-
-################
-#   LOOPBACK   #
-################
-
-# loopback
-$loopbackName = "Loopback"
-# loopback nic
-$primary_interface = "Ethernet"
-
-# Pckg Nuget
-# Find-PackageProvider -Name "NuGet" -AllVersions
-Install-PackageProvider -Name "NuGet" -RequiredVersion " 2.8.5.208" -Force
-# Modules
-try{
-  Install-Module -Name LoopbackAdapter -MinimumVersion 1.2.0.0 -Force
-  # New NIC
-  New-LoopbackAdapter -Name $loopbackName -Force
-
-  # NIC_loopback
-  $interface_loopback = Get-NetAdapter -Name $loopbackName
-  $interface_main = Get-NetAdapter -Name $primary_interface
-
-  # IP
-  $loopback_ipv4 = '192.168.3.10'
-  # Subnet mask
-  $loopback_ipv4_length = '24'
-
-  # Set the IPv4 address
-  New-NetIPAddress -InterfaceAlias $loopbackName -IPAddress $loopback_ipv4 `
-    -PrefixLength $loopback_ipv4_length -AddressFamily ipv4
-  
-}catch{
-  $Error[0] | out-file d:\ErrorInstallModuleLoopback.txt
-}
 
 ################
 # FIlES in D:\ #
@@ -120,6 +73,27 @@ $source = $new_object.CreateShortcut($source_path)
 $source.TargetPath = "http://gns3:3080"
 $source.Save()
 
+# tightVnc viewer
+try {
+  Start-BitsTransfer $URL_tightVnc `
+  -Destination "d:\tightVnc.msi"
+}
+catch {
+  $Error[0] | out-file d:\ErrorTightVnc.log
+}
+
+################
+# INSTALL APPS #
+################
+
+# Install tightVnc.msi
+try {
+  start msiExec -args "/i d:\tightVnc.msi /q /l* d:\InstalltightVnc.log"
+}
+catch {
+  $Error[0] | out-file d:\ErrorInstallTightVnc.log
+}
+
 ################
 #  CUSTOM OS   #
 ################
@@ -154,62 +128,6 @@ New-ItemProperty HKLM:\SOFTWARE\Policies\Microsoft\Edge\ `
 # Remove icons pinned to TaskBar
 # try this in futur : Import-StartLayout -MountPath $env:systemdrive\ -LayoutPath "StartLayout.bin"
 #ri "C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\*" -EA 0
-
-# InstallDir WinPcap
-try{
-  $pth_winPcap = ni ${env:ProgramFiles(x86)} -Name WinPcap -Type Directory
-}catch{
-  $Error[0] | out-file d:\ErroInstallDirWinPcap.log
-}
-
-# npf.sys x64
-try{
-  Start-BitsTransfer $URL_npf_sys `
-   -Destination "$pth_drivers\npf.sys"
-}catch{
-  $Error[0] | out-file d:\ErrorNpf_drivers_x64.log
-}
-# wpcap.dll x32
-try{
-  Start-BitsTransfer $URL_wpcap_x32 `
-  -Destination "d:\wpcap.dll"
-  move-item "d:\wpcap.dll" "C:\Windows\SysWOW64\wpcap.dll"
-}catch{
-  $Error[0] | out-file d:\ErrorWpcap_ddl_x32.log
-}
-# packet.dll x64
-try {
-  Start-BitsTransfer $URL_packet_x64 `
-  -Destination "$env:winDir\system32\packet.dll"
-}
-catch {
-  $Error[0] | out-file d:\ErrorPacket_ddl_x64.log
-}
-# packet.dll x32
-try{
-  Start-BitsTransfer -Source $URL_packet_x32 `
-   -Destination "$env:winDir\SysWOW64\Packet.dll"
-}catch{
-  $Error[0] | out-file d:\ErrorPacket_ddl_x32.log
-}
-# rpcapd.exe
-try{
-  Start-BitsTransfer -Source $URL_rpcapd_exe `
-   -Destination "$pth_winPcap\rpcapd.exe"
-}catch{
-  $Error[0] | out-file d:\ErrorRpcapd_exe_InstallDirWinPcap.log
-} 
-
-# app & 1st service
-sc.exe create rpcapd type= own start= demand binPath= "$pth_winPcap\rpcad.exe" DisplayName= "Remote Package Capture Protocol..."
-# driver (*.sys - 2e service)
-sc.exe create npf binPath= "system32\drivers\npf.sys" type= kernel start= auto error= normal tag= no DisplayName= "NetGroup Packet Filter Driver"
-# start-service
-try{
-  sc.exe start npf  
-}catch{
-  $Error[0] | out-file d:\Error2StartServiceNpf_sys.log
-}
 
 # Mount SMB
 $user = ""
