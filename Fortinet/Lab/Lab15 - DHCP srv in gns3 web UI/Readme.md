@@ -41,6 +41,18 @@
 3. Network
   * Name format: 
 
+
+### winXP
+1. General settings
+  * RAM: 856
+  * Qemu binary: /usr/bin/qemu-system-i386 ?
+2. HDD
+  * HDA: 
+    * Disk image: xp-lite
+    * Disk interface: none
+3. Network
+  * Name format: 
+
 ---
 
 ## FG1
