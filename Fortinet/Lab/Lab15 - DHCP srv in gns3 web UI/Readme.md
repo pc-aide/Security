@@ -74,6 +74,13 @@ set alias NAT-internet
 set allow ping
 end
 
+# static route
+config router static
+edit 1
+set device port1
+set gateway 192.168.122.1
+end
+
 ````
 
 ---
@@ -82,7 +89,7 @@ end
 ````bash
 auto eth0
 iface eth0 inet static
-	address 192.168.3.10
+	address 192.168.3.2
 	netmask 255.255.255.0
 	gateway 192.168.3.100
 	up echo nameserver 8.8.8.8 > /etc/resolv.conf
