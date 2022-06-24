@@ -1,4 +1,4 @@
-# Lab15 - DHCP srv in gns3 web UI
+# Lab15 - DHCP SRV
 
 ---
 
@@ -12,7 +12,7 @@
 ---
 
 ## Diagram
-[<img src="https://i.imgur.com/DEZyCJ6.png">](https://i.imgur.com/DEZyCJ6.png)
+[<img src="https://i.imgur.com/mSxpW1k.png">](https://i.imgur.com/mSxpW1k.png)
 
 ---
 
