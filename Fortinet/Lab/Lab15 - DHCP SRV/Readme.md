@@ -16,6 +16,14 @@
 
 ---
 
+## How to Fix Mouse Pointer Not Aligned on QEMU
+* Advanced\Additional settings\Options:
+````txt
+-usbdevice tablet
+````
+
+---
+
 ## FG-11
 ````ruby
 admin
