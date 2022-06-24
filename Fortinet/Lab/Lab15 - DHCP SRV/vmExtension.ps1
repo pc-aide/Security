@@ -59,12 +59,6 @@ $URL_npf_sys = "https://master.dl.sourceforge.net/project/images/drivers/npf.sys
 # rpcapd.exe in InstallDir\WinPcap
 $URL_rpcapd_exe = "https://altushost-swe.dl.sourceforge.net/project/images/ProgramFilesX86/rpcapd.exe"
 
-# winPcap (tmp - bypass checkUp from gns3.exe)
-$URL_winPcap_msi = "http://www.win10pcap.org/download/Win10Pcap-v10.2-5002.msi"
-
-# ScriptLogon
-$URL_ScriptLogon = "https://raw.githubusercontent.com/pc-aide/Windows/master/PowerShell/ARM/gns3_%26_loopback/StartUp/ScriptLogon/11-06-2022.ps1"
-
 # NTUSER.DAT
 $URL_ntuser = "https://master.dl.sourceforge.net/project/images/NTUSER.DAT/NTUSER.DAT?viasf=1"
 
@@ -75,7 +69,6 @@ $URL_tightVnc = "https://www.tightvnc.com/download/2.8.63/tightvnc-2.8.63-gpl-se
 # FIlES in D:\ #
 ################
 
-# files
 # gns3_gui.ini
 $fil_gns3_gui = @"
 {
@@ -167,7 +160,7 @@ $fil_gns3_gui = @"
 }
 "@
 
-# test.gns3 - file
+# test.gns3 
 $fil_test_gns3 = @"
 {
   "auto_close": true,
@@ -775,8 +768,6 @@ cd $pth_usrPrf
 $pth_QEMU = ni $pth_usrPrf\GNS3\images -Name QEMU -Type Directory
 # AppData
 $pth_AppData_2_2 = ni $pth_AppData\GNS3 -Name 2.2 -Type Directory
-# symbols
-$pth_symbols = "$pth_usrPrf\GNS3\symbols"
 # projects
 $pth_projects = "$pth_usrPrf\GNS3\projects"
 
@@ -800,20 +791,15 @@ Start-BitsTransfer -Source $URL_iosv_startup_cfg_img `
 Start-BitsTransfer -Source $URL_empty30G_qcow2 `
   -Destination $pth_QEMU\empty30G.qcow2 -EA 0
   
-# fortinet.svg
-Start-BitsTransfer -Source $URL_fortinet_svg `
-  -Destination "$pth_symbols\fortinet.svg" -EA 0
-# $URL_firefox.svg
-Start-BitsTransfer -Source $URL_firefox_svg `
-  -Destination "$pth_symbols\firefox.svg" -EA 0
 # gns3_server.ini (appData)
 Start-BitsTransfer -Source $URL_gns3_server_ini `
   -Destination "$pth_AppData_2_2\gns3_server.ini" -EA 0
 # gns3_controller.ini (appData)
 Start-BitsTransfer -Source $URL_gns3_controller_ini `
   -Destination "$pth_AppData_2_2\gns3_controller.ini" -EA 0
-# tightVnc viewer
-  try {
+
+# TightVnc viewer
+try {
   Start-BitsTransfer -Source $URL_tightVnc `
   -Destination "d:\tightVnc.msi"
 }
@@ -888,8 +874,10 @@ try{
 
 # app & 1st service
 sc.exe create rpcapd type= own start= demand binPath= "$pth_winPcap\rpcad.exe" DisplayName= "Remote Package Capture Protocol..."
+
 # driver (*.sys - 2e service)
 sc.exe create npf binPath= "system32\drivers\npf.sys" type= kernel start= auto error= normal tag= no DisplayName= "NetGroup Packet Filter Driver"
+
 # start-service
 try{
   sc.exe start npf  
@@ -916,6 +904,7 @@ try {
 catch {
   $Error[0] | out-file d:\ErrorInstallGns3.log
 }
+
 # solar-putty.exe in gns3 because missing newVer 2.2.33.1
 try {
   start-BitsTransfer $URL_solarPutty `
@@ -968,10 +957,10 @@ New-ItemProperty HKLM:\SOFTWARE\Policies\Microsoft\Edge\ `
 # try this in futur : Import-StartLayout -MountPath $env:systemdrive\ -LayoutPath "StartLayout.bin"
 #ri "C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\*" -EA 0
 
-# mount smb 
-$user = ""
+# Mount SMB
+$user = "sa094283"
 $Username = "localhost\$user"
-$pwd = ""
+$pwd = "jsdkfjsdklfj"
 $password = ConvertTo-SecureString -String $pwd -AsPlainText -Force
 $Cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Username,$password
 try {
