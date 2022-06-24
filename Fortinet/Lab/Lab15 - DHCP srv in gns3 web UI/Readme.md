@@ -101,6 +101,12 @@ set device port1
 set gateway 192.168.122.1
 end
 
+# dns
+config system dns
+set primary 8.8.8.8
+set secondary 1.1.1.1
+end
+
 # DMZ (port2)
 config sys int
 edit port2
