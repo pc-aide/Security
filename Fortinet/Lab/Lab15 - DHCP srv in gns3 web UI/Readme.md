@@ -84,12 +84,13 @@ conf system global
 set hostname FG1
 end
 
-# NAT-Internet
+# WAN
 config sys int
 edit port1
 set mode static
 set ip 192.168.122.100/24
-set alias NAT-internet
+set alias WAN
+set role wan
 set allow ping
 end
 
