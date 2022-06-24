@@ -846,8 +846,7 @@ try{
 # wpcap.dll x32
 try{
   Start-BitsTransfer -Source $URL_wpcap_x32 `
-  -Destination "d:\wpcap.dll"
-  move-item "d:\wpcap.dll" "C:\Windows\SysWOW64\wpcap.dll"
+  -Destination "C:\Windows\SysWOW64\wpcap.dll"
 }catch{
   $Error[0] | out-file d:\ErrorWpcap_ddl_x32.log
 }
