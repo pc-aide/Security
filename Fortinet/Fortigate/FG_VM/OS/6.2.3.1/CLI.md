@@ -27,6 +27,7 @@
 |3|full-config|show full-configuration||
 |4|static route|show router static|[<img src="https://i.imgur.com/zWSKCpz.png">](https://i.imgur.com/zWSKCpz.png)|
 |5|firewall policy|show firewall policy|[<img src="https://i.imgur.com/bMXmioM.png">](https://i.imgur.com/bMXmioM.png)|
+|6|dns|show system dns | [<img src="https://i.imgur.com/6enDHjz.png">](https://i.imgur.com/6enDHjz.png) |
 
 ---
 
@@ -43,6 +44,13 @@
 |8|loopback|config sys inter <br/> edit loopback1 <br/> set vdom root <br/> set ip 1.1.1.1/8 set allow ping <br/> set type loopback <br/> next|[<img src="https://i.imgur.com/V5F7kAH.png">](https://i.imgur.com/V5F7kAH.png)|
   
 ---
+  
+### system
+|n|name|e.g.|O/P|
+|-|----|----|---|
+|1|dns | config system dns <br/> set primary 8.8.8.8 <br/> set secondary <br/> end| [<img src="https://i.imgur.com/OcoLZ6w.png">](https://i.imgur.com/OcoLZ6w.png) |
+  
+---  
   
 ### system admin
 |n|name|e.g.|O/P|
