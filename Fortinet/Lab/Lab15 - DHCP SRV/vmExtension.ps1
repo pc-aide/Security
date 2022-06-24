@@ -766,6 +766,8 @@ cd $pth_usrPrf
   % {ni -Name ".\GNS3\$_" -ItemType 'Directory' -EA 0}
 # QEMU
 $pth_QEMU = ni $pth_usrPrf\GNS3\images -Name QEMU -Type Directory
+# Symbols
+$pth_symbols = "$pth_usrPrf\GNS3\symbols"
 # AppData
 $pth_AppData_2_2 = ni $pth_AppData\GNS3 -Name 2.2 -Type Directory
 # projects
@@ -888,6 +890,10 @@ try{
 ################
 # INSTALL APPS #
 ################
+
+# fortinet.svg
+Start-BitsTransfer -Source $URL_fortinet_svg `
+  -Destination "$pth_symbols\fortinet.svg" -EA 0
 
 # Install tightVnc.msi
 try {
