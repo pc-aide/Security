@@ -16,46 +16,7 @@
 
 ---
 
-## qemu
-### FG
-1. General settings
-  * RAM: 856
-  * Qemu binary: /usr/bin/qemu-system-x86_64
-2. HDD
-  * HDA: 
-    * Disk image: FGT6.4.7.qcow2
-    * Disk interface: virtio
-3. Network
-  * Name format: Port{port1}
-  * Segment size: 0
-
-
-### SW
-1. General settings
-  * RAM: 456
-  * Qemu binary: /usr/bin/qemu-system-x86_64
-2. HDD
-  * HDA: 
-    * Disk image: FGT6.4.7.qcow2
-    * Disk interface: virtio
-3. Network
-  * Name format: 
-
-
-### winXP
-1. General settings
-  * RAM: 856
-  * Qemu binary: /usr/bin/qemu-system-i386 ?
-2. HDD
-  * HDA: 
-    * Disk image: xp-lite
-    * Disk interface: none
-3. Network
-  * Name format: 
-
----
-
-## FG1
+## FG-11
 ````ruby
 admin
 
@@ -81,7 +42,7 @@ end
 
 # hostname
 conf system global
-set hostname FG1
+set hostname FG-11
 end
 
 # WAN
@@ -127,14 +88,3 @@ end
 
 ````
 
----
-
-## MGMT
-````bash
-auto eth0
-iface eth0 inet static
-	address 192.168.3.2
-	netmask 255.255.255.0
-	gateway 192.168.3.100
-	up echo nameserver 8.8.8.8 > /etc/resolv.conf
-````
