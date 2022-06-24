@@ -893,6 +893,9 @@ try{
 # fortinet.svg
 Start-BitsTransfer -Source $URL_fortinet_svg `
   -Destination "$pth_symbols\fortinet.svg" -EA 0
+# firefox.svg
+Start-BitsTransfer -Source $URL_firefox_svg `
+  -Destination "$pth_symbols\firefox.svg" -EA 0
 
 # Install tightVnc.msi
 try {
