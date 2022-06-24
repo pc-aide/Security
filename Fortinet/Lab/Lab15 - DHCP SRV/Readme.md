@@ -24,7 +24,7 @@
 
 ---
 
-## FG-11
+## FG1
 ````ruby
 admin
 
@@ -53,7 +53,7 @@ conf system global
 set hostname FG-11
 end
 
-# WAN
+# WAN (port1)
 config sys int
 edit port1
 set mode static
