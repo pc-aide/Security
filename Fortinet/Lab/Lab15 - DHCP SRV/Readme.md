@@ -11,6 +11,11 @@
 
 ---
 
+## URL
+* [vnc-mouse-out-of-sync-in-qemu](https://gns3.com/community/featured/vnc-mouse-out-of-sync-in-qemu)
+
+---
+
 ## Diagram
 [<img src="https://i.imgur.com/4dpLg0u.png">](https://i.imgur.com/4dpLg0u.png)
 
