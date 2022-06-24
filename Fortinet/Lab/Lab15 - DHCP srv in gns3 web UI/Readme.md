@@ -110,12 +110,12 @@ set alias DMZ
 set allow ping
 end
 
-# IN (port4)
+# LAN (port4)
 config sys int
 edit port4
 set mode static
 set ip 192.168.1.100/24
-set alias IN
+set alias LAN
 set allow ping
 end
 
