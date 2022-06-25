@@ -27,6 +27,13 @@
 
 ---
 
+## Sinopsis
+````md
+1. 
+````
+
+---
+
 ## FG1
 ````ruby
 admin
