@@ -68,6 +68,13 @@
   
 ---
   
+#### address
+|n|name|e.g.|O/P|
+|-|----|----|---|
+|1|New adress|config firewall address <br/> edit "DMZ_192.168.2.0" <br/> set associated-interface "port2" <br/> set subnet 192.168.2.0 255.255.255.0 <br/> next <br/> end| [<img src="https://i.imgur.com/6HTN9s8.png">](https://i.imgur.com/6HTN9s8.png) |
+  
+---
+  
 ### router
 |n|name|e.g.|O/P|
 |-|----|----|---|
