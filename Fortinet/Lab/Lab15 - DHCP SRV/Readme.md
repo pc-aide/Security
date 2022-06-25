@@ -21,11 +21,9 @@
 
 ---
 
-## How to Fix Mouse Pointer Not Aligned on QEMU
-* Advanced\Additional settings\Options:
-````txt
--usbdevice tablet
-````
+## WinXP Qemu
+* keyboard
+  * Full Screen: ctrl + shift + alt + f
 
 ---
 
