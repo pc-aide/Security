@@ -5,8 +5,6 @@ az account clear
 read -p "Your email: " email
 az login -u $email
 
-# Storage Account unique name
-export SAName="sa$RANDOM"
 # Variables
 rgName=gns3
 location=canadacentral
@@ -18,7 +16,8 @@ az group create \
 
 # New Storage Account
 SAName="$(az storage account create \
--n $SAName \
+# Storage Account unique name
+-n $(SAName="sa$RANDOM") \
 -g $rgName \
 -l $location \
 --sku Premium_LRS \
