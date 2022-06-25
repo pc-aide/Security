@@ -165,11 +165,27 @@ set alias LAN
 set allow ping
 end
 
-# address DMZ
+# Address (firewall policy)
 config firewall address
 edit "DMZ_192.168.2.0"
 set associated-interface "port2"
 set subne 192.168.2.0 255.255.255.0
+next
+end
+
+# Firewall Policy
+config firewall policy
+edt 1
+set name "DMZ2WAN"
+set srcintf "port2"
+set dstintf "port1"
+set srcaddr "DMZ_192.168.2.0"
+set dstaddr "all"
+set action accept
+set schedule "always"
+set service "PING" "Web Access"
+set logtraffic all
+set nat enable
 next
 end
 
