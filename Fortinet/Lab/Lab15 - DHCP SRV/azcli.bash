@@ -58,7 +58,7 @@ vmExtension="$(pastebinit -i vmExtension.ps1 -f powershell -b dpaste.com)".txt
 # sprunge.us if dpaste.com = null
 armJson="$(pastebinit -i arm.json -f json -b dpaste.com)".txt
 
-# Time: ~8m
+# Time: ~15m
 az deployment group create -n gns3 \
   -g $rgName \
   -u $armJson \
