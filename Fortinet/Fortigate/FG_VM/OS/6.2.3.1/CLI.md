@@ -64,7 +64,7 @@
 ### firewall
 |n|name|e.g.|O/P|
 |-|----|----|---|
-|1|policy|config firewall policy <br/> edt 1 <br/> set name "WAN2LAN" <br/> set srcintf "port1" <br/>  set dstintf "port2" <br/>  set srcaddr "all" <br/> set dstaddr "all" <br/> set action accept <br/> set schedule "always" <br/> set service "PING" "TRACEROUTE" <br/> set logtraffic all <br/> next |[<img src="https://i.imgur.com/WcoUjGI.png">](https://i.imgur.com/WcoUjGI.png)|
+|1|policy|config firewall policy <br/> edt 1 <br/> set name "WAN2LAN" <br/> set srcintf "port1" <br/>  set dstintf "port2" <br/>  set srcaddr "all" <br/> set dstaddr "all" <br/> set action accept <br/> set schedule "always" <br/> set service "PING" "TRACEROUTE" <br/> set logtraffic all <br/> set nat enable <br/> next |[<img src="https://i.imgur.com/WcoUjGI.png">](https://i.imgur.com/WcoUjGI.png)|
   
 ---
   
