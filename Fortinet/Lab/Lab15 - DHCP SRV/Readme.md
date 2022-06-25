@@ -53,7 +53,7 @@ end
 
 # hostname
 conf system global
-set hostname FG-11
+set hostname FG1
 end
 
 # WAN (port1)
