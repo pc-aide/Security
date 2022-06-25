@@ -61,24 +61,12 @@
 	* ping 192.168.2.100 - yes reply
 	* show ip
 
-6. FG1
-	* Policy\New
-		* DMZ2WAN
-		* IN interface: DMZ
-		* Out interface: WAN
-		* SRC\NewAddress
-			* Name DMZ_192.168.2.0
-			* IP: 192.168.2.0/24
-			* Interface: DMZ
-		* DST: all
-		* Service: "Web Acess" "ping"
-		* log Allowed Traffic: All Sessions
 
-7. winXP
+6. winXP
 	* test IE\bing.com\
 		* searchEngine: nfl, rds, & nhl
 
-8. FG1
+7. FG1
 	* Dashboard\
 		* FortiView Source
 			* 192.168.2.240\Destination
@@ -86,12 +74,12 @@
 		* DHCP Monitor
 			* look around
 		
-9. FG1
+8. FG1
 	* interfaces\
     * LAN\NewDHCP
 	    * Range: 192.168.1.101 @ 192.168.1.254
 			
-10. VPC3
+9. VPC3
 	* 
 
 ````
