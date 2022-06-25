@@ -16,24 +16,20 @@ az group create \
   -n $rgName \
   -l $location
 
-# New StorageAccount
-az storage account create \
+# New Storage Account
+SAName="$(az storage account create \
 -n $SAName \
 -g $rgName \
 -l $location \
 --sku Premium_LRS \
---kind FileStorage
-
-# variable SAName
-SAName="$(az storage account list \
-  -g gns3 \
-  --query "[].name" -o tsv)"
+--kind FileStorage \
+--query "name" -o tsv)"
 
 # New SMB
 az storage share-rm create \
-  --resource-group $rgName \
+  -g $rgName \
   --storage-account $SAName \
-  --name $SAName \
+  -n $SAName \
   --enabled-protocols SMB
 
 # key
@@ -46,14 +42,12 @@ sed -i 's/$user =.*/$user = "'$SAName'"/' vmExtension.ps1
 sed -i 's,$pwd =.*,$pwd = "'$key'",' vmExtension.ps1
 
 #######################
-# Upload *.ps1 online #
+# Upload files online #
 #######################
-# valide: 30d URL
+# Valide: 30d URL
 vmExtension="$(pastebinit -i vmExtension.ps1 -f powershell -b dpaste.com)".txt
 
-########################
 # Upload *.json online #
-########################
 # pastebinit -l --list
 # sprunge.us if dpaste.com = null
 armJson="$(pastebinit -i arm.json -f json -b dpaste.com)".txt
