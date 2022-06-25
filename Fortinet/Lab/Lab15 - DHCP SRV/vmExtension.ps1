@@ -1458,12 +1458,12 @@ $fil_test_gns3 = @"
               "label": {
                   "rotation": 0,
                   "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
-                  "text": "PC1",
+                  "text": "VPC2",
                   "x": 16,
                   "y": -25
               },
               "locked": false,
-              "name": "PC1",
+              "name": "VPC2",
               "node_id": "0206d4ee-71f8-452d-bfbf-6fd2c813c336",
               "node_type": "vpcs",
               "port_name_format": "Ethernet{0}",
