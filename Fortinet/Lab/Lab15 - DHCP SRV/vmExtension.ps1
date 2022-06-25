@@ -1074,6 +1074,38 @@ $fil_test_gns3 = @"
                   }
               ],
               "suspend": false
+          },
+          {
+              "filters": {},
+              "link_id": "259e976b-fd7f-4264-9d3d-cd6ef47f6c91",
+              "link_style": {},
+              "nodes": [
+                  {
+                      "adapter_number": 1,
+                      "label": {
+                          "rotation": 0,
+                          "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+                          "text": "Gi0/1",
+                          "x": 56,
+                          "y": -2
+                      },
+                      "node_id": "e3e4420f-9962-450f-945d-e9fff591c819",
+                      "port_number": 0
+                  },
+                  {
+                      "adapter_number": 0,
+                      "label": {
+                          "rotation": 0,
+                          "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+                          "text": "e0",
+                          "x": -5,
+                          "y": 61
+                      },
+                      "node_id": "a22b3c10-17f8-46c4-b0b1-2bb51ee9684e",
+                      "port_number": 0
+                  }
+              ],
+              "suspend": false
           }
       ],
       "nodes": [
@@ -1375,7 +1407,7 @@ $fil_test_gns3 = @"
               "symbol": ":/symbols/classic/multilayer_switch.svg",
               "template_id": "97bac41e-e09c-490c-8c6f-f433369bd99e",
               "width": 51,
-              "x": 487,
+              "x": 435,
               "y": -109,
               "z": 1
           },
@@ -1413,7 +1445,7 @@ $fil_test_gns3 = @"
                   "create_config_disk": false,
                   "hda_disk_image": "WinXP-disk1.vmdk",
                   "hda_disk_image_md5sum": "f7fc1948749f0a62c3cccf0775d74f05",
-                  "hda_disk_interface": "none",
+                  "hda_disk_interface": "ide",
                   "hdb_disk_image": "",
                   "hdb_disk_image_md5sum": null,
                   "hdb_disk_interface": "none",
@@ -1474,6 +1506,35 @@ $fil_test_gns3 = @"
               "width": 65,
               "x": -652,
               "y": -304,
+              "z": 1
+          },
+          {
+              "compute_id": "local",
+              "console": 5003,
+              "console_auto_start": false,
+              "console_type": "telnet",
+              "custom_adapters": [],
+              "first_port_name": null,
+              "height": 59,
+              "label": {
+                  "rotation": 0,
+                  "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+                  "text": "VPC3",
+                  "x": 12,
+                  "y": -25
+              },
+              "locked": false,
+              "name": "VPC3",
+              "node_id": "a22b3c10-17f8-46c4-b0b1-2bb51ee9684e",
+              "node_type": "vpcs",
+              "port_name_format": "Ethernet{0}",
+              "port_segment_size": 0,
+              "properties": {},
+              "symbol": ":/symbols/vpcs_guest.svg",
+              "template_id": "19021f99-e36f-394d-b4a1-8aaa902ab9cc",
+              "width": 65,
+              "x": 569,
+              "y": -234,
               "z": 1
           }
       ]
