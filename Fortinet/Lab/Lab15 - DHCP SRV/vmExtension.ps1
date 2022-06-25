@@ -1,5 +1,5 @@
 <#
-  time: ~9 minutes 41 seconds
+  time: ~15 minutes 41 seconds
 #>
 
 #################
@@ -36,15 +36,18 @@ $URL_vios_159_3_m4_qcow2 = "https://master.dl.sourceforge.net/project/images/qco
 # iosV_startup_config.img (router)
 $URL_iosv_startup_cfg_img = "https://master.dl.sourceforge.net/project/images/qcow2/iosv_startup_config.img?viasf=1"
 
+# winXP+IE6.vmdk
+$URL_winXP_IE6_vmdk = "https://master.dl.sourceforge.net/project/images/vmdk/IE6%20-%20WinXP-disk1.vmdk?viasf=1"
+
 # fortinet.svg
 $URL_fortinet_svg = "https://master.dl.sourceforge.net/project/images/fortinet.svg?viasf=1"
 # firefox.svg
 $URL_firefox_svg = "https://master.dl.sourceforge.net/project/images/firefox.svg?viasf=1"
+# xp_win.svg
+$URL_xp_win_svg = "https://master.dl.sourceforge.net/project/images/svg/xp_win.svg?viasf=1"
 
 # gns3_server.ini (appData)
 $URL_gns3_server_ini = "https://master.dl.sourceforge.net/project/images/gns3_server.ini?viasf=1"
-# gns3_controller_ini (appData)
-$URL_gns3_controller_ini = "https://master.dl.sourceforge.net/project/images/AppData/02-06-2022/gns3_controller.ini?viasf=1"
 
 # Packet dll_x64
 $URL_packet_x64 = "https://master.dl.sourceforge.net/project/images/System32/Packet.dll?viasf=1"
@@ -68,6 +71,249 @@ $URL_tightVnc = "https://www.tightvnc.com/download/2.8.63/tightvnc-2.8.63-gpl-se
 ################
 # FIlES in D:\ #
 ################
+
+# gns3_controller.ini
+$fil_gns3_controller = @"
+{
+  "computes": [
+      {
+          "host": "gns3",
+          "name": "gns3",
+          "port": 3080,
+          "protocol": "http",
+          "user": null,
+          "password": null,
+          "compute_id": "2e0d1578-d11f-46cf-b22b-d02aa3a5d426"
+      }
+  ],
+  "templates": [
+      {
+          "compute_id": "2e0d1578-d11f-46cf-b22b-d02aa3a5d426",
+          "name": "FG",
+          "usage": "Default username is admin, no password is set.",
+          "category": "firewall",
+          "symbol": "fortinet.svg",
+          "template_type": "qemu",
+          "adapter_type": "e1000",
+          "adapters": 10,
+          "boot_priority": "c",
+          "console_type": "telnet",
+          "hda_disk_interface": "virtio",
+          "hdb_disk_interface": "virtio",
+          "ram": 1024,
+          "options": "",
+          "hda_disk_image": "FGT6.4.7.qcow2",
+          "hdb_disk_image": "empty30G.qcow2",
+          "qemu_path": "/usr/bin/qemu-system-x86_64",
+          "port_name_format": "Port{port1}",
+          "template_id": "ef90e3b5-4b61-42e3-8396-d807d5a684af",
+          "builtin": false,
+          "platform": "i386",
+          "linked_clone": true,
+          "cpus": 1,
+          "mac_address": null,
+          "first_port_name": "",
+          "port_segment_size": 0,
+          "console_auto_start": false,
+          "hdc_disk_image": "",
+          "hdc_disk_interface": "none",
+          "hdd_disk_image": "",
+          "hdd_disk_interface": "none",
+          "cdrom_image": "",
+          "initrd": "",
+          "kernel_image": "",
+          "bios_image": "",
+          "kernel_command_line": "",
+          "legacy_networking": false,
+          "replicate_network_connection_state": true,
+          "create_config_disk": false,
+          "on_close": "power_off",
+          "cpu_throttling": 0,
+          "process_priority": "normal",
+          "custom_adapters": [],
+          "default_name_format": "{name}{0}"
+      },
+      {
+          "compute_id": "2e0d1578-d11f-46cf-b22b-d02aa3a5d426",
+          "name": "SW",
+          "usage": "There is no default password and enable password. There is no default configuration present.",
+          "category": "switch",
+          "symbol": ":/symbols/classic/multilayer_switch.svg",
+          "template_type": "qemu",
+          "adapter_type": "e1000",
+          "adapters": 16,
+          "console_type": "telnet",
+          "hda_disk_interface": "virtio",
+          "ram": 768,
+          "options": "",
+          "hda_disk_image": "SW_iosv_2020.qcow2",
+          "qemu_path": "/usr/bin/qemu-system-x86_64",
+          "port_name_format": "Gi{1}/{0}",
+          "port_segment_size": 4,
+          "template_id": "97bac41e-e09c-490c-8c6f-f433369bd99e",
+          "builtin": false,
+          "platform": "i386",
+          "linked_clone": true,
+          "cpus": 1,
+          "mac_address": null,
+          "first_port_name": "",
+          "console_auto_start": false,
+          "boot_priority": "c",
+          "hdb_disk_image": "",
+          "hdb_disk_interface": "none",
+          "hdc_disk_image": "",
+          "hdc_disk_interface": "none",
+          "hdd_disk_image": "",
+          "hdd_disk_interface": "none",
+          "cdrom_image": "",
+          "initrd": "",
+          "kernel_image": "",
+          "bios_image": "",
+          "kernel_command_line": "",
+          "legacy_networking": false,
+          "replicate_network_connection_state": true,
+          "create_config_disk": false,
+          "on_close": "power_off",
+          "cpu_throttling": 0,
+          "process_priority": "normal",
+          "custom_adapters": [],
+          "default_name_format": "{name}{0}"
+      },
+      {
+          "compute_id": "2e0d1578-d11f-46cf-b22b-d02aa3a5d426",
+          "name": "PC",
+          "usage": "The /root directory is persistent.",
+          "category": "guest",
+          "symbol": "firefox.svg",
+          "template_type": "docker",
+          "adapters": 1,
+          "console_type": "vnc",
+          "image": "gns3/webterm:latest",
+          "template_id": "43dd6253-13d7-48bb-8cf3-866a1c540f7c",
+          "builtin": false,
+          "start_command": "",
+          "environment": "",
+          "console_auto_start": false,
+          "console_http_port": 80,
+          "console_http_path": "/",
+          "console_resolution": "1024x768",
+          "extra_hosts": "",
+          "extra_volumes": [],
+          "custom_adapters": [],
+          "default_name_format": "{name}{0}"
+      },
+      {
+          "compute_id": "2e0d1578-d11f-46cf-b22b-d02aa3a5d426",
+          "name": "RT",
+          "usage": "There is no default password and enable password. There is no default configuration present.",
+          "category": "router",
+          "symbol": ":/symbols/classic/router.svg",
+          "template_type": "qemu",
+          "adapter_type": "e1000",
+          "adapters": 4,
+          "console_type": "telnet",
+          "hda_disk_interface": "virtio",
+          "hdb_disk_interface": "virtio",
+          "ram": 512,
+          "options": "",
+          "hda_disk_image": "vios_159-3.m4.qcow2",
+          "hdb_disk_image": "IOSv_startup_config.img",
+          "qemu_path": "/usr/bin/qemu-system-x86_64",
+          "port_name_format": "Gi0/{0}",
+          "template_id": "608e4d23-f20a-426c-bb86-674cb3ffde91",
+          "builtin": false,
+          "platform": "i386",
+          "linked_clone": true,
+          "cpus": 1,
+          "mac_address": null,
+          "first_port_name": "",
+          "port_segment_size": 0,
+          "console_auto_start": false,
+          "boot_priority": "c",
+          "hdc_disk_image": "",
+          "hdc_disk_interface": "none",
+          "hdd_disk_image": "",
+          "hdd_disk_interface": "none",
+          "cdrom_image": "",
+          "initrd": "",
+          "kernel_image": "",
+          "bios_image": "",
+          "kernel_command_line": "",
+          "legacy_networking": false,
+          "replicate_network_connection_state": true,
+          "create_config_disk": false,
+          "on_close": "power_off",
+          "cpu_throttling": 0,
+          "process_priority": "normal",
+          "custom_adapters": [],
+          "default_name_format": "{name}{0}"
+      },
+      {
+          "compute_id": "2e0d1578-d11f-46cf-b22b-d02aa3a5d426",
+          "name": "WinXP",
+          "category": "guest",
+          "symbol": "xp_win.svg",
+          "template_type": "qemu",
+          "adapter_type": "pcnet",
+          "adapters": 2,
+          "console_type": "vnc",
+          "options": "-nographic -usbdevice tablet -vga std -nodefaults",
+          "ram": 512,
+          "hda_disk_image": "WinXP-disk1.vmdk",
+          "qemu_path": "/usr/bin/qemu-system-i386",
+          "template_id": "b7cf6c6f-0f6d-4e2b-969d-c2aaea06e973",
+          "builtin": false,
+          "usage": "",
+          "platform": "i386",
+          "linked_clone": true,
+          "cpus": 1,
+          "mac_address": null,
+          "first_port_name": "",
+          "port_name_format": "Ethernet{0}",
+          "port_segment_size": 0,
+          "console_auto_start": false,
+          "boot_priority": "c",
+          "hda_disk_interface": "none",
+          "hdb_disk_image": "",
+          "hdb_disk_interface": "none",
+          "hdc_disk_image": "",
+          "hdc_disk_interface": "none",
+          "hdd_disk_image": "",
+          "hdd_disk_interface": "none",
+          "cdrom_image": "",
+          "initrd": "",
+          "kernel_image": "",
+          "bios_image": "",
+          "kernel_command_line": "",
+          "legacy_networking": false,
+          "replicate_network_connection_state": true,
+          "create_config_disk": false,
+          "on_close": "power_off",
+          "cpu_throttling": 0,
+          "process_priority": "normal",
+          "custom_adapters": [],
+          "default_name_format": "{name}{0}"
+      }
+  ],
+  "gns3vm": {
+      "vmname": null,
+      "when_exit": "stop",
+      "headless": false,
+      "enable": false,
+      "engine": "vmware",
+      "allocate_vcpus_ram": true,
+      "ram": 2048,
+      "vcpus": 1,
+      "port": 80
+  },
+  "iou_license": {
+      "iourc_content": "",
+      "license_check": true
+  },
+  "appliances_etag": null,
+  "version": "2.2.33.1"
+}
+"@
 
 # gns3_gui.ini
 $fil_gns3_gui = @"
@@ -193,9 +439,9 @@ $fil_test_gns3 = @"
               "drawing_id": "f1675736-35fb-437a-8c17-7138eda57109",
               "locked": false,
               "rotation": 0,
-              "svg": "<svg height=\"24\" width=\"207\"><text fill=\"#000000\" fill-opacity=\"1.0\" font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\">Lab14 -Local user based policy</text></svg>",
-              "x": -68,
-              "y": -399,
+              "svg": "<svg height=\"24\" width=\"125\"><text fill=\"#000000\" fill-opacity=\"1.0\" font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\">Lab15 - DHCP SRV</text></svg>",
+              "x": -34,
+              "y": -392,
               "z": 2
           },
           {
@@ -211,7 +457,7 @@ $fil_test_gns3 = @"
               "drawing_id": "78a03cfc-c573-4797-abf9-f27ff1ef2eb7",
               "locked": false,
               "rotation": 0,
-              "svg": "<svg height=\"24\" width=\"33\"><text fill=\"#000000\" fill-opacity=\"1.0\" font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\">LAN</text></svg>",
+              "svg": "<svg height=\"24\" width=\"35\"><text fill=\"#000000\" fill-opacity=\"1.0\" font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\">DMZ</text></svg>",
               "x": -226,
               "y": -143,
               "z": 2
@@ -220,7 +466,7 @@ $fil_test_gns3 = @"
               "drawing_id": "0b6db0d2-5117-4267-ac6f-0234873cbf52",
               "locked": false,
               "rotation": 0,
-              "svg": "<svg height=\"24\" width=\"108\"><text fill=\"#000000\" fill-opacity=\"1.0\" font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\">192.168.1.0/24</text></svg>",
+              "svg": "<svg height=\"24\" width=\"108\"><text fill=\"#000000\" fill-opacity=\"1.0\" font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\">192.168.2.0/24</text></svg>",
               "x": -258,
               "y": -124,
               "z": 2
@@ -247,8 +493,8 @@ $fil_test_gns3 = @"
                           "rotation": 0,
                           "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
                           "text": "Port3",
-                          "x": 35,
-                          "y": 64
+                          "x": 42,
+                          "y": 55
                       },
                       "node_id": "ba842437-7113-4dae-b5e9-ba285d97967a",
                       "port_number": 0
@@ -259,43 +505,11 @@ $fil_test_gns3 = @"
                           "rotation": 0,
                           "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
                           "text": "Loopback",
-                          "x": 52,
-                          "y": -22
+                          "x": 40,
+                          "y": -26
                       },
                       "node_id": "5861eb87-977e-4c84-b6c1-161acab661ce",
                       "port_number": 1
-                  }
-              ],
-              "suspend": false
-          },
-          {
-              "filters": {},
-              "link_id": "262c93fe-918d-4373-a666-75f2c8fd8b58",
-              "link_style": {},
-              "nodes": [
-                  {
-                      "adapter_number": 0,
-                      "label": {
-                          "rotation": 0,
-                          "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
-                          "text": "Port1",
-                          "x": 74,
-                          "y": 27
-                      },
-                      "node_id": "ba842437-7113-4dae-b5e9-ba285d97967a",
-                      "port_number": 0
-                  },
-                  {
-                      "adapter_number": 0,
-                      "label": {
-                          "rotation": 0,
-                          "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
-                          "text": "nat0",
-                          "x": -43,
-                          "y": -5
-                      },
-                      "node_id": "a9a33d60-d5b5-4f07-9b2f-7097753d3e60",
-                      "port_number": 0
                   }
               ],
               "suspend": false
@@ -311,8 +525,8 @@ $fil_test_gns3 = @"
                           "rotation": 0,
                           "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
                           "text": "Port2 \n(.100)",
-                          "x": -61,
-                          "y": -35
+                          "x": -62,
+                          "y": -31
                       },
                       "node_id": "ba842437-7113-4dae-b5e9-ba285d97967a",
                       "port_number": 0
@@ -334,19 +548,19 @@ $fil_test_gns3 = @"
           },
           {
               "filters": {},
-              "link_id": "1857249b-203a-4d5b-b02f-55a6b61fa32e",
+              "link_id": "2109c7b7-e269-4abb-b4f7-d6fd83f64eb9",
               "link_style": {},
               "nodes": [
                   {
-                      "adapter_number": 1,
+                      "adapter_number": 0,
                       "label": {
                           "rotation": 0,
                           "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
-                          "text": "Gi0/1",
-                          "x": -51,
-                          "y": -15
+                          "text": "Port1",
+                          "x": 52,
+                          "y": -30
                       },
-                      "node_id": "a88e5535-5118-4bbd-a199-ba95f0a3971f",
+                      "node_id": "ba842437-7113-4dae-b5e9-ba285d97967a",
                       "port_number": 0
                   },
                   {
@@ -354,11 +568,11 @@ $fil_test_gns3 = @"
                       "label": {
                           "rotation": 0,
                           "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
-                          "text": "eth0\n(.1)",
-                          "x": 84,
-                          "y": 16
+                          "text": "nat0",
+                          "x": 77,
+                          "y": 74
                       },
-                      "node_id": "c4418b36-3f3f-4e29-8b47-931bd7fce68d",
+                      "node_id": "a9a33d60-d5b5-4f07-9b2f-7097753d3e60",
                       "port_number": 0
                   }
               ],
@@ -366,19 +580,19 @@ $fil_test_gns3 = @"
           },
           {
               "filters": {},
-              "link_id": "f620ef96-5616-43cd-a0ce-5ffd3aa76c3e",
+              "link_id": "79da8b4a-857d-4c54-ba53-e0d3cf3ae799",
               "link_style": {},
               "nodes": [
                   {
-                      "adapter_number": 2,
+                      "adapter_number": 3,
                       "label": {
                           "rotation": 0,
                           "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
-                          "text": "Gi0/2",
-                          "x": -10,
-                          "y": 40
+                          "text": "Port4",
+                          "x": 74,
+                          "y": 25
                       },
-                      "node_id": "a88e5535-5118-4bbd-a199-ba95f0a3971f",
+                      "node_id": "ba842437-7113-4dae-b5e9-ba285d97967a",
                       "port_number": 0
                   },
                   {
@@ -386,11 +600,11 @@ $fil_test_gns3 = @"
                       "label": {
                           "rotation": 0,
                           "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
-                          "text": "eth0\n(.2)",
-                          "x": 80,
-                          "y": 18
+                          "text": "Gi0/0",
+                          "x": -55,
+                          "y": 1
                       },
-                      "node_id": "f794a1f0-8bc4-425e-87ba-51edc6d1a392",
+                      "node_id": "e3e4420f-9962-450f-945d-e9fff591c819",
                       "port_number": 0
                   }
               ],
@@ -460,90 +674,6 @@ $fil_test_gns3 = @"
           },
           {
               "compute_id": "2e0d1578-d11f-46cf-b22b-d02aa3a5d426",
-              "console": 5900,
-              "console_auto_start": false,
-              "console_type": "vnc",
-              "custom_adapters": [],
-              "first_port_name": null,
-              "height": 70,
-              "label": {
-                  "rotation": 0,
-                  "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
-                  "text": "PC-1",
-                  "x": 14,
-                  "y": -25
-              },
-              "locked": false,
-              "name": "PC-1",
-              "node_id": "c4418b36-3f3f-4e29-8b47-931bd7fce68d",
-              "node_type": "docker",
-              "port_name_format": "Ethernet{0}",
-              "port_segment_size": 0,
-              "properties": {
-                  "adapters": 1,
-                  "aux": 5000,
-                  "console_http_path": "/",
-                  "console_http_port": 80,
-                  "console_resolution": "1024x768",
-                  "container_id": "58007e8c6f5679fc51cefc64bbec3a610732c4c1fb3ee0d82feb86fd7f9ab925",
-                  "environment": null,
-                  "extra_hosts": null,
-                  "extra_volumes": [],
-                  "image": "gns3/webterm:latest",
-                  "start_command": null,
-                  "usage": "The /root directory is persistent."
-              },
-              "symbol": "firefox.svg",
-              "template_id": "43dd6253-13d7-48bb-8cf3-866a1c540f7c",
-              "width": 68,
-              "x": -653,
-              "y": -288,
-              "z": 1
-          },
-          {
-              "compute_id": "2e0d1578-d11f-46cf-b22b-d02aa3a5d426",
-              "console": 5901,
-              "console_auto_start": false,
-              "console_type": "vnc",
-              "custom_adapters": [],
-              "first_port_name": null,
-              "height": 70,
-              "label": {
-                  "rotation": 0,
-                  "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
-                  "text": "PC-2",
-                  "x": 21,
-                  "y": 76
-              },
-              "locked": false,
-              "name": "PC-2",
-              "node_id": "f794a1f0-8bc4-425e-87ba-51edc6d1a392",
-              "node_type": "docker",
-              "port_name_format": "Ethernet{0}",
-              "port_segment_size": 0,
-              "properties": {
-                  "adapters": 1,
-                  "aux": 5001,
-                  "console_http_path": "/",
-                  "console_http_port": 80,
-                  "console_resolution": "1024x768",
-                  "container_id": "d1c5bd403ceee547b363dca80df59a2285323d63cec3a8a6a30345809a9bcb3d",
-                  "environment": null,
-                  "extra_hosts": null,
-                  "extra_volumes": [],
-                  "image": "gns3/webterm:latest",
-                  "start_command": null,
-                  "usage": "The /root directory is persistent."
-              },
-              "symbol": "firefox.svg",
-              "template_id": "43dd6253-13d7-48bb-8cf3-866a1c540f7c",
-              "width": 68,
-              "x": -650,
-              "y": -34,
-              "z": 1
-          },
-          {
-              "compute_id": "2e0d1578-d11f-46cf-b22b-d02aa3a5d426",
               "console": 5002,
               "console_auto_start": false,
               "console_type": "telnet",
@@ -553,12 +683,12 @@ $fil_test_gns3 = @"
               "label": {
                   "rotation": 0,
                   "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
-                  "text": "SW-1",
-                  "x": 4,
+                  "text": "SW1",
+                  "x": 7,
                   "y": -25
               },
               "locked": false,
-              "name": "SW-1",
+              "name": "SW1",
               "node_id": "a88e5535-5118-4bbd-a199-ba95f0a3971f",
               "node_type": "qemu",
               "port_name_format": "Gi{1}/{0}",
@@ -621,12 +751,12 @@ $fil_test_gns3 = @"
               "label": {
                   "rotation": 0,
                   "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
-                  "text": "FG-1",
-                  "x": 17,
-                  "y": -25
+                  "text": "FG1",
+                  "x": 21,
+                  "y": 11
               },
               "locked": false,
-              "name": "FG-1",
+              "name": "FG1",
               "node_id": "ba842437-7113-4dae-b5e9-ba285d97967a",
               "node_type": "qemu",
               "port_name_format": "Port{port1}",
@@ -674,8 +804,8 @@ $fil_test_gns3 = @"
               "symbol": "fortinet.svg",
               "template_id": "ef90e3b5-4b61-42e3-8396-d807d5a684af",
               "width": 70,
-              "x": -12,
-              "y": -118,
+              "x": -13,
+              "y": -105,
               "z": 1
           },
           {
@@ -689,12 +819,12 @@ $fil_test_gns3 = @"
               "label": {
                   "rotation": 0,
                   "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
-                  "text": "NAT-Internet",
-                  "x": 32,
+                  "text": "WAN(NAT)",
+                  "x": 41,
                   "y": -25
               },
               "locked": false,
-              "name": "NAT-Internet",
+              "name": "WAN(NAT)",
               "node_id": "a9a33d60-d5b5-4f07-9b2f-7097753d3e60",
               "node_type": "nat",
               "port_name_format": "Ethernet{0}",
@@ -712,15 +842,83 @@ $fil_test_gns3 = @"
               "symbol": ":/symbols/cloud.svg",
               "template_id": "df8f4ea9-33b7-3e96-86a2-c39bc9bb649c",
               "width": 159,
-              "x": 409,
-              "y": -134,
+              "x": -48,
+              "y": -297,
+              "z": 1
+          },
+          {
+              "compute_id": "2e0d1578-d11f-46cf-b22b-d02aa3a5d426",
+              "console": 5007,
+              "console_auto_start": false,
+              "console_type": "telnet",
+              "custom_adapters": [],
+              "first_port_name": "",
+              "height": 48,
+              "label": {
+                  "rotation": 0,
+                  "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+                  "text": "SW2",
+                  "x": 7,
+                  "y": -25
+              },
+              "locked": false,
+              "name": "SW2",
+              "node_id": "e3e4420f-9962-450f-945d-e9fff591c819",
+              "node_type": "qemu",
+              "port_name_format": "Gi{1}/{0}",
+              "port_segment_size": 4,
+              "properties": {
+                  "adapter_type": "e1000",
+                  "adapters": 16,
+                  "bios_image": "",
+                  "bios_image_md5sum": null,
+                  "boot_priority": "c",
+                  "cdrom_image": "",
+                  "cdrom_image_md5sum": null,
+                  "cpu_throttling": 0,
+                  "cpus": 1,
+                  "create_config_disk": false,
+                  "hda_disk_image": "SW_iosv_2020.qcow2",
+                  "hda_disk_image_md5sum": "99ecab32de12410c533e6abd4e9710aa",
+                  "hda_disk_interface": "virtio",
+                  "hdb_disk_image": "",
+                  "hdb_disk_image_md5sum": null,
+                  "hdb_disk_interface": "none",
+                  "hdc_disk_image": "",
+                  "hdc_disk_image_md5sum": null,
+                  "hdc_disk_interface": "none",
+                  "hdd_disk_image": "",
+                  "hdd_disk_image_md5sum": null,
+                  "hdd_disk_interface": "none",
+                  "initrd": "",
+                  "initrd_md5sum": null,
+                  "kernel_command_line": "",
+                  "kernel_image": "",
+                  "kernel_image_md5sum": null,
+                  "legacy_networking": false,
+                  "linked_clone": true,
+                  "mac_address": "0c:e4:42:0f:00:00",
+                  "on_close": "power_off",
+                  "options": "",
+                  "platform": "x86_64",
+                  "process_priority": "normal",
+                  "qemu_path": "/usr/bin/qemu-system-x86_64",
+                  "ram": 768,
+                  "replicate_network_connection_state": true,
+                  "usage": "There is no default password and enable password. There is no default configuration present."
+              },
+              "symbol": ":/symbols/classic/multilayer_switch.svg",
+              "template_id": "97bac41e-e09c-490c-8c6f-f433369bd99e",
+              "width": 51,
+              "x": 431,
+              "y": -106,
               "z": 1
           }
       ]
   },
   "type": "topology",
   "variables": null,
-  "version": "2.2.32",
+  "version": "2.2.33.1",
   "zoom": 100
 }
 "@
@@ -766,7 +964,9 @@ cd $pth_usrPrf
   % {ni -Name ".\GNS3\$_" -ItemType 'Directory' -EA 0}
 # QEMU
 $pth_QEMU = ni $pth_usrPrf\GNS3\images -Name QEMU -Type Directory
-# Symbols
+# images
+$pth_images = "$pth_usrPrf\GNS3\images"
+# sybols
 $pth_symbols = "$pth_usrPrf\GNS3\symbols"
 # AppData
 $pth_AppData_2_2 = ni $pth_AppData\GNS3 -Name 2.2 -Type Directory
@@ -792,13 +992,17 @@ Start-BitsTransfer -Source $URL_iosv_startup_cfg_img `
 # empty30G.qcow2
 Start-BitsTransfer -Source $URL_empty30G_qcow2 `
   -Destination $pth_QEMU\empty30G.qcow2 -EA 0
-  
+# IE6 - WinXP-disk1.vmdk
+Start-BitsTransfer -Source $URL_winXP_IE6_vmdk `
+  -Destination "$pth_QEMU\WinXP-disk1.vmdk" -EA 0
+
 # gns3_server.ini (appData)
 Start-BitsTransfer -Source $URL_gns3_server_ini `
   -Destination "$pth_AppData_2_2\gns3_server.ini" -EA 0
 # gns3_controller.ini (appData)
-Start-BitsTransfer -Source $URL_gns3_controller_ini `
-  -Destination "$pth_AppData_2_2\gns3_controller.ini" -EA 0
+$fil_gns3_controller |
+ out-file "$pth_AppData_2_2\gns3_controller.ini" -Encoding ascii
+
 
 # TightVnc viewer
 try {
@@ -896,6 +1100,9 @@ Start-BitsTransfer -Source $URL_fortinet_svg `
 # firefox.svg
 Start-BitsTransfer -Source $URL_firefox_svg `
   -Destination "$pth_symbols\firefox.svg" -EA 0
+# xp_win.svg
+Start-BitsTransfer -Source $URL_xp_win_svg `
+  -Destination "$pth_symbols\xp_win.svg" -EA 0
 
 # Install tightVnc.msi
 try {
@@ -966,9 +1173,9 @@ New-ItemProperty HKLM:\SOFTWARE\Policies\Microsoft\Edge\ `
 #ri "C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\*" -EA 0
 
 # Mount SMB
-$user = ""
+$user = "sa29280"
 $Username = "localhost\$user"
-$pwd = ""
+$pwd = "PKbthESNPYaTb08pyJTQQnT1Oau/2yLChMQq7MYLGAfhCzEU7ed5ck9CT7obWEYUopRCo1DUdDPN+AStIsIxNw=="
 $password = ConvertTo-SecureString -String $pwd -AsPlainText -Force
 $Cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Username,$password
 try {
