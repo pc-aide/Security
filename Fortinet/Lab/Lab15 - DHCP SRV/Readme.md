@@ -175,7 +175,7 @@ end
 
 # Firewall Policy
 config firewall policy
-edt 1
+edit 1
 set name "DMZ2WAN"
 set srcintf "port2"
 set dstintf "port1"
