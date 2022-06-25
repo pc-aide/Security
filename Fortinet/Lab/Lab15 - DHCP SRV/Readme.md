@@ -17,7 +17,7 @@
 ---
 
 ## Diagram
-[<img src="https://i.imgur.com/4dpLg0u.png">](https://i.imgur.com/4dpLg0u.png)
+[<img src="https://i.imgur.com/F6MoLNC.png">](https://i.imgur.com/F6MoLNC.png)
 
 ---
 
@@ -29,7 +29,36 @@
 
 ## Sinopsis
 ````md
-1. 
+1. FG1
+  * interface\DMZ\
+    * toggle DHCP srv
+      * Range: 192.168.2.200 @ 192.168.2.250
+      * IP address Assignement Rule
+        * type: mac
+        * MAC add: <WinXP1>
+        * IP: 192.168.2.240
+        
+2. CapturePacket Gi0/1
+
+3. winXP1
+  * cmd
+    * ipconfig /release && ipcofig /renew
+   
+4. Wireshark
+  * filter: dhcp
+    * DHCP Release
+    * DHCP Discover
+    * DHCP offer
+    * DHCP Request
+    * DHCP ACK
+    * DHCP Discover
+      * UDP
+        * SrcPort: 68
+        * DstPort: 67
+        
+5. VPC2
+  * 
+
 ````
 
 ---
