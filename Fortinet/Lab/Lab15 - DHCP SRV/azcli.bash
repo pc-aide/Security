@@ -14,10 +14,9 @@ az group create \
   -n $rgName \
   -l $location
 
-# New Storage Account
+# New Storage Account with unique name
 SAName="$(az storage account create \
-# Storage Account unique name
--n $(SAName="sa$RANDOM") \
+-n sa$RANDOM \
 -g $rgName \
 -l $location \
 --sku Premium_LRS \
