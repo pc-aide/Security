@@ -87,9 +87,12 @@
 			* look around
 		
 9. FG1
-  interfaces\
+	* interfaces\
     * LAN\NewDHCP
-	    * 
+	    * Range: 192.168.1.101 @ 192.168.1.254
+			
+10. VPC3
+	* 
 
 ````
 
