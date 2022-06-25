@@ -43,8 +43,6 @@ $URL_winXP_IE6_vmdk = "https://master.dl.sourceforge.net/project/images/vmdk/IE6
 $URL_fortinet_svg = "https://master.dl.sourceforge.net/project/images/fortinet.svg?viasf=1"
 # firefox.svg
 $URL_firefox_svg = "https://master.dl.sourceforge.net/project/images/firefox.svg?viasf=1"
-# xp_win.svg
-$URL_xp_win_svg = "https://master.dl.sourceforge.net/project/images/svg/xp_win.svg?viasf=1"
 
 # gns3_server.ini (appData)
 $URL_gns3_server_ini = "https://master.dl.sourceforge.net/project/images/gns3_server.ini?viasf=1"
@@ -71,6 +69,11 @@ $URL_tightVnc = "https://www.tightvnc.com/download/2.8.63/tightvnc-2.8.63-gpl-se
 ################
 # FIlES in D:\ #
 ################
+
+# winXP_logo_svg
+$fil_xp_win_svg = @"
+<svg xmlns="http://www.w3.org/2000/svg"  viewBox="12 -12 48 48" width="48px" height="48px"><path fill="#03a9f4" d="M34.807,12.511l-3.488,12.077c-3.03-2.052-6.327-3.744-13.318-0.83l3.408-11.945l0.041-0.019C28.414,8.908,31.787,10.447,34.807,12.511z"/><path fill="#ffc107" d="M36.633,13.68l-3.447,11.943c3.028,2.069,6.383,3.718,13.365,0.805l3.324-11.643C42.76,17.24,39.66,15.731,36.633,13.68z"/><path fill="#ff5722" d="M35.387,10.337l3.441-11.964C35.8-3.688,32.442-5.344,25.454-2.424L22.011,9.59c2.775-1.153,4.969-1.682,6.806-1.666C31.604,7.942,33.563,9.102,35.387,10.337z"/><path fill="#7cb342" d="M40.643-0.369l-3.44,12.033c3.018,2.063,6.669,3.752,13.359,0.738L54,0.415C47.021,3.317,43.665,1.688,40.643-0.369z"/></svg>
+"@
 
 # gns3_controller.ini
 $fil_gns3_controller = @"
@@ -479,6 +482,42 @@ $fil_test_gns3 = @"
               "x": -109,
               "y": -368,
               "z": 1
+          },
+          {
+              "drawing_id": "9b571787-a860-496d-ba61-3b8ead76e73c",
+              "locked": false,
+              "rotation": 0,
+              "svg": "<svg height=\"100\" width=\"200\"><rect fill=\"#aaffff\" fill-opacity=\"1.0\" height=\"100\" stroke=\"#000000\" stroke-width=\"2\" width=\"200\" /></svg>",
+              "x": 163,
+              "y": -141,
+              "z": 1
+          },
+          {
+              "drawing_id": "22b8aec3-0ac4-45de-bd21-d9590c3d4de9",
+              "locked": false,
+              "rotation": 0,
+              "svg": "<svg height=\"24\" width=\"21\"><text fill=\"#000000\" fill-opacity=\"1.0\" font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\">IN</text></svg>",
+              "x": 253,
+              "y": -136,
+              "z": 2
+          },
+          {
+              "drawing_id": "49eb25dd-562d-4b17-b3ba-ba0fac09a100",
+              "locked": false,
+              "rotation": 0,
+              "svg": "<svg height=\"24\" width=\"45\"><text fill=\"#000000\" fill-opacity=\"1.0\" font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\">(LAN)</text></svg>",
+              "x": 242,
+              "y": -117,
+              "z": 2
+          },
+          {
+              "drawing_id": "8e76b876-f73c-4463-a90c-4ca03298c8ba",
+              "locked": false,
+              "rotation": 0,
+              "svg": "<svg height=\"24\" width=\"108\"><text fill=\"#000000\" fill-opacity=\"1.0\" font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\">192.168.1.0/24</text></svg>",
+              "x": 213,
+              "y": -95,
+              "z": 2
           }
       ],
       "links": [
@@ -605,6 +644,38 @@ $fil_test_gns3 = @"
                           "y": 1
                       },
                       "node_id": "e3e4420f-9962-450f-945d-e9fff591c819",
+                      "port_number": 0
+                  }
+              ],
+              "suspend": false
+          },
+          {
+              "filters": {},
+              "link_id": "3a2a9b4a-59c9-433e-b702-c932de233849",
+              "link_style": {},
+              "nodes": [
+                  {
+                      "adapter_number": 1,
+                      "label": {
+                          "rotation": 0,
+                          "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+                          "text": "Gi0/1",
+                          "x": -1,
+                          "y": -5
+                      },
+                      "node_id": "a88e5535-5118-4bbd-a199-ba95f0a3971f",
+                      "port_number": 0
+                  },
+                  {
+                      "adapter_number": 0,
+                      "label": {
+                          "rotation": 0,
+                          "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+                          "text": "e0",
+                          "x": 80,
+                          "y": 83
+                      },
+                      "node_id": "7ff58578-9399-454e-84bd-97476909ab32",
                       "port_number": 0
                   }
               ],
@@ -736,8 +807,8 @@ $fil_test_gns3 = @"
               "symbol": ":/symbols/classic/multilayer_switch.svg",
               "template_id": "97bac41e-e09c-490c-8c6f-f433369bd99e",
               "width": 51,
-              "x": -440,
-              "y": -129,
+              "x": -464,
+              "y": -134,
               "z": 1
           },
           {
@@ -910,8 +981,76 @@ $fil_test_gns3 = @"
               "symbol": ":/symbols/classic/multilayer_switch.svg",
               "template_id": "97bac41e-e09c-490c-8c6f-f433369bd99e",
               "width": 51,
-              "x": 431,
-              "y": -106,
+              "x": 487,
+              "y": -109,
+              "z": 1
+          },
+          {
+              "compute_id": "2e0d1578-d11f-46cf-b22b-d02aa3a5d426",
+              "console": 5900,
+              "console_auto_start": false,
+              "console_type": "vnc",
+              "custom_adapters": [],
+              "first_port_name": "",
+              "height": 89,
+              "label": {
+                  "rotation": 0,
+                  "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+                  "text": "WinXP1",
+                  "x": 11,
+                  "y": -25
+              },
+              "locked": false,
+              "name": "WinXP1",
+              "node_id": "7ff58578-9399-454e-84bd-97476909ab32",
+              "node_type": "qemu",
+              "port_name_format": "Ethernet{0}",
+              "port_segment_size": 0,
+              "properties": {
+                  "adapter_type": "pcnet",
+                  "adapters": 2,
+                  "bios_image": "",
+                  "bios_image_md5sum": null,
+                  "boot_priority": "c",
+                  "cdrom_image": "",
+                  "cdrom_image_md5sum": null,
+                  "cpu_throttling": 0,
+                  "cpus": 1,
+                  "create_config_disk": false,
+                  "hda_disk_image": "WinXP-disk1.vmdk",
+                  "hda_disk_image_md5sum": "f7fc1948749f0a62c3cccf0775d74f05",
+                  "hda_disk_interface": "none",
+                  "hdb_disk_image": "",
+                  "hdb_disk_image_md5sum": null,
+                  "hdb_disk_interface": "none",
+                  "hdc_disk_image": "",
+                  "hdc_disk_image_md5sum": null,
+                  "hdc_disk_interface": "none",
+                  "hdd_disk_image": "",
+                  "hdd_disk_image_md5sum": null,
+                  "hdd_disk_interface": "none",
+                  "initrd": "",
+                  "initrd_md5sum": null,
+                  "kernel_command_line": "",
+                  "kernel_image": "",
+                  "kernel_image_md5sum": null,
+                  "legacy_networking": false,
+                  "linked_clone": true,
+                  "mac_address": "0c:f5:85:78:00:00",
+                  "on_close": "power_off",
+                  "options": "-nographic -usbdevice tablet -vga std -nodefaults",
+                  "platform": "i386",
+                  "process_priority": "normal",
+                  "qemu_path": "/usr/bin/qemu-system-i386",
+                  "ram": 512,
+                  "replicate_network_connection_state": true,
+                  "usage": ""
+              },
+              "symbol": "xp_win.svg",
+              "template_id": "b7cf6c6f-0f6d-4e2b-969d-c2aaea06e973",
+              "width": 89,
+              "x": -550,
+              "y": -25,
               "z": 1
           }
       ]
@@ -1101,8 +1240,8 @@ Start-BitsTransfer -Source $URL_fortinet_svg `
 Start-BitsTransfer -Source $URL_firefox_svg `
   -Destination "$pth_symbols\firefox.svg" -EA 0
 # xp_win.svg
-Start-BitsTransfer -Source $URL_xp_win_svg `
-  -Destination "$pth_symbols\xp_win.svg" -EA 0
+$fil_xp_win_svg | 
+  out-file "$pth_symbols\xp_win.svg" -Encoding ascii
 
 # Install tightVnc.msi
 try {
