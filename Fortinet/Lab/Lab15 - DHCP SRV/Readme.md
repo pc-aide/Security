@@ -80,7 +80,25 @@
 	    * Range: 192.168.1.101 @ 192.168.1.254
 			
 9. VPC3
-	* 
+	* ip dhcp
+	* show ip
+	* ping 8.8.8.8
+
+10. FG1
+	* Dashboard
+		* DHCP monitor
+
+11. VPC4
+	* ip dhcp
+	* show ip
+	* ping 8.8.8.8
+
+12. FG1
+	* Dashboard
+		* DHCP Monitor
+			* new entry
+	* Policy Object\New
+		* Name: LAN2WAN  - same logic that the DMZ2WAN
 
 ````
 
