@@ -115,3 +115,9 @@ report_errors = True
 enable_hardware_acceleration = True
 require_hardware_acceleration = True
 ````
+
+---
+
+## images
+* /opt/gns3/images/{IOS,IOU,QEMU} - need always *.md5sum
+* 
