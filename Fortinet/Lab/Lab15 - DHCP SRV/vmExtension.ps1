@@ -1106,6 +1106,38 @@ $fil_test_gns3 = @"
                   }
               ],
               "suspend": false
+          },
+          {
+              "filters": {},
+              "link_id": "6e82f87a-485c-468c-a47d-a110f6693d10",
+              "link_style": {},
+              "nodes": [
+                  {
+                      "adapter_number": 2,
+                      "label": {
+                          "rotation": 0,
+                          "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+                          "text": "Gi0/2",
+                          "x": 58,
+                          "y": 46
+                      },
+                      "node_id": "e3e4420f-9962-450f-945d-e9fff591c819",
+                      "port_number": 0
+                  },
+                  {
+                      "adapter_number": 0,
+                      "label": {
+                          "rotation": 0,
+                          "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+                          "text": "e0",
+                          "x": -30,
+                          "y": 8
+                      },
+                      "node_id": "920aff41-1c1d-43df-965a-e5793d15b026",
+                      "port_number": 0
+                  }
+              ],
+              "suspend": false
           }
       ],
       "nodes": [
@@ -1535,6 +1567,35 @@ $fil_test_gns3 = @"
               "width": 65,
               "x": 569,
               "y": -234,
+              "z": 1
+          },
+          {
+              "compute_id": "local",
+              "console": 5005,
+              "console_auto_start": false,
+              "console_type": "telnet",
+              "custom_adapters": [],
+              "first_port_name": null,
+              "height": 59,
+              "label": {
+                  "rotation": 0,
+                  "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+                  "text": "VPC4",
+                  "x": 14,
+                  "y": 65
+              },
+              "locked": false,
+              "name": "VPC4",
+              "node_id": "920aff41-1c1d-43df-965a-e5793d15b026",
+              "node_type": "vpcs",
+              "port_name_format": "Ethernet{0}",
+              "port_segment_size": 0,
+              "properties": {},
+              "symbol": ":/symbols/vpcs_guest.svg",
+              "template_id": "19021f99-e36f-394d-b4a1-8aaa902ab9cc",
+              "width": 65,
+              "x": 596,
+              "y": 3,
               "z": 1
           }
       ]
