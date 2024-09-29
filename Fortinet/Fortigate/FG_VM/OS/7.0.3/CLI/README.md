@@ -13,4 +13,4 @@
 |n|name|eg|O/P|
 |-|----|--|---|
 |1|ip static|`config system interface`<br/>`edit port2`<br/>`set alias LAN`<br/>`set ip 10.46.0.1/24`<br/>`set allowaccess http ping https ssh`<br/>`next`<br/>`end`|<img src="https://i.imgur.com/5NJyjXq.png">|
-|2|dhcp to static|`# checkup if dhcp`<br/>`show system interface port2`<br/>`config system interface`<br/>`edit port2`<br/>`set mode static`<br/>`set ip 10.46.0.1/24`<br/>`set alias LAN`<br/>`set allowaccess ping http http`<br/>`end`<br/>`# checkup after`<br/>`show system interface port2`
+|2|dhcp to static|`# checkup if dhcp`<br/>`show system interface port2`<br/>`config system interface`<br/>`edit port2`<br/>`set mode static`<br/>`set ip 10.46.0.1/24`<br/>`set alias LAN`<br/>`set allowaccess ping http http`<br/>`end`<br/>`# checkup after`<br/>`show system interface port2`|<img src="https://i.imgur.com/IT6ON6p.png">|
