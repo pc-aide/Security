@@ -21,3 +21,10 @@
 |n|name|eg|O/P|
 |-|----|--|---|
 |1|policy|`show firewall policy`|<img src="https://i.imgur.com/DA0BQrL.png">|
+
+---
+
+## get
+|n|name|eg|O/P|
+|-|----|--|---|
+|1|license expires|`By default, it is valid for 15 days after a factory reset, and can be renewed for another 15 days, but the configuration will be wiped`<br/>`get system status \| grep -i license`||
