@@ -22,6 +22,7 @@
 |n|name|eg|O/P|
 |-|----|--|---|
 |1|policy|`show firewall policy`|<img src="https://i.imgur.com/DA0BQrL.png">|
+|2|dhcp server|`show system dhcp server`|<img src="https://i.imgur.com/guk22Ta.png">|
 
 ---
 
