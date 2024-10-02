@@ -34,3 +34,4 @@
 |n|name|eg|O/P|
 |-|----|--|---|
 |1|license expires|`# By default, it is valid for 15 days after a factory reset, and can be renewed for another 15 days, but the configuration will be wiped`<br/>`get system status \| grep -i license`|<img src="https://i.imgur.com/ZjCSuJR.png">|
+|2|version firmware|`get system status \| grep -i version`|<img src="https://i.imgur.com/ugfilEj.png">|
