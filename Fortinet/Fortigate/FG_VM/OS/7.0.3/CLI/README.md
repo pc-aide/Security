@@ -7,6 +7,7 @@
 |-|----|--|---|
 |1|ping|`execute ping 192.168.1.1`|<img src="https://i.imgur.com/EreUhLZ.png">|
 |2|factory reset|`execute factoryreset`|<img src="https://i.imgur.com/3SILhpx.png">|
+|3|dhcp lease-list|`execute dhcp lease-list`||
 
 ---
 
